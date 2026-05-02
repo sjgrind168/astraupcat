@@ -1,0 +1,163 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Astra UPCAT — University of the Philippines inspired theme
+       Maroon (primary) • Green (success only) • Gold (accent/highlight)
+       Dark, premium, academic. */
+
+    /* Surfaces */
+    --background: 240 4% 5%;          /* #0B0B0C */
+    --foreground: 0 0% 96%;           /* #F5F5F5 */
+
+    --card: 240 4% 8%;                /* #121214 */
+    --card-foreground: 0 0% 96%;
+
+    --popover: 240 4% 7%;
+    --popover-foreground: 0 0% 96%;
+
+    /* Primary — UP Maroon #7B1113 */
+    --primary: 359 76% 27%;
+    --primary-foreground: 0 0% 98%;
+    --primary-hover: 359 76% 20%;     /* #5A0C0E */
+    --primary-glow: 359 71% 38%;      /* #A61C1E */
+
+    /* Secondary — neutral dark surface (NOT green; green is reserved for success) */
+    --secondary: 240 5% 12%;
+    --secondary-foreground: 0 0% 96%;
+
+    --muted: 240 5% 14%;
+    --muted-foreground: 240 5% 65%;   /* #A1A1AA */
+
+    /* Accent — UP Gold #C9A227 */
+    --accent: 45 68% 47%;
+    --accent-foreground: 240 4% 5%;
+
+    /* Destructive — muted red #7F1D1D */
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 0 0% 98%;
+
+    /* Success — UP Green #014421 / hover #0A5C2F */
+    --success: 145 97% 14%;
+    --success-foreground: 0 0% 98%;
+    --success-glow: 142 80% 20%;
+
+    /* Warning — soft gold */
+    --warning: 45 68% 47%;
+    --warning-foreground: 240 4% 5%;
+
+    /* Borders */
+    --border: 240 4% 16%;             /* #27272A */
+    --input: 240 4% 16%;
+    --ring: 359 76% 35%;
+
+    --radius: 0.75rem;
+
+    /* Gold token (kept for legacy gold-themed bits) */
+    --gold: 45 68% 47%;               /* #C9A227 */
+    --gold-glow: 43 70% 59%;          /* #E0B94F */
+
+    /* Maroon gradient — used wherever the codebase says bg-gradient-gold (primary CTAs) */
+    --gradient-gold: linear-gradient(135deg, hsl(359 76% 30%) 0%, hsl(359 76% 24%) 100%);
+    /* True gold gradient — for sparing high-emphasis CTAs */
+    --gradient-cta: linear-gradient(135deg, hsl(45 68% 50%) 0%, hsl(43 70% 42%) 100%);
+    --gradient-primary: linear-gradient(135deg, hsl(359 76% 30%), hsl(359 76% 22%));
+    --gradient-hero: linear-gradient(135deg, hsl(240 4% 8%) 0%, hsl(240 4% 10%) 50%, hsl(240 4% 6%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(240 4% 9%), hsl(240 4% 7%));
+
+    --shadow-elegant: 0 10px 40px -10px hsl(0 0% 0% / 0.7);
+    --shadow-gold: 0 8px 30px -8px hsl(359 76% 27% / 0.45);
+    --shadow-glow: 0 0 40px hsl(359 71% 38% / 0.25);
+
+    /* Sidebar */
+    --sidebar-background: 240 4% 6%;
+    --sidebar-foreground: 0 0% 90%;
+    --sidebar-primary: 359 76% 27%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4% 12%;
+    --sidebar-accent-foreground: 0 0% 96%;
+    --sidebar-border: 240 4% 14%;
+    --sidebar-ring: 359 76% 35%;
+  }
+
+  .light {
+    --background: 0 0% 100%;
+    --foreground: 240 4% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 4% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 4% 10%;
+    --primary: 359 76% 27%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 240 5% 96%;
+    --secondary-foreground: 240 4% 10%;
+    --muted: 240 5% 96%;
+    --muted-foreground: 240 4% 40%;
+    --accent: 45 68% 47%;
+    --accent-foreground: 240 4% 10%;
+    --border: 240 6% 88%;
+    --input: 240 6% 88%;
+    --ring: 359 76% 27%;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 4% 20%;
+    --sidebar-primary: 359 76% 27%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 5% 96%;
+    --sidebar-accent-foreground: 240 4% 10%;
+    --sidebar-border: 240 6% 88%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html, body, #root {
+    @apply h-full;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "ss01", "cv11";
+  }
+  h1, h2, h3, h4 {
+    @apply tracking-tight;
+  }
+}
+
+@layer utilities {
+  /* bg-gradient-gold is used throughout the codebase for primary CTAs/headers.
+     We keep the class name but route it to maroon to honor the design rules. */
+  .bg-gradient-gold { background-image: var(--gradient-gold); }
+  .bg-gradient-cta { background-image: var(--gradient-cta); }
+  .bg-gradient-hero { background-image: var(--gradient-hero); }
+  .bg-gradient-card { background-image: var(--gradient-card); }
+
+  .text-gradient-gold {
+    color: hsl(var(--gold));
+    background-image: none;
+    -webkit-background-clip: initial;
+    background-clip: initial;
+  }
+
+  .shadow-elegant { box-shadow: var(--shadow-elegant); }
+  .shadow-gold { box-shadow: var(--shadow-gold); }
+  .shadow-glow { box-shadow: var(--shadow-glow); }
+
+  .glass {
+    background: hsl(240 4% 8% / 0.65);
+    backdrop-filter: blur(12px);
+    border: 1px solid hsl(240 4% 18% / 0.7);
+  }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.animate-fade-in { animation: fade-in 0.4s ease-out both; }

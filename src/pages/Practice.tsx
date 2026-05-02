@@ -1,0 +1,127 @@
+import { useMemo, useState } from "react";
+import { useSearchParams } from "react-router-dom";
+import { useApp } from "@/lib/store";
+import { getAllQuestions } from "@/lib/customQuestions";
+import { Question, Subject, Difficulty } from "@/lib/types";
+import { QuestionRunner } from "@/components/QuestionRunner";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { addAttempt, bumpStreak } from "@/lib/storage";
+import { weakestSubject, weakestTopics, strongestTopics } from "@/lib/analytics";
+
+type Mode = "topic" | "mixed" | "weakness" | "beast";
+
+function pickQuestions(mode: Mode, subject: Subject | null, weak: Subject | null, weakTopics: string[]): Question[] {
+  let pool = getAllQuestions();
+  if (mode === "topic" && subject) pool = pool.filter(q => q.subject === subject);
+  if (mode === "weakness") {
+    if (weak) pool = pool.filter(q => q.subject === weak);
+    if (weakTopics.length) pool = pool.filter(q => weakTopics.includes(q.topic));
+  }
+  if (mode === "beast") pool = pool.filter(q => q.difficulty === "hard" || q.difficulty === "beast");
+  const shuffled = [...pool].sort(() => Math.random() - 0.5);
+  return shuffled.slice(0, Math.min(10, shuffled.length));
+}
+
+export default function Practice() {
+  const { state, setState } = useApp();
+  const [params] = useSearchParams();
+  const initialMode = (params.get("mode") as Mode) || "mixed";
+  const initialSubject = (params.get("subject") as Subject) || null;
+
+  const [mode, setMode] = useState<Mode>(initialMode);
+  const [subject, setSubject] = useState<Subject | null>(initialSubject);
+  const [questions, setQuestions] = useState<Question[] | null>(null);
+  const [idx, setIdx] = useState(0);
+  const [results, setResults] = useState<{ correct: number; total: number } | null>(null);
+
+  const weak = useMemo(() => weakestSubject(state.attempts), [state.attempts]);
+  const weakTopicsList = useMemo(() => weakestTopics(state.attempts).map(t => t.topic), [state.attempts]);
+
+  const start = () => {
+    const qs = pickQuestions(mode, subject, weak, weakTopicsList);
+    setQuestions(qs);
+    setIdx(0);
+    setResults({ correct: 0, total: qs.length });
+  };
+
+  if (!questions) {
+    return (
+      <div className="space-y-6">
+        <div>
+          <h1 className="text-3xl font-bold">Practice Mode</h1>
+          <p className="text-muted-foreground text-sm">{state.profile?.name}, choose a mode and let's drill.</p>
+        </div>
+        <Card className="bg-gradient-card">
+          <CardHeader><CardTitle>Mode</CardTitle></CardHeader>
+          <CardContent className="grid gap-2 md:grid-cols-2">
+            {([
+              { k: "topic", t: "Topic Practice", d: "Pick one subject" },
+              { k: "mixed", t: "Mixed Practice", d: "All subjects randomized" },
+              { k: "weakness", t: "Weakness Drill", d: "Targets your weakest topics" },
+              { k: "beast", t: "Beast Mode", d: "Hard + Beast difficulty only" },
+            ] as { k: Mode; t: string; d: string }[]).map(m => (
+              <button key={m.k} onClick={() => setMode(m.k)}
+                className={`text-left rounded-lg border p-4 transition ${mode === m.k ? "border-primary bg-primary/5" : "border-border"}`}>
+                <p className="font-semibold">{m.t}</p>
+                <p className="text-xs text-muted-foreground">{m.d}</p>
+              </button>
+            ))}
+          </CardContent>
+        </Card>
+        {mode === "topic" && (
+          <Card className="bg-gradient-card">
+            <CardHeader><CardTitle>Subject</CardTitle></CardHeader>
+            <CardContent className="flex flex-wrap gap-2">
+              {(["Mathematics","Science","English Language","Filipino Language","Reading Comprehension"] as Subject[]).map(s => (
+                <Button key={s} variant={subject === s ? "default" : "outline"} size="sm" onClick={() => setSubject(s)}>{s}</Button>
+              ))}
+            </CardContent>
+          </Card>
+        )}
+        <Button className="bg-gradient-gold text-primary-foreground" onClick={start}
+          disabled={mode === "topic" && !subject}>Start Drill</Button>
+      </div>
+    );
+  }
+
+  if (results && idx >= questions.length) {
+    const pct = Math.round(results.correct / results.total * 100);
+    return (
+      <Card className="bg-gradient-card shadow-elegant">
+        <CardHeader>
+          <CardTitle>Nice work, {state.profile?.name}.</CardTitle>
+          <CardDescription>Score: {results.correct}/{results.total} ({pct}%)</CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-3">
+          <div className="flex flex-wrap gap-2">
+            {strongestTopics(state.attempts, 2).map(t => (
+              <Badge key={t.topic} className="bg-success/20 text-success border-success/40">Strong: {t.topic}</Badge>
+            ))}
+            {weakestTopics(state.attempts, 2).map(t => (
+              <Badge key={t.topic} className="bg-destructive/20 text-destructive border-destructive/40">Weak: {t.topic}</Badge>
+            ))}
+          </div>
+          <div className="flex gap-2">
+            <Button onClick={() => { setQuestions(null); setResults(null); }}>Run another drill</Button>
+            <Button variant="outline" onClick={start}>Same mode again</Button>
+          </div>
+        </CardContent>
+      </Card>
+    );
+  }
+
+  return (
+    <QuestionRunner
+      question={questions[idx]}
+      index={idx}
+      total={questions.length}
+      onAnswered={(a) => {
+        setState(s => bumpStreak(addAttempt(s, a)));
+        setResults(r => r ? { ...r, correct: r.correct + (a.correct ? 1 : 0) } : r);
+      }}
+      onNext={() => setIdx(i => i + 1)}
+    />
+  );
+}
