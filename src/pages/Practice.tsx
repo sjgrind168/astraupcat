@@ -12,15 +12,42 @@ import { weakestSubject, weakestTopics, strongestTopics } from "@/lib/analytics"
 
 type Mode = "topic" | "mixed" | "weakness" | "beast";
 
-function pickQuestions(mode: Mode, subject: Subject | null, weak: Subject | null, weakTopics: string[]): Question[] {
+function pickQuestions(
+  mode: Mode,
+  subject: Subject | null,
+  weak: Subject | null,
+  weakTopics: string[]
+): Question[] {
   let pool = getAllQuestions();
-  if (mode === "topic" && subject) pool = pool.filter(q => q.subject === subject);
-  if (mode === "weakness") {
-    if (weak) pool = pool.filter(q => q.subject === weak);
-    if (weakTopics.length) pool = pool.filter(q => weakTopics.includes(q.topic));
+
+  // STRICT subject filtering
+  // If a subject is selected from URL/query, NEVER allow other subjects.
+  if (subject) {
+    pool = pool.filter(q => q.subject === subject);
   }
-  if (mode === "beast") pool = pool.filter(q => q.difficulty === "hard" || q.difficulty === "beast");
+
+  // Weakness mode
+  // Only apply weakest subject automatically if user did not explicitly select one.
+  if (mode === "weakness") {
+    if (!subject && weak) {
+      pool = pool.filter(q => q.subject === weak);
+    }
+
+    if (weakTopics.length) {
+      pool = pool.filter(q => weakTopics.includes(q.topic));
+    }
+  }
+
+  // Beast mode
+  // Keep selected subject restriction while filtering difficulty.
+  if (mode === "beast") {
+    pool = pool.filter(
+      q => q.difficulty === "hard" || q.difficulty === "beast"
+    );
+  }
+
   const shuffled = [...pool].sort(() => Math.random() - 0.5);
+
   return shuffled.slice(0, Math.min(10, shuffled.length));
 }
 

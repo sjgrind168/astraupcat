@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Question, AttemptRecord, ErrorType } from "@/lib/types";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -19,6 +19,12 @@ export function QuestionRunner({ question, index, total, onAnswered, onNext, hid
   const [selected, setSelected] = useState<number | null>(null);
   const [submitted, setSubmitted] = useState(false);
   const [start] = useState(Date.now());
+
+  // Reset state whenever a new question loads
+  useEffect(() => {
+    setSelected(null);
+    setSubmitted(false);
+  }, [question.id]);
 
   const submit = () => {
     if (selected === null || submitted) return;
@@ -94,9 +100,9 @@ export function QuestionRunner({ question, index, total, onAnswered, onNext, hid
         </div>
 
         {showFeedback && (
-          <div className="rounded-lg border border-primary/30 bg-primary/5 p-4 space-y-3 animate-fade-in">
-            <div className="flex items-center gap-2 text-sm font-semibold text-primary">
-              <Lightbulb className="h-4 w-4" /> Explanation
+          <div className="rounded-lg border border-[#C9A227]/30 bg-[#C9A227]/10 p-4 space-y-3 animate-fade-in">
+            <div className="flex items-center gap-2 text-sm font-semibold text-[#C9A227]">
+              <Lightbulb className="h-4 w-4 text-[#C9A227]" /> Explanation
             </div>
             <p className="text-sm text-foreground/90">{question.explanation}</p>
             {question.steps?.length ? (
