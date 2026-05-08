@@ -8,7 +8,7 @@ export const mathPack: Question[] = [
     difficulty: "hard",
     question:
       "If 2x + 3y = 18 and x − y = 2, what is the value of x?",
-    choices: ["4", "5", "6", "7"],
+    choices: ["4.8", "5", "6", "7"],
     answerIndex: 0,
     explanation:
       "From x − y = 2, we get x = y + 2. Substitute into 2x + 3y = 18.",
@@ -18,7 +18,7 @@ export const mathPack: Question[] = [
       "2y + 4 + 3y = 18",
       "5y = 14",
       "y = 2.8",
-      "x = 4.8 ≈ 5",
+      "x = 2.8 + 2 = 4.8",
     ],
     tip: "In system equations, isolate the simpler equation first.",
     tags: ["algebra", "systems"],
@@ -191,7 +191,7 @@ export const mathPack: Question[] = [
     question:
       "A boat travels 60 km downstream in 3 hours and upstream in 5 hours. What is the speed of the current?",
     choices: ["2 km/h", "3 km/h", "4 km/h", "5 km/h"],
-    answerIndex: 1,
+    answerIndex: 2,
     explanation:
       "Downstream speed is faster than upstream speed because of the current.",
     steps: [
@@ -202,5 +202,112 @@ export const mathPack: Question[] = [
     ],
     tip: "Current problems often use (downstream − upstream) ÷ 2.",
     tags: ["current", "rate"],
+  },
+
+  {
+    id: "math-v1-011",
+    subject: "Mathematics",
+    topic: "Ratios",
+    difficulty: "hard",
+    question:
+      "The ratio of boys to girls in a class is 3:5. If there are 40 students total, how many are boys?",
+    choices: ["12", "15", "18", "20"],
+    answerIndex: 1,
+    explanation:
+      "The total ratio parts are 3 + 5 = 8. Divide 40 by 8 to get one part.",
+    steps: [
+      "3 + 5 = 8 parts",
+      "40 ÷ 8 = 5 students per part",
+      "Boys = 3 × 5 = 15",
+    ],
+    tip: "Ratio problems usually require finding the value of one part first.",
+    tags: ["ratio"],
+  },
+
+  {
+    id: "math-v1-012",
+    subject: "Mathematics",
+    topic: "Age Problems",
+    difficulty: "beast",
+    question:
+      "Maria is 4 years older than Ana. Five years ago, Maria was twice Ana's age. How old is Ana now?",
+    choices: ["7", "8", "9", "10"],
+    answerIndex: 2,
+    explanation:
+      "Translate the statements into equations carefully.",
+    steps: [
+      "Let Ana's present age = x",
+      "Maria's age = x + 4",
+      "Five years ago: x + 4 − 5 = 2(x − 5)",
+      "x − 1 = 2x − 10",
+      "9 = x",
+      "Ana is 9 years old now",
+    ],
+    tip: "For age problems, define the present age first before adjusting time.",
+    tags: ["age", "algebra"],
+  },
+
+  {
+    id: "math-v1-013",
+    subject: "Mathematics",
+    topic: "Work Problems",
+    difficulty: "beast",
+    question:
+      "If Worker A can finish a job in 6 days and Worker B can finish the same job in 3 days, how many days will they need working together?",
+    choices: ["1 day", "2 days", "2.5 days", "3 days"],
+    answerIndex: 1,
+    explanation:
+      "Add their work rates, not their days.",
+    steps: [
+      "A's rate = 1/6",
+      "B's rate = 1/3",
+      "Combined rate = 1/6 + 1/3",
+      "Combined rate = 1/6 + 2/6 = 3/6 = 1/2",
+      "Time = 2 days",
+    ],
+    tip: "In work problems, rates add together.",
+    tags: ["work", "rate"],
+  },
+
+  {
+    id: "math-v1-014",
+    subject: "Mathematics",
+    topic: "Sequences",
+    difficulty: "hard",
+    question:
+      "Find the next number: 2, 5, 11, 23, 47, ___",
+    choices: ["91", "93", "95", "97"],
+    answerIndex: 2,
+    explanation:
+      "Each term is multiplied by 2 then increased by 1.",
+    steps: [
+      "2 × 2 + 1 = 5",
+      "5 × 2 + 1 = 11",
+      "11 × 2 + 1 = 23",
+      "23 × 2 + 1 = 47",
+      "47 × 2 + 1 = 95",
+    ],
+    tip: "Complex sequences often combine multiplication and addition.",
+    tags: ["sequence", "patterns"],
+  },
+
+  {
+    id: "math-v1-015",
+    subject: "Mathematics",
+    topic: "Probability",
+    difficulty: "beast",
+    question:
+      "A bag contains 5 red balls, 3 blue balls, and 2 green balls. What is the probability of drawing a blue ball?",
+    choices: ["1/10", "3/10", "1/3", "1/2"],
+    answerIndex: 1,
+    explanation:
+      "Probability = favorable outcomes divided by total outcomes.",
+    steps: [
+      "Total balls = 5 + 3 + 2 = 10",
+      "Blue balls = 3",
+      "Probability = 3/10",
+    ],
+    tip: "Always count the total possible outcomes carefully.",
+    tags: ["probability"],
   },
 ];
