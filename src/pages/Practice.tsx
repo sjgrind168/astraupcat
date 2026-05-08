@@ -48,7 +48,9 @@ function pickQuestions(
 
   const shuffled = [...pool].sort(() => Math.random() - 0.5);
 
-  return shuffled.slice(0, Math.min(10, shuffled.length));
+  const PRACTICE_QUESTION_COUNT = 50;
+
+  return shuffled.slice(0, Math.min(PRACTICE_QUESTION_COUNT, shuffled.length));
 }
 
 export default function Practice() {

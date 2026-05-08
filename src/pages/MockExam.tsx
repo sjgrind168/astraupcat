@@ -9,7 +9,7 @@ import { Timer, ArrowRight, ArrowLeft, Flag } from "lucide-react";
 import { addAttempt, addMock, bumpStreak } from "@/lib/storage";
 import { cn } from "@/lib/utils";
 
-const EXAM_LEN = 25;
+const EXAM_LEN = 100;
 const TIME_SEC = 45 * 60;
 
 function buildExam(): Question[] {
