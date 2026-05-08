@@ -1,3 +1,183 @@
 import { Question } from "@/types/questions";
 
-export const filipinoPack: Question[] = [];
+export const filipinoPack: Question[] = [
+  {
+    id: "filipino-v1-001",
+    subject: "Filipino Language",
+    topic: "Kasingkahulugan",
+    difficulty: "hard",
+    question: "Ano ang kasingkahulugan ng salitang 'masaya'?",
+    choices: ["Malungkot", "Matuwa", "Galit", "Takot"],
+    answerIndex: 1,
+    explanation: "Ang 'matuwa' ay may kahulugang kapareho ng 'masaya.'",
+    steps: [
+      "Hanapin ang salitang may parehong kahulugan",
+      "Ang matuwa ay tumutukoy sa pagiging masaya",
+    ],
+    tip: "Kasingkahulugan = magkaparehong kahulugan.",
+    tags: ["filipino", "kasingkahulugan"],
+  },
+
+  {
+    id: "filipino-v1-002",
+    subject: "Filipino Language",
+    topic: "Kasalungat",
+    difficulty: "hard",
+    question: "Ano ang kasalungat ng salitang 'mataas'?",
+    choices: ["Mababa", "Matangkad", "Malaki", "Mabilis"],
+    answerIndex: 0,
+    explanation: "Ang kasalungat ng mataas ay mababa.",
+    steps: [
+      "Hanapin ang kabaligtarang kahulugan",
+      "Mataas ↔ mababa",
+    ],
+    tip: "Kasalungat = kabaligtarang kahulugan.",
+    tags: ["filipino", "kasalungat"],
+  },
+
+  {
+    id: "filipino-v1-003",
+    subject: "Filipino Language",
+    topic: "Pangungusap",
+    difficulty: "hard",
+    question: "Alin sa sumusunod ang wastong pangungusap?",
+    choices: [
+      "Ako ay masaya ngayon.",
+      "Masaya ako ay ngayon.",
+      "Ngayon ay ako masaya.",
+      "Ako ngayon masaya ay.",
+    ],
+    answerIndex: 0,
+    explanation: "Ang unang pangungusap ang may wastong ayos at gramatika.",
+    steps: [
+      "Suriin ang ayos ng pangungusap",
+      "Piliin ang malinaw at wastong estruktura",
+    ],
+    tip: "Ang wastong pangungusap ay malinaw at tama ang pagkakaayos.",
+    tags: ["filipino", "pangungusap"],
+  },
+
+  {
+    id: "filipino-v1-004",
+    subject: "Filipino Language",
+    topic: "Pang-uri",
+    difficulty: "hard",
+    question: "Ano ang pang-uri sa pangungusap na: 'Maganda ang bulaklak sa hardin.'?",
+    choices: ["Bulaklak", "Hardin", "Maganda", "Ang"],
+    answerIndex: 2,
+    explanation: "Ang 'maganda' ang naglalarawan sa bulaklak kaya ito ay pang-uri.",
+    steps: [
+      "Hanapin ang salitang naglalarawan",
+      "Maganda ang naglalarawan sa bulaklak",
+    ],
+    tip: "Pang-uri = salitang naglalarawan.",
+    tags: ["filipino", "pang-uri"],
+  },
+
+  {
+    id: "filipino-v1-005",
+    subject: "Filipino Language",
+    topic: "Pandiwa",
+    difficulty: "hard",
+    question: "Ano ang pandiwa sa pangungusap na: 'Tumakbo nang mabilis ang bata.'?",
+    choices: ["Mabilis", "Bata", "Tumakbo", "Nang"],
+    answerIndex: 2,
+    explanation: "Ang 'tumakbo' ay kilos kaya ito ay pandiwa.",
+    steps: [
+      "Hanapin ang salitang nagsasaad ng kilos",
+      "Tumakbo ang kilos sa pangungusap",
+    ],
+    tip: "Pandiwa = salitang kilos.",
+    tags: ["filipino", "pandiwa"],
+  },
+
+  {
+    id: "filipino-v1-006",
+    subject: "Filipino Language",
+    topic: "Pag-unawa",
+    difficulty: "beast",
+    question: "Basahin:\n\nMaagang gumising si Ana upang mag-aral para sa pagsusulit. Dahil dito, mataas ang kaniyang naging marka.\n\nAno ang dahilan ng mataas na marka ni Ana?",
+    choices: [
+      "Naglaro siya buong gabi.",
+      "Maaga siyang gumising upang mag-aral.",
+      "Hindi siya pumasok.",
+      "Natulog siya buong araw.",
+    ],
+    answerIndex: 1,
+    explanation: "Ang maagang pag-aaral ni Ana ang naging dahilan ng kaniyang mataas na marka.",
+    steps: [
+      "Hanapin ang sanhi sa talata",
+      "Pag-aaral ang dahilan ng magandang resulta",
+    ],
+    tip: "Sanhi ang dahilan ng isang pangyayari.",
+    tags: ["filipino", "pag-unawa"],
+  },
+
+  {
+    id: "filipino-v1-007",
+    subject: "Filipino Language",
+    topic: "Idyoma",
+    difficulty: "beast",
+    question: "Ano ang ibig sabihin ng idyomang 'butas ang bulsa'?",
+    choices: ["May sira ang pantalon", "Walang pera", "Maraming gamit", "Masipag magtrabaho"],
+    answerIndex: 1,
+    explanation: "Ang 'butas ang bulsa' ay nangangahulugang walang pera.",
+    steps: [
+      "Ang idyoma ay hindi literal",
+      "Butas ang bulsa = kapos sa pera",
+    ],
+    tip: "Ang idyoma ay may malalim o di-literal na kahulugan.",
+    tags: ["filipino", "idyoma"],
+  },
+
+  {
+    id: "filipino-v1-008",
+    subject: "Filipino Language",
+    topic: "Uri ng Pangungusap",
+    difficulty: "hard",
+    question: "Anong uri ng pangungusap ito: 'Pakisara ang pinto.'?",
+    choices: ["Pasalaysay", "Patanong", "Pautos", "Padamdam"],
+    answerIndex: 2,
+    explanation: "Ang pangungusap ay nag-uutos kaya ito ay pautos.",
+    steps: [
+      "Suriin ang layunin ng pangungusap",
+      "May ipinagagawang kilos kaya ito ay pautos",
+    ],
+    tip: "Pautos = nagbibigay utos o pakiusap.",
+    tags: ["filipino", "uri ng pangungusap"],
+  },
+
+  {
+    id: "filipino-v1-009",
+    subject: "Filipino Language",
+    topic: "Panghalip",
+    difficulty: "hard",
+    question: "Ano ang panghalip sa pangungusap na: 'Siya ay nagbabasa ng aklat.'?",
+    choices: ["Nagbabasa", "Aklat", "Siya", "Ay"],
+    answerIndex: 2,
+    explanation: "Ang 'siya' ay pamalit sa ngalan kaya ito ay panghalip.",
+    steps: [
+      "Hanapin ang salitang pamalit sa ngalan",
+      "Siya ang panghalip sa pangungusap",
+    ],
+    tip: "Panghalip = pamalit sa pangngalan.",
+    tags: ["filipino", "panghalip"],
+  },
+
+  {
+    id: "filipino-v1-010",
+    subject: "Filipino Language",
+    topic: "Sanhi at Bunga",
+    difficulty: "beast",
+    question: "Basahin:\n\nMalakas ang ulan kaya bumaha sa kalsada.\n\nAno ang bunga sa pangungusap?",
+    choices: ["Malakas ang ulan", "Bumaha sa kalsada", "Kalsada", "Kaya"],
+    answerIndex: 1,
+    explanation: "Ang pagbaha ang naging bunga ng malakas na ulan.",
+    steps: [
+      "Hanapin ang resulta ng pangyayari",
+      "Ang bunga ay ang nangyari pagkatapos ng sanhi",
+    ],
+    tip: "Bunga = resulta ng sanhi.",
+    tags: ["filipino", "sanhi at bunga"],
+  },
+];
