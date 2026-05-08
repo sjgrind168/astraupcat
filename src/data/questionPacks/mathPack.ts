@@ -407,4 +407,107 @@ export const mathPack: Question[] = [
     tip: "Average speed = total distance ÷ total time.",
     tags: ["speed", "rate"],
   },
+  {
+    id: "math-v1-021",
+    subject: "Mathematics",
+    topic: "Fractions",
+    difficulty: "hard",
+    question:
+      "What is 3/4 + 2/5?",
+    choices: ["23/20", "7/10", "15/20", "1"],
+    answerIndex: 0,
+    explanation:
+      "Use a common denominator before adding fractions.",
+    steps: [
+      "Common denominator of 4 and 5 is 20",
+      "3/4 = 15/20",
+      "2/5 = 8/20",
+      "15/20 + 8/20 = 23/20",
+    ],
+    tip: "Always find the least common denominator first.",
+    tags: ["fractions"],
+  },
+
+  {
+    id: "math-v1-022",
+    subject: "Mathematics",
+    topic: "Geometry",
+    difficulty: "beast",
+    question:
+      "A square has an area of 144 cm². What is the length of one side?",
+    choices: ["10 cm", "11 cm", "12 cm", "13 cm"],
+    answerIndex: 2,
+    explanation:
+      "The side of a square is the square root of its area.",
+    steps: [
+      "Area = side²",
+      "side² = 144",
+      "side = √144 = 12",
+    ],
+    tip: "Squares have equal sides, so area is side × side.",
+    tags: ["square", "geometry"],
+  },
+
+  {
+    id: "math-v1-023",
+    subject: "Mathematics",
+    topic: "Algebra",
+    difficulty: "hard",
+    question:
+      "Simplify: 5(2x − 3) + 4",
+    choices: ["10x − 11", "10x − 15", "9x − 11", "10x + 1"],
+    answerIndex: 0,
+    explanation:
+      "Distribute 5 to both terms inside the parentheses.",
+    steps: [
+      "5 × 2x = 10x",
+      "5 × (−3) = −15",
+      "10x − 15 + 4",
+      "10x − 11",
+    ],
+    tip: "Be careful with negative signs during distribution.",
+    tags: ["algebra", "distribution"],
+  },
+
+  {
+    id: "math-v1-024",
+    subject: "Mathematics",
+    topic: "Percentages",
+    difficulty: "beast",
+    question:
+      "A shirt originally costs ₱800 and is discounted by 25%. What is the sale price?",
+    choices: ["₱500", "₱550", "₱600", "₱650"],
+    answerIndex: 2,
+    explanation:
+      "Find the discount amount, then subtract from the original price.",
+    steps: [
+      "25% of 800 = 0.25 × 800 = 200",
+      "800 − 200 = 600",
+    ],
+    tip: "Discount problems are subtraction problems after finding the percentage.",
+    tags: ["discount", "percentage"],
+  },
+
+  {
+    id: "math-v1-025",
+    subject: "Mathematics",
+    topic: "Sequences",
+    difficulty: "beast",
+    question:
+      "Find the next number: 1, 4, 9, 16, 25, ___",
+    choices: ["30", "35", "36", "49"],
+    answerIndex: 2,
+    explanation:
+      "These are perfect squares.",
+    steps: [
+      "1 = 1²",
+      "4 = 2²",
+      "9 = 3²",
+      "16 = 4²",
+      "25 = 5²",
+      "Next = 6² = 36",
+    ],
+    tip: "Check whether terms are squares, cubes, or powers.",
+    tags: ["sequence", "patterns"],
+  },
 ];
