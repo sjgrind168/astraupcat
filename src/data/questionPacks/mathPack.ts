@@ -310,4 +310,101 @@ export const mathPack: Question[] = [
     tip: "Always count the total possible outcomes carefully.",
     tags: ["probability"],
   },
+
+  {
+    id: "math-v1-016",
+    subject: "Mathematics",
+    topic: "Percentages",
+    difficulty: "hard",
+    question:
+      "What is 35% of 240?",
+    choices: ["72", "84", "96", "108"],
+    answerIndex: 1,
+    explanation:
+      "Convert the percentage into decimal form, then multiply.",
+    steps: [
+      "35% = 0.35",
+      "0.35 × 240 = 84",
+    ],
+    tip: "To find a percentage of a number, multiply.",
+    tags: ["percentage"],
+  },
+
+  {
+    id: "math-v1-017",
+    subject: "Mathematics",
+    topic: "Geometry",
+    difficulty: "beast",
+    question:
+      "A rectangle has a length of 15 cm and a width of 8 cm. What is its perimeter?",
+    choices: ["46 cm", "48 cm", "50 cm", "52 cm"],
+    answerIndex: 0,
+    explanation:
+      "Perimeter of a rectangle is 2(length + width).",
+    steps: [
+      "15 + 8 = 23",
+      "2 × 23 = 46",
+    ],
+    tip: "Perimeter measures the distance around the figure.",
+    tags: ["geometry", "perimeter"],
+  },
+
+  {
+    id: "math-v1-018",
+    subject: "Mathematics",
+    topic: "Algebra",
+    difficulty: "beast",
+    question:
+      "If 4x − 7 = 21, what is the value of x?",
+    choices: ["5", "6", "7", "8"],
+    answerIndex: 2,
+    explanation:
+      "Solve the equation step-by-step.",
+    steps: [
+      "4x − 7 = 21",
+      "4x = 28",
+      "x = 7",
+    ],
+    tip: "Move constants first before dividing.",
+    tags: ["algebra"],
+  },
+
+  {
+    id: "math-v1-019",
+    subject: "Mathematics",
+    topic: "Probability",
+    difficulty: "hard",
+    question:
+      "A die is rolled once. What is the probability of getting an even number?",
+    choices: ["1/6", "1/3", "1/2", "2/3"],
+    answerIndex: 2,
+    explanation:
+      "Even numbers on a die are 2, 4, and 6.",
+    steps: [
+      "Possible outcomes = 6",
+      "Even outcomes = 3",
+      "Probability = 3/6 = 1/2",
+    ],
+    tip: "Probability = favorable outcomes ÷ total outcomes.",
+    tags: ["probability", "dice"],
+  },
+
+  {
+    id: "math-v1-020",
+    subject: "Mathematics",
+    topic: "Word Problems",
+    difficulty: "beast",
+    question:
+      "A car travels 150 km in 2.5 hours. What is its average speed?",
+    choices: ["50 km/h", "55 km/h", "60 km/h", "65 km/h"],
+    answerIndex: 2,
+    explanation:
+      "Average speed is distance divided by time.",
+    steps: [
+      "Speed = 150 ÷ 2.5",
+      "Speed = 60 km/h",
+    ],
+    tip: "Average speed = total distance ÷ total time.",
+    tags: ["speed", "rate"],
+  },
 ];
