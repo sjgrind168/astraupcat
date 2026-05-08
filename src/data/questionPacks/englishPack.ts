@@ -1,3 +1,187 @@
 import { Question } from "@/types/questions";
 
-export const englishPack: Question[] = [];
+export const englishPack: Question[] = [
+  {
+    id: "english-v1-001",
+    subject: "English Language",
+    topic: "Grammar: Subject-Verb Agreement",
+    difficulty: "hard",
+    question: "Neither the students nor the teacher _____ prepared for the sudden quiz.",
+    choices: ["are", "were", "is", "have"],
+    answerIndex: 2,
+    explanation: "When subjects are joined by 'neither...nor,' the verb agrees with the subject closest to it. 'Teacher' is singular.",
+    steps: [
+      "Identify the subject nearest the verb",
+      "Teacher is singular",
+      "Use singular verb 'is'",
+    ],
+    tip: "With neither/nor, check the subject closest to the verb.",
+    tags: ["grammar", "subject verb agreement"],
+  },
+
+  {
+    id: "english-v1-002",
+    subject: "English Language",
+    topic: "Vocabulary",
+    difficulty: "hard",
+    question: "Choose the word closest in meaning to 'abundant.'",
+    choices: ["Scarce", "Plentiful", "Tiny", "Weak"],
+    answerIndex: 1,
+    explanation: "Abundant means existing in large quantities or plentiful.",
+    steps: [
+      "Abundant refers to a large amount",
+      "Plentiful has the closest meaning",
+    ],
+    tip: "Context clues often reveal whether a word means many or few.",
+    tags: ["vocabulary", "synonyms"],
+  },
+
+  {
+    id: "english-v1-003",
+    subject: "English Language",
+    topic: "Grammar: Pronouns",
+    difficulty: "hard",
+    question: "Each of the players must bring _____ own uniform.",
+    choices: ["their", "his or her", "our", "your"],
+    answerIndex: 1,
+    explanation: "'Each' is singular, so it takes the singular pronoun 'his or her.'",
+    steps: [
+      "Each refers to one member at a time",
+      "Singular pronoun is needed",
+    ],
+    tip: "Words like each, everyone, and anybody are singular.",
+    tags: ["grammar", "pronouns"],
+  },
+
+  {
+    id: "english-v1-004",
+    subject: "English Language",
+    topic: "Sentence Correction",
+    difficulty: "beast",
+    question: "Choose the grammatically correct sentence.",
+    choices: [
+      "She don't like waking up early.",
+      "She doesn't likes waking up early.",
+      "She doesn't like waking up early.",
+      "She not like waking up early.",
+    ],
+    answerIndex: 2,
+    explanation: "After 'doesn't,' the base form of the verb should be used.",
+    steps: [
+      "Doesn't already shows present tense",
+      "Main verb should remain in base form",
+      "Correct form is 'doesn't like'",
+    ],
+    tip: "After do/does/did, use the base verb.",
+    tags: ["grammar", "sentence correction"],
+  },
+
+  {
+    id: "english-v1-005",
+    subject: "English Language",
+    topic: "Reading Skills",
+    difficulty: "hard",
+    question: "A conclusion based on evidence and reasoning rather than directly stated facts is called what?",
+    choices: ["Prediction", "Inference", "Opinion", "Summary"],
+    answerIndex: 1,
+    explanation: "An inference is a logical conclusion drawn from clues and evidence.",
+    steps: [
+      "The information is implied, not directly stated",
+      "Logical conclusion from clues = inference",
+    ],
+    tip: "Inference means reading between the lines.",
+    tags: ["reading", "inference"],
+  },
+
+  {
+    id: "english-v1-006",
+    subject: "English Language",
+    topic: "Vocabulary",
+    difficulty: "hard",
+    question: "Choose the antonym of 'ancient.'",
+    choices: ["Historic", "Modern", "Traditional", "Primitive"],
+    answerIndex: 1,
+    explanation: "Ancient means very old, while modern refers to the present or recent time.",
+    steps: [
+      "Ancient = old",
+      "Opposite meaning = modern",
+    ],
+    tip: "Antonyms are opposite meanings.",
+    tags: ["vocabulary", "antonyms"],
+  },
+
+  {
+    id: "english-v1-007",
+    subject: "English Language",
+    topic: "Grammar: Tenses",
+    difficulty: "hard",
+    question: "By the time we arrived, the movie _____ already started.",
+    choices: ["has", "have", "had", "was"],
+    answerIndex: 2,
+    explanation: "Past perfect tense is used for an action completed before another past action.",
+    steps: [
+      "Two actions happened in the past",
+      "The movie started before we arrived",
+      "Use past perfect: had started",
+    ],
+    tip: "Past perfect = had + past participle.",
+    tags: ["grammar", "tenses"],
+  },
+
+  {
+    id: "english-v1-008",
+    subject: "English Language",
+    topic: "Context Clues",
+    difficulty: "beast",
+    question: "The athlete was 'elated' after winning the championship. What does 'elated' most nearly mean?",
+    choices: ["Angry", "Confused", "Extremely happy", "Disappointed"],
+    answerIndex: 2,
+    explanation: "Winning a championship suggests a strong positive emotion. 'Elated' means extremely happy.",
+    steps: [
+      "Look at the context: winning a championship",
+      "The emotion is strongly positive",
+      "Elated = extremely happy",
+    ],
+    tip: "Use surrounding context to decode unfamiliar words.",
+    tags: ["vocabulary", "context clues"],
+  },
+
+  {
+    id: "english-v1-009",
+    subject: "English Language",
+    topic: "Grammar: Modifiers",
+    difficulty: "beast",
+    question: "Choose the sentence with the correct modifier placement.",
+    choices: [
+      "Running quickly, the finish line was crossed by Maria.",
+      "Maria crossed the finish line running quickly.",
+      "Running quickly, Maria crossed the finish line.",
+      "The finish line, running quickly, Maria crossed.",
+    ],
+    answerIndex: 2,
+    explanation: "The modifier 'running quickly' correctly describes Maria in the sentence.",
+    steps: [
+      "A modifier should clearly describe the correct subject",
+      "Maria is the one running quickly",
+    ],
+    tip: "Place modifiers near the words they describe.",
+    tags: ["grammar", "modifiers"],
+  },
+
+  {
+    id: "english-v1-010",
+    subject: "English Language",
+    topic: "Logical Organization",
+    difficulty: "hard",
+    question: "Which transition word best shows contrast?",
+    choices: ["Furthermore", "Similarly", "However", "Therefore"],
+    answerIndex: 2,
+    explanation: "'However' introduces a contrasting idea.",
+    steps: [
+      "Contrast means showing difference or opposition",
+      "However is used for contrast",
+    ],
+    tip: "However = contrast signal.",
+    tags: ["writing", "transitions"],
+  },
+];
