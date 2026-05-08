@@ -1,14 +1,24 @@
 import { Question } from "./types";
+import { mathPack } from "@/data/questionPacks/mathPack";
+import { sciencePack } from "@/data/questionPacks/sciencePack";
+import { englishPack } from "@/data/questionPacks/englishPack";
+import { filipinoPack } from "@/data/questionPacks/filipinoPack";
+import { readingPack } from "@/data/questionPacks/readingPack";
 
 // All questions are ORIGINAL UPCAT-style items written for this app.
 // They follow the official UPCAT subject areas; no leaked / copyrighted items.
 
 export const QUESTIONS: Question[] = [
+  ...mathPack,
+  ...sciencePack,
+  ...englishPack,
+  ...filipinoPack,
+  ...readingPack,
   // ============ MATHEMATICS (32) ============
   { id: "m1", subject: "Mathematics", topic: "Algebra", difficulty: "normal",
     question: "If 3x − 7 = 2x + 5, what is the value of x² − 4?",
-    choices: ["140", "144", "136", "132"], answerIndex: 1,
-    explanation: "Solve 3x − 7 = 2x + 5 → x = 12. Then 12² − 4 = 144 − 4 = 140. Wait, recompute: 144 − 4 = 140.",
+    choices: ["140", "144", "136", "132"], answerIndex: 0,
+    explanation: "Solve 3x − 7 = 2x + 5 → x = 12. Then x² − 4 = 12² − 4 = 144 − 4 = 140.",
     steps: ["3x − 2x = 5 + 7", "x = 12", "x² − 4 = 144 − 4 = 140"],
     tip: "Always isolate x first, then plug in." },
   { id: "m2", subject: "Mathematics", topic: "Algebra", difficulty: "hard",
@@ -218,9 +228,9 @@ export const QUESTIONS: Question[] = [
     choices: ["Solar radiation", "Convection in the mantle", "Coriolis effect", "Magnetic reversal"], answerIndex: 1,
     explanation: "Heat-driven convection currents in the mantle move plates." },
   { id: "s20", subject: "Science", topic: "Astronomy", difficulty: "normal",
-    question: "Which planet has the most moons (as of recent counts)?",
+    question: "Which planet is most famous for its prominent ring system?",
     choices: ["Jupiter", "Saturn", "Uranus", "Neptune"], answerIndex: 1,
-    explanation: "Saturn currently leads in confirmed moons." },
+    explanation: "Saturn is best known for its large, bright ring system." },
   { id: "s21", subject: "Science", topic: "Physics: Density", difficulty: "hard",
     question: "An object has mass 240 g and volume 80 cm³. What is its density?",
     choices: ["2 g/cm³", "3 g/cm³", "4 g/cm³", "0.33 g/cm³"], answerIndex: 1,
@@ -512,7 +522,7 @@ export const QUESTIONS: Question[] = [
     explanation: "Naglalarawan ng pangngalan → pang-uri." },
   { id: "f22", subject: "Filipino Language", topic: "Pagbabaybay", difficulty: "hard",
     question: "Alin ang tamang baybay?",
-    choices: ["Karangyaan", "Karangyahan", "Karangiaan", "Karangyaan"], answerIndex: 0,
+    choices: ["Karangyaan", "Karangyahan", "Karangiaan", "Karangyan"], answerIndex: 0,
     explanation: "Tamang baybay: KARANGYAAN." },
   { id: "f23", subject: "Filipino Language", topic: "Pang-ukol", difficulty: "hard",
     question: "Alin ang pang-ukol sa pangungusap: 'Para sa iyo ang regalo.'?",
