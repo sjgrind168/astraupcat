@@ -13,7 +13,7 @@ const EXAM_LEN = 100;
 const TIME_SEC = 45 * 60;
 
 function buildExam(): Question[] {
-  const subjects: Subject[] = ["English Language", "Reading Comprehension", "Mathematics", "Science"];
+  const subjects: Subject[] = ["English Language", "Reading Comprehension", "Mathematics", "Science", "Filipino Language"];
   const out: Question[] = [];
   const all = getAllQuestions();
   for (const s of subjects) {
@@ -87,7 +87,7 @@ export default function MockExam() {
         <Card className="bg-gradient-card">
           <CardHeader>
             <CardTitle>UPCAT-style Simulation</CardTitle>
-            <CardDescription>{EXAM_LEN} questions • 45 minutes • Language, Reading, Math, Science.</CardDescription>
+            <CardDescription>{EXAM_LEN} questions • 45 minutes • English, Reading, Math, Science, Filipino.</CardDescription>
           </CardHeader>
           <CardContent>
             <p className="text-sm text-muted-foreground mb-4">Calculator policy: <Badge variant="secondary">{state.settings.calculatorMode}</Badge> (change in Settings).</p>
