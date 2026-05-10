@@ -1,4 +1,5 @@
 import { Question } from "@/types/questions";
+import { mathStaging } from "@/data/stagingQuestions/mathStaging";
 
 export const mathPack: Question[] = [
   {
@@ -1841,4 +1842,8 @@ export const mathPack: Question[] = [
     tip: "Range measures spread, not average.",
     tags: ["statistics", "range"],
   },
+  ...mathStaging.map((question, index) => ({
+    ...question,
+    id: `math-staging-${String(index + 1).padStart(3, "0")}`,
+  })),
 ];
