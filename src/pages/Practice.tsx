@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { useApp } from "@/lib/store";
-import { getAllQuestions } from "@/lib/customQuestions";
+import { getAllQuestions } from "@/data/questions";
 import { Question, Subject, Difficulty } from "@/lib/types";
 import { QuestionRunner } from "@/components/QuestionRunner";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
