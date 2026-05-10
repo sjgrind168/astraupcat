@@ -9,15 +9,15 @@ import { Timer, ArrowRight, ArrowLeft, Flag } from "lucide-react";
 import { addAttempt, addMock, bumpStreak } from "@/lib/storage";
 import { cn } from "@/lib/utils";
 
-const EXAM_LEN = 150;
-const TIME_SEC = 90 * 60;
+const EXAM_LEN = 500;
+const TIME_SEC = 300 * 60;
 
 function buildExam(): Question[] {
   const subjects: Subject[] = ["English Language", "Reading Comprehension", "Mathematics", "Science", "Filipino Language"];
   const out: Question[] = [];
   const all = getAllQuestions();
   for (const s of subjects) {
-    const pool = all.filter(q => q.subject === s && (q.difficulty === "hard" || q.difficulty === "beast"));
+    const pool = all.filter(q => q.subject === s);
     const shuffled = [...pool].sort(() => Math.random() - 0.5);
     out.push(...shuffled.slice(0, Math.ceil(EXAM_LEN / subjects.length)));
   }
@@ -87,7 +87,7 @@ export default function MockExam() {
         <Card className="bg-gradient-card">
           <CardHeader>
             <CardTitle>UPCAT-style Simulation</CardTitle>
-            <CardDescription>{EXAM_LEN} questions • 90 minutes • Hard + Beast only • English, Reading, Math, Science, Filipino.</CardDescription>
+            <CardDescription>{EXAM_LEN} questions • 300 minutes • Full verified bank • English, Reading, Math, Science, Filipino.</CardDescription>
           </CardHeader>
           <CardContent>
             <p className="text-sm text-muted-foreground mb-4">Calculator policy: <Badge variant="secondary">{state.settings.calculatorMode}</Badge> (change in Settings).</p>
