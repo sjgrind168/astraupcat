@@ -1,20 +1,13 @@
 import { Question } from "./types";
-import { mathPack } from "@/data/questionPacks/mathPack";
-import { sciencePack } from "@/data/questionPacks/sciencePack";
-import { englishPack } from "@/data/questionPacks/englishPack";
-import { filipinoPack } from "@/data/questionPacks/filipinoPack";
-import { readingPack } from "@/data/questionPacks/readingPack";
 
-// All questions are ORIGINAL UPCAT-style items written for this app.
-// They follow the official UPCAT subject areas; no leaked / copyrighted items.
+// Legacy exports kept for compatibility.
+// Do not import question packs here, or they will be forced into the main bundle.
+export const QUESTIONS: Question[] = [];
 
-export const QUESTIONS: Question[] = [
-  ...mathPack,
-  ...sciencePack,
-  ...englishPack,
-  ...filipinoPack,
-  ...readingPack,
-];
+export async function getQuestions(): Promise<Question[]> {
+  const { getAllQuestionsAsync } = await import("@/data/questions");
+  return getAllQuestionsAsync();
+}
 
 export const SUBJECTS = [
   "Mathematics",
