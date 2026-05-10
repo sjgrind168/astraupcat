@@ -1,6 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
 import { useApp } from "@/lib/store";
-import { getAllQuestions } from "@/data/questions";
 import { Question, Subject, MockExamResult } from "@/lib/types";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -12,10 +11,11 @@ import { cn } from "@/lib/utils";
 const EXAM_LEN = 500;
 const TIME_SEC = 300 * 60;
 
-function buildExam(): Question[] {
+async function buildExam(): Promise<Question[]> {
+  const { getAllQuestionsAsync } = await import("@/data/questions");
   const subjects: Subject[] = ["English Language", "Reading Comprehension", "Mathematics", "Science", "Filipino Language"];
   const out: Question[] = [];
-  const all = getAllQuestions();
+  const all = await getAllQuestionsAsync();
   for (const s of subjects) {
     const pool = all.filter(q => q.subject === s);
     const shuffled = [...pool].sort(() => Math.random() - 0.5);
@@ -31,6 +31,7 @@ export default function MockExam() {
   const [idx, setIdx] = useState(0);
   const [time, setTime] = useState(TIME_SEC);
   const [submitted, setSubmitted] = useState<MockExamResult | null>(null);
+  const [isLoadingQuestions, setIsLoadingQuestions] = useState(false);
 
   useEffect(() => {
     if (!questions || submitted) return;
@@ -40,12 +41,17 @@ export default function MockExam() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [questions, time, submitted]);
 
-  const start = () => {
-    setQuestions(buildExam());
-    setAnswers({});
-    setIdx(0);
-    setTime(TIME_SEC);
-    setSubmitted(null);
+  const start = async () => {
+    setIsLoadingQuestions(true);
+    try {
+      setQuestions(await buildExam());
+      setAnswers({});
+      setIdx(0);
+      setTime(TIME_SEC);
+      setSubmitted(null);
+    } finally {
+      setIsLoadingQuestions(false);
+    }
   };
 
   const submit = () => {
@@ -91,7 +97,7 @@ export default function MockExam() {
           </CardHeader>
           <CardContent>
             <p className="text-sm text-muted-foreground mb-4">Calculator policy: <Badge variant="secondary">{state.settings.calculatorMode}</Badge> (change in Settings).</p>
-            <Button className="bg-gradient-gold text-primary-foreground" onClick={start}>Begin Mock Exam</Button>
+            <Button className="bg-gradient-gold text-primary-foreground" onClick={start} disabled={isLoadingQuestions}>{isLoadingQuestions ? "Loading questions..." : "Begin Mock Exam"}</Button>
           </CardContent>
         </Card>
       </div>
