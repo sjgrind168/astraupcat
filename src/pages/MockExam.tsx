@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { useApp } from "@/lib/store";
-import { getAllQuestions } from "@/lib/customQuestions";
+import { getAllQuestions } from "@/data/questions";
 import { Question, Subject, MockExamResult } from "@/lib/types";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
