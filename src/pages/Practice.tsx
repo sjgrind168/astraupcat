@@ -1,7 +1,6 @@
 import { useMemo, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { useApp } from "@/lib/store";
-import { getAllQuestions } from "@/data/questions";
 import { Question, Subject, Difficulty } from "@/lib/types";
 import { QuestionRunner } from "@/components/QuestionRunner";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
@@ -12,13 +11,14 @@ import { weakestSubject, weakestTopics, strongestTopics } from "@/lib/analytics"
 
 type Mode = "topic" | "mixed" | "weakness" | "beast";
 
-function pickQuestions(
+async function pickQuestions(
   mode: Mode,
   subject: Subject | null,
   weak: Subject | null,
   weakTopics: string[]
-): Question[] {
-  let pool = getAllQuestions();
+): Promise<Question[]> {
+  const { getAllQuestionsAsync } = await import("@/data/questions");
+  let pool = await getAllQuestionsAsync();
 
   // STRICT subject filtering
   // If a subject is selected from URL/query, NEVER allow other subjects.
@@ -64,15 +64,21 @@ export default function Practice() {
   const [questions, setQuestions] = useState<Question[] | null>(null);
   const [idx, setIdx] = useState(0);
   const [results, setResults] = useState<{ correct: number; total: number } | null>(null);
+  const [isLoadingQuestions, setIsLoadingQuestions] = useState(false);
 
   const weak = useMemo(() => weakestSubject(state.attempts), [state.attempts]);
   const weakTopicsList = useMemo(() => weakestTopics(state.attempts).map(t => t.topic), [state.attempts]);
 
-  const start = () => {
-    const qs = pickQuestions(mode, subject, weak, weakTopicsList);
-    setQuestions(qs);
-    setIdx(0);
-    setResults({ correct: 0, total: qs.length });
+  const start = async () => {
+    setIsLoadingQuestions(true);
+    try {
+      const qs = await pickQuestions(mode, subject, weak, weakTopicsList);
+      setQuestions(qs);
+      setIdx(0);
+      setResults({ correct: 0, total: qs.length });
+    } finally {
+      setIsLoadingQuestions(false);
+    }
   };
 
   if (!questions) {
@@ -110,7 +116,7 @@ export default function Practice() {
           </Card>
         )}
         <Button className="bg-gradient-gold text-primary-foreground" onClick={start}
-          disabled={mode === "topic" && !subject}>Start Drill</Button>
+          disabled={isLoadingQuestions || (mode === "topic" && !subject)}>{isLoadingQuestions ? "Loading questions..." : "Start Drill"}</Button>
       </div>
     );
   }
@@ -134,7 +140,7 @@ export default function Practice() {
           </div>
           <div className="flex gap-2">
             <Button onClick={() => { setQuestions(null); setResults(null); }}>Run another drill</Button>
-            <Button variant="outline" onClick={start}>Same mode again</Button>
+            <Button variant="outline" onClick={start} disabled={isLoadingQuestions}>{isLoadingQuestions ? "Loading questions..." : "Same mode again"}</Button>
           </div>
         </CardContent>
       </Card>
