@@ -1942,7 +1942,6 @@ export const englishPack: Question[] = [
     tags: ["vocabulary", "antonyms"],
   },
 
-  ] = [
   {
     "id": "english-v1-101",
     "subject": "English Language",
