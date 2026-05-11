@@ -1841,10 +1841,6 @@ export const mathPack: Question[] = [
     tip: "Range measures spread, not average.",
     tags: ["statistics", "range"],
   },
-  ...mathStaging.map((question, index) => ({
-    ...question,
-    id: `math-staging-${String(index + 1).padStart(3, "0")}`,
-  })),
 
   {
     id: "math-v1-101",
