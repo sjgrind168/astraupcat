@@ -65,17 +65,35 @@ export default function Practice() {
   const [idx, setIdx] = useState(0);
   const [results, setResults] = useState<{ correct: number; total: number } | null>(null);
   const [isLoadingQuestions, setIsLoadingQuestions] = useState(false);
+  const [loadError, setLoadError] = useState<string | null>(null);
 
   const weak = useMemo(() => weakestSubject(state.attempts), [state.attempts]);
   const weakTopicsList = useMemo(() => weakestTopics(state.attempts).map(t => t.topic), [state.attempts]);
 
   const start = async () => {
     setIsLoadingQuestions(true);
+    setLoadError(null);
+
     try {
       const qs = await pickQuestions(mode, subject, weak, weakTopicsList);
+
+      if (!qs.length) {
+        setQuestions(null);
+        setIdx(0);
+        setResults(null);
+        setLoadError("No questions were found for this practice mode. Try Mixed Practice or choose another subject.");
+        return;
+      }
+
       setQuestions(qs);
       setIdx(0);
       setResults({ correct: 0, total: qs.length });
+    } catch (error) {
+      console.error("Failed to load practice questions:", error);
+      setQuestions(null);
+      setIdx(0);
+      setResults(null);
+      setLoadError("Unable to load practice questions. Please refresh and try again.");
     } finally {
       setIsLoadingQuestions(false);
     }
@@ -115,6 +133,13 @@ export default function Practice() {
             </CardContent>
           </Card>
         )}
+        {loadError && (
+          <Card className="border-destructive/40 bg-destructive/10">
+            <CardContent className="pt-6 text-sm text-destructive">
+              {loadError}
+            </CardContent>
+          </Card>
+        )}
         <Button className="bg-gradient-gold text-primary-foreground" onClick={start}
           disabled={isLoadingQuestions || (mode === "topic" && !subject)}>{isLoadingQuestions ? "Loading questions..." : "Start Drill"}</Button>
       </div>
@@ -139,7 +164,7 @@ export default function Practice() {
             ))}
           </div>
           <div className="flex gap-2">
-            <Button onClick={() => { setQuestions(null); setResults(null); }}>Run another drill</Button>
+            <Button onClick={() => { setQuestions(null); setResults(null); setLoadError(null); }}>Run another drill</Button>
             <Button variant="outline" onClick={start} disabled={isLoadingQuestions}>{isLoadingQuestions ? "Loading questions..." : "Same mode again"}</Button>
           </div>
         </CardContent>
