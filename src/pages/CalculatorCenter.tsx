@@ -299,7 +299,7 @@ export default function CalculatorCenter() {
       </div>
       <Tabs defaultValue="sci">
         <TabsList>
-          <TabsTrigger value="sci">Natural Scientific</TabsTrigger>
+          <TabsTrigger value="sci">Scientific Calculator</TabsTrigger>
           <TabsTrigger value="adv">Astra Advanced Solver</TabsTrigger>
         </TabsList>
         <TabsContent value="sci" className="mt-4"><ScientificCalc /></TabsContent>
