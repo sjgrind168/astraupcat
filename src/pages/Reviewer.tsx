@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { SUBJECTS } from "@/lib/questions";
-import { getAllQuestionsAsync } from "@/data/questions";
 import { Question } from "@/types/questions";
 import { BookOpen } from "lucide-react";
 
@@ -14,11 +13,15 @@ export default function Reviewer() {
   useEffect(() => {
     let isMounted = true;
 
-    getAllQuestionsAsync()
+    import("@/data/questions")
+      .then(({ getAllQuestionsAsync }) => getAllQuestionsAsync())
       .then(loadedQuestions => {
         if (isMounted) {
           setQuestions(loadedQuestions);
         }
+      })
+      .catch(error => {
+        console.error("Failed to load reviewer questions:", error);
       })
       .finally(() => {
         if (isMounted) {
