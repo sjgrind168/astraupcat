@@ -1,212 +1,167 @@
-import { useEffect, useMemo, useState } from "react";
-import { useApp } from "@/lib/store";
-import { Question, Subject, MockExamResult } from "@/lib/types";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { Timer, ArrowRight, ArrowLeft, Flag } from "lucide-react";
-import { addAttempt, addMock, bumpStreak } from "@/lib/storage";
-import { cn } from "@/lib/utils";
-
-const EXAM_LEN = 500;
-const TIME_SEC = 300 * 60;
-
-async function buildExam(): Promise<Question[]> {
-  const { getAllQuestionsAsync } = await import("@/data/questions");
-  const subjects: Subject[] = ["English Language", "Reading Comprehension", "Mathematics", "Science", "Filipino Language"];
-  const out: Question[] = [];
-  const all = await getAllQuestionsAsync();
-  for (const s of subjects) {
-    const pool = all.filter(q => q.subject === s);
-    const shuffled = [...pool].sort(() => Math.random() - 0.5);
-    out.push(...shuffled.slice(0, Math.ceil(EXAM_LEN / subjects.length)));
-  }
-  return out.slice(0, EXAM_LEN);
-}
+import { useEffect, useState } from "react";
+import { useMockExam } from "@/hooks/useMockExam";
+import { useExamTimer } from "@/hooks/useExamTimer";
+import { analyzeResults } from "@/lib/examResults";
 
 export default function MockExam() {
-  const { state, setState } = useApp();
-  const [questions, setQuestions] = useState<Question[] | null>(null);
-  const [answers, setAnswers] = useState<Record<number, number>>({});
-  const [idx, setIdx] = useState(0);
-  const [time, setTime] = useState(TIME_SEC);
-  const [submitted, setSubmitted] = useState<MockExamResult | null>(null);
-  const [isLoadingQuestions, setIsLoadingQuestions] = useState(false);
+  const questions = useMockExam(60);
+  const timer = useExamTimer(60);
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [answers, setAnswers] = useState<Record<string, number>>({});
+  const [submitted, setSubmitted] = useState(false);
+
+  const currentQuestion = questions[currentIndex];
+  const result = submitted ? analyzeResults(questions, answers) : null;
 
   useEffect(() => {
-    if (!questions || submitted) return;
-    if (time <= 0) { submit(); return; }
-    const i = setInterval(() => setTime(t => t - 1), 1000);
-    return () => clearInterval(i);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [questions, time, submitted]);
-
-  const start = async () => {
-    setIsLoadingQuestions(true);
-    try {
-      setQuestions(await buildExam());
-      setAnswers({});
-      setIdx(0);
-      setTime(TIME_SEC);
-      setSubmitted(null);
-    } finally {
-      setIsLoadingQuestions(false);
+    if (timer.isFinished && !submitted) {
+      setSubmitted(true);
     }
+  }, [timer.isFinished, submitted]);
+
+  const selectAnswer = (questionId: string, answerIndex: number) => {
+    if (submitted) return;
+
+    setAnswers(prev => ({
+      ...prev,
+      [questionId]: answerIndex,
+    }));
   };
 
-  const submit = () => {
-    if (!questions) return;
-    const bySubject: Record<string, { correct: number; total: number }> = {};
-    let correct = 0;
-    questions.forEach((q, i) => {
-      const ua = answers[i];
-      const ok = ua === q.answerIndex;
-      if (ok) correct++;
-      bySubject[q.subject] ||= { correct: 0, total: 0 };
-      bySubject[q.subject].total++;
-      if (ok) bySubject[q.subject].correct++;
-      setState(s => addAttempt(s, {
-        id: crypto.randomUUID(), questionId: q.id, subject: q.subject, topic: q.topic,
-        difficulty: q.difficulty, correct: ok, userAnswer: ua ?? -1,
-        timeMs: 0, at: new Date().toISOString(),
-        errorType: ok ? undefined : "concept",
-      }));
-    });
-    const weakTopics = Array.from(new Set(questions
-      .filter((q, i) => answers[i] !== q.answerIndex).map(q => q.topic))).slice(0, 5);
-    const result: MockExamResult = {
-      id: crypto.randomUUID(), at: new Date().toISOString(),
-      totalQuestions: questions.length, correct, timeSec: TIME_SEC - time,
-      bySubject, weakTopics,
-    };
-    setState(s => bumpStreak(addMock(s, result)));
-    setSubmitted(result);
-  };
+  const answeredCount = Object.keys(answers).length;
 
-  const mins = Math.floor(time / 60).toString().padStart(2, "0");
-  const secs = (time % 60).toString().padStart(2, "0");
-
-  if (!questions) {
+  if (!questions.length) {
     return (
-      <div className="space-y-4">
-        <h1 className="text-3xl font-bold">Mock Exam</h1>
-        <Card className="bg-gradient-card">
-          <CardHeader>
-            <CardTitle>UPCAT-style Simulation</CardTitle>
-            <CardDescription>{EXAM_LEN} questions • 300 minutes • Full verified bank • English, Reading, Math, Science, Filipino.</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <p className="text-sm text-muted-foreground mb-4">Calculator policy: <Badge variant="secondary">{state.settings.calculatorMode}</Badge> (change in Settings).</p>
-            <Button className="bg-gradient-gold text-primary-foreground" onClick={start} disabled={isLoadingQuestions}>{isLoadingQuestions ? "Loading questions..." : "Begin Mock Exam"}</Button>
-          </CardContent>
-        </Card>
+      <div className="p-6 max-w-4xl mx-auto">
+        <h1 className="text-2xl font-bold">Mock Entrance Exam</h1>
+        <p className="mt-4">Loading exam questions...</p>
       </div>
     );
   }
 
-  if (submitted) {
-    const pct = Math.round(submitted.correct / submitted.totalQuestions * 100);
+  if (submitted && result) {
     return (
-      <div className="space-y-4">
-        <Card className="bg-gradient-card shadow-elegant">
-          <CardHeader>
-            <CardTitle>After-Action Review, {state.profile?.name}</CardTitle>
-            <CardDescription>Score: {submitted.correct}/{submitted.totalQuestions} ({pct}%) • Time: {Math.floor(submitted.timeSec/60)}m {submitted.timeSec%60}s</CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-3">
-            <div className="grid gap-2 md:grid-cols-2">
-              {Object.entries(submitted.bySubject).map(([s, v]) => (
-                <div key={s} className="rounded-lg border border-border p-3">
-                  <p className="text-sm font-medium">{s}</p>
-                  <p className="text-xs text-muted-foreground">{v.correct}/{v.total} ({Math.round(v.correct/v.total*100)}%)</p>
-                </div>
+      <div className="p-6 max-w-4xl mx-auto space-y-6">
+        <div>
+          <h1 className="text-2xl font-bold">Mock Exam Results</h1>
+          <p className="text-muted-foreground">
+            Review your score and weak topics.
+          </p>
+        </div>
+
+        <div className="border rounded p-6 space-y-3">
+          <p className="text-xl font-bold">
+            Score: {result.score}/{result.total}
+          </p>
+
+          <p className="text-lg">
+            Percent: {result.percent}%
+          </p>
+
+          <p>
+            Answered: {answeredCount}/{questions.length}
+          </p>
+        </div>
+
+        <div className="border rounded p-6">
+          <h2 className="text-lg font-bold mb-3">Weak Topics</h2>
+
+          {result.weakTopics.length ? (
+            <ul className="list-disc ml-6 space-y-1">
+              {result.weakTopics.map(topic => (
+                <li key={topic}>{topic}</li>
               ))}
-            </div>
-            <div>
-              <p className="text-xs uppercase tracking-wider text-muted-foreground mb-1">Weak topics</p>
-              <div className="flex flex-wrap gap-1.5">
-                {submitted.weakTopics.map(t => <Badge key={t} className="bg-destructive/20 text-destructive border-destructive/40">{t}</Badge>)}
-              </div>
-            </div>
-            <Button onClick={() => setQuestions(null)}>Done</Button>
-          </CardContent>
-        </Card>
+            </ul>
+          ) : (
+            <p>No weak topics detected. Excellent work.</p>
+          )}
+        </div>
 
-        <h2 className="text-xl font-semibold mt-6">Wrong-answer breakdown</h2>
-        {questions.map((q, i) => {
-          const ua = answers[i];
-          if (ua === q.answerIndex) return null;
-          return (
-            <Card key={q.id} className="bg-gradient-card">
-              <CardHeader>
-                <CardTitle className="text-base">Q{i + 1}. {q.question}</CardTitle>
-                <CardDescription>{q.subject} • {q.topic}</CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-2 text-sm">
-                <p><span className="text-muted-foreground">Your answer:</span> <span className="text-destructive">{ua !== undefined ? q.choices[ua] : "—"}</span></p>
-                <p><span className="text-muted-foreground">Correct:</span> <span className="text-success">{q.choices[q.answerIndex]}</span></p>
-                <p className="text-foreground/90">{q.explanation}</p>
-                {q.steps?.length ? <ol className="list-decimal pl-5 text-foreground/80">{q.steps.map((s, k) => <li key={k}>{s}</li>)}</ol> : null}
-                {q.tip && <p className="text-xs italic text-muted-foreground">Tip: {q.tip}</p>}
-              </CardContent>
-            </Card>
-          );
-        })}
+        <button
+          onClick={() => window.location.reload()}
+          className="px-6 py-3 rounded bg-black text-white"
+        >
+          Retake Mock Exam
+        </button>
       </div>
     );
   }
 
-  const q = questions[idx];
+  const passage = (currentQuestion as { passage?: string }).passage;
+
   return (
-    <div className="space-y-4">
-      <div className="flex items-center justify-between sticky top-14 z-20 bg-background/80 backdrop-blur p-2 rounded-lg border border-border">
-        <Badge variant="secondary"><Timer className="h-3 w-3 mr-1" /> {mins}:{secs}</Badge>
-        <span className="text-xs text-muted-foreground">Question {idx + 1} of {questions.length}</span>
-        <Button size="sm" variant="destructive" onClick={submit}><Flag className="h-3 w-3 mr-1" />Submit Exam</Button>
+    <div className="p-6 max-w-4xl mx-auto space-y-6">
+      <div className="flex items-center justify-between gap-4">
+        <div>
+          <h1 className="text-2xl font-bold">Mock Entrance Exam</h1>
+          <p className="text-muted-foreground">
+            Question {currentIndex + 1} of {questions.length}
+          </p>
+        </div>
+
+        <div className="text-right">
+          <p className="font-bold">⏱ {timer.display}</p>
+          <p className="text-sm text-muted-foreground">
+            Answered {answeredCount}/{questions.length}
+          </p>
+        </div>
       </div>
 
-      <Card className="bg-gradient-card">
-        <CardHeader>
-          <div className="flex gap-2 text-xs">
-            <Badge variant="outline">{q.subject}</Badge>
-            <Badge variant="outline">{q.topic}</Badge>
+      <div className="border rounded p-5 space-y-4">
+        {passage && (
+          <div className="rounded bg-muted p-4 text-sm leading-relaxed">
+            {passage}
           </div>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          {q.passage && <div className="rounded-lg border border-border bg-muted/30 p-3 text-sm">{q.passage}</div>}
-          <p className="font-medium">{q.question}</p>
-          <div className="grid gap-2">
-            {q.choices.map((c, i) => (
-              <button key={i} onClick={() => setAnswers(a => ({ ...a, [idx]: i }))}
-                className={cn("text-left rounded-lg border p-3 flex items-start gap-3",
-                  answers[idx] === i ? "border-primary bg-primary/10" : "border-border hover:border-primary/50")}>
-                <span className="font-semibold text-muted-foreground w-6">{String.fromCharCode(65 + i)}.</span>
-                <span className="flex-1 text-sm">{c}</span>
-              </button>
-            ))}
-          </div>
-          <div className="flex justify-between pt-2">
-            <Button variant="outline" disabled={idx === 0} onClick={() => setIdx(i => i - 1)}><ArrowLeft className="h-4 w-4 mr-1" />Prev</Button>
-            <Button disabled={idx === questions.length - 1} onClick={() => setIdx(i => i + 1)}>Next<ArrowRight className="h-4 w-4 ml-1" /></Button>
-          </div>
-        </CardContent>
-      </Card>
+        )}
 
-      <Card className="bg-gradient-card">
-        <CardHeader className="pb-2"><CardTitle className="text-sm">Question Navigator</CardTitle></CardHeader>
-        <CardContent>
-          <div className="grid grid-cols-10 gap-1.5">
-            {questions.map((_, i) => (
-              <button key={i} onClick={() => setIdx(i)}
-                className={cn("h-8 rounded text-xs font-medium border",
-                  i === idx ? "border-primary bg-primary/20" :
-                  answers[i] !== undefined ? "border-success/40 bg-success/10" : "border-border")}>
-                {i + 1}
-              </button>
-            ))}
-          </div>
-        </CardContent>
-      </Card>
+        <p className="font-semibold">
+          {currentIndex + 1}. {currentQuestion.question}
+        </p>
+
+        <div className="space-y-2">
+          {currentQuestion.choices?.map((choice, index) => (
+            <button
+              key={index}
+              onClick={() => selectAnswer(currentQuestion.id, index)}
+              className={`block w-full text-left border rounded p-3 ${
+                answers[currentQuestion.id] === index
+                  ? "bg-gray-200"
+                  : "bg-white"
+              }`}
+            >
+              {choice}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <div className="flex justify-between gap-3">
+        <button
+          onClick={() => setCurrentIndex(i => Math.max(0, i - 1))}
+          disabled={currentIndex === 0}
+          className="px-4 py-2 border rounded disabled:opacity-50"
+        >
+          Previous
+        </button>
+
+        <div className="flex gap-2">
+          <button
+            onClick={() => setCurrentIndex(i => Math.min(questions.length - 1, i + 1))}
+            disabled={currentIndex === questions.length - 1}
+            className="px-4 py-2 border rounded disabled:opacity-50"
+          >
+            Next
+          </button>
+
+          <button
+            onClick={() => setSubmitted(true)}
+            className="px-5 py-2 rounded bg-black text-white"
+          >
+            Submit Exam
+          </button>
+        </div>
+      </div>
     </div>
   );
 }
