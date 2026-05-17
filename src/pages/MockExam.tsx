@@ -126,8 +126,8 @@ export default function MockExam() {
               onClick={() => selectAnswer(currentQuestion.id, index)}
               className={`block w-full text-left border rounded p-3 ${
                 answers[currentQuestion.id] === index
-                  ? "bg-gray-200"
-                  : "bg-white"
+                  ? "bg-primary/15 border-primary"
+                  : "bg-card hover:bg-muted"
               }`}
             >
               {choice}
