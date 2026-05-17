@@ -82,7 +82,7 @@ for s in subjects:
         f"{s} ___ {a}.",
         verb,
         ["are" if verb=="is" else "is","was","were"],
-        f'"{verb}" agrees with the subject.',
+        f"{verb} agrees with the subject.",
         '["Identify subject"]',
         "Match singular/plural.",
         '["grammar"]'
