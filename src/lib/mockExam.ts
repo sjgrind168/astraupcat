@@ -1,4 +1,4 @@
-import { getQuestions } from "@/data/questions";
+import { getAllQuestions } from "@/data/questions";
 import { Question } from "@/types/questions";
 
 type Difficulty = "easy" | "medium" | "hard";
@@ -15,7 +15,7 @@ export function generateMockExam(
 config:MockExamConfig
 ):Question[]{
 
-  const all=getQuestions();
+  const all=getAllQuestions();
 
   const subjects={
     math: all.filter(q=>q.subject?.includes("Math")),
