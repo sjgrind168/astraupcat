@@ -1,14 +1,45 @@
 import { getAllQuestions } from "@/data/questions";
 import { Question } from "@/types/questions";
 
-type Difficulty = "easy" | "medium" | "hard";
-
-export interface MockExamConfig {
+export interface MockExamConfig{
   totalQuestions:number;
 }
 
-function shuffle<T>(arr:T[]):T[] {
-  return [...arr].sort(() => Math.random() - 0.5);
+function shuffle<T>(arr:T[]):T[]{
+  return [...arr]
+    .sort(()=>Math.random()-0.5);
+}
+
+function excludeRecent(
+questions:Question[]
+):Question[]{
+
+  const recentIds=
+    JSON.parse(
+      localStorage.getItem(
+        "recentMockQuestions"
+      ) || "[]"
+    );
+
+  return questions.filter(
+    q=>!recentIds.includes(q.id)
+  );
+}
+
+function saveRecent(
+questions:Question[]
+){
+
+  const ids=questions.map(
+    q=>q.id
+  );
+
+  localStorage.setItem(
+    "recentMockQuestions",
+    JSON.stringify(
+      ids.slice(-300)
+    )
+  );
 }
 
 export function generateMockExam(
@@ -17,30 +48,24 @@ config:MockExamConfig
 
   const all=getAllQuestions();
 
-  const subjects={
-    math: all.filter(q=>q.subject?.includes("Math")),
-    science: all.filter(q=>q.subject?.includes("Science")),
-    english: all.filter(q=>q.subject?.includes("English")),
-    filipino: all.filter(q=>q.subject?.includes("Filipino")),
-    reading: all.filter(q=>q.subject?.includes("Reading")),
-    logic: all.filter(q=>q.subject?.includes("Logic"))
-  };
+  let available=
+    excludeRecent(all);
 
-  const exam=[
+  if(
+    available.length
+    < config.totalQuestions
+  ){
+    available=all;
+  }
 
-    ...shuffle(subjects.math).slice(0,15),
-    ...shuffle(subjects.science).slice(0,15),
-    ...shuffle(subjects.english).slice(0,10),
-    ...shuffle(subjects.filipino).slice(0,5),
-    ...shuffle(subjects.reading).slice(0,10),
-    ...shuffle(subjects.logic).slice(0,5)
+  const exam=
+    shuffle(available)
+      .slice(
+        0,
+        config.totalQuestions
+      );
 
-  ];
+  saveRecent(exam);
 
-  return shuffle(exam)
-  .slice(0,config.totalQuestions);
+  return exam;
 }
-
-console.log(
-"Mock exam engine ready"
-);
