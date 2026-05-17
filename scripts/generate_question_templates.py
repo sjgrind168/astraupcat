@@ -1,0 +1,60 @@
+from pathlib import Path
+import json
+
+templates = {
+    "Mathematics": {
+        "Algebra":[
+            {
+                "type":"linear_equation",
+                "difficulty":"hard",
+                "template":"If {A}x + {B} = {C}, what is x?"
+            },
+            {
+                "type":"ratio",
+                "difficulty":"hard",
+                "template":"The ratio of boys to girls is {A}:{B}. If there are {C} students total, how many are boys?"
+            }
+        ]
+    },
+
+    "Science":{
+        "Physics":[
+            {
+                "type":"speed",
+                "difficulty":"hard",
+                "template":"A car travels {A} km in {B} hours. What is its average speed?"
+            }
+        ]
+    },
+
+    "Language":{
+        "Grammar":[
+            {
+                "type":"subject_verb",
+                "difficulty":"hard",
+                "template":"Choose the correct verb: {sentence}"
+            }
+        ]
+    },
+
+    "Reading":{
+        "Inference":[
+            {
+                "type":"inference",
+                "difficulty":"hard",
+                "template":"Read the passage and determine the strongest inference."
+            }
+        ]
+    }
+}
+
+Path(
+"src/data/generated/questionTemplates.json"
+).write_text(
+json.dumps(
+templates,
+indent=2
+)
+)
+
+print("Question template engine created.")
