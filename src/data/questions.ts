@@ -5,6 +5,7 @@ import { sciencePack } from "@/data/questionPacks/sciencePack";
 import { englishPack } from "@/data/questionPacks/englishPack";
 import { readingPack } from "@/data/questionPacks/readingPack";
 import { filipinoPack } from "@/data/questionPacks/filipinoPack";
+import { logicGenerated001 as logicPack } from "@/data/questionPacks/logicPack";
 
 let cachedQuestions: Question[] | null = null;
 
@@ -19,6 +20,7 @@ export function getAllQuestions(): Question[] {
     ...englishPack,
     ...readingPack,
     ...filipinoPack,
+    ...logicPack,
   ];
 
   return cachedQuestions;
