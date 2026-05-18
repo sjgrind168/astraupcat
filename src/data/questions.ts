@@ -5,7 +5,7 @@ import { mathGenerated003 as mathGeneratedPack } from "@/data/questionPacks/math
 import { sciencePack } from "@/data/questionPacks/sciencePack";
 import { scienceGenerated002 as scienceGeneratedPack } from "@/data/questionPacks/scienceGeneratedPack";
 import { englishPack } from "@/data/questionPacks/englishPack";
-import { englishGenerated001 as englishGeneratedPack } from "@/data/questionPacks/englishGeneratedPack";
+import { englishGenerated002 as englishGeneratedPack } from "@/data/questionPacks/englishGeneratedPack";
 import { readingPack } from "@/data/questionPacks/readingPack";
 import { readingGenerated005 as readingGeneratedPack } from "@/data/questionPacks/readingGeneratedPack";
 import { filipinoPack } from "@/data/questionPacks/filipinoPack";
