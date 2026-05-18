@@ -27,6 +27,7 @@ export function getAllQuestions(): Question[] {
     ...filipinoPack,
     ...filipinoGeneratedPack,
     ...logicPack,
+    ...logicGeneratedPack,
   ];
 
   return cachedQuestions;
