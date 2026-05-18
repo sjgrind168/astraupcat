@@ -5,6 +5,7 @@ import { sciencePack } from "@/data/questionPacks/sciencePack";
 import { englishPack } from "@/data/questionPacks/englishPack";
 import { englishGenerated001 as englishGeneratedPack } from "@/data/questionPacks/englishGeneratedPack";
 import { readingPack } from "@/data/questionPacks/readingPack";
+import { readingGenerated005 as readingGeneratedPack } from "@/data/questionPacks/readingGeneratedPack";
 import { filipinoPack } from "@/data/questionPacks/filipinoPack";
 import { filipinoGenerated001 as filipinoGeneratedPack } from "@/data/questionPacks/filipinoGeneratedPack";
 import { logicGenerated001 as logicPack } from "@/data/questionPacks/logicPack";
@@ -22,6 +23,7 @@ export function getAllQuestions(): Question[] {
     ...englishPack,
     ...englishGeneratedPack,
     ...readingPack,
+    ...readingGeneratedPack,
     ...filipinoPack,
     ...filipinoGeneratedPack,
     ...logicPack,
