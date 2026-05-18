@@ -4,12 +4,14 @@ import { useExamTimer } from "@/hooks/useExamTimer";
 import { analyzeResults } from "@/lib/examResults";
 
 export default function MockExam() {
-  const questions = useMockExam(60);
-  const timer = useExamTimer(60);
+  const [examSeed, setExamSeed] = useState(0);
+  const questions = useMockExam(100, examSeed);
+  const timer = useExamTimer(100);
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [answers, setAnswers] = useState<Record<string, number>>({});
   const [submitted, setSubmitted] = useState(false);
+  const [showMistakes, setShowMistakes] = useState(false);
 
   const currentQuestion = questions[currentIndex];
   const result = submitted ? analyzeResults(questions, answers) : null;
@@ -29,9 +31,19 @@ export default function MockExam() {
     }));
   };
 
+  const retakeExam = () => {
+    setExamSeed(seed => seed + 1);
+    setCurrentIndex(0);
+    setAnswers({});
+    setSubmitted(false);
+    setShowMistakes(false);
+  };
+
   const answeredCount = Object.keys(answers).length;
 
-  if (!questions.length) {
+  const mistakes = questions.filter(q => answers[q.id] !== q.answerIndex);
+
+  if (!questions.length || !currentQuestion) {
     return (
       <div className="p-6 max-w-4xl mx-auto">
         <h1 className="text-2xl font-bold">Mock Entrance Exam</h1>
@@ -46,11 +58,11 @@ export default function MockExam() {
         <div>
           <h1 className="text-2xl font-bold">Mock Exam Results</h1>
           <p className="text-muted-foreground">
-            Review your score and weak topics.
+            Review your score, weak topics, and mistakes.
           </p>
         </div>
 
-        <div className="border rounded p-6 space-y-3">
+        <div className="border rounded p-6 space-y-3 bg-card">
           <p className="text-xl font-bold">
             Score: {result.score}/{result.total}
           </p>
@@ -64,7 +76,7 @@ export default function MockExam() {
           </p>
         </div>
 
-        <div className="border rounded p-6">
+        <div className="border rounded p-6 bg-card">
           <h2 className="text-lg font-bold mb-3">Weak Topics</h2>
 
           {result.weakTopics.length ? (
@@ -78,9 +90,58 @@ export default function MockExam() {
           )}
         </div>
 
+        <div className="border rounded p-6 bg-card">
+          <button
+            onClick={() => setShowMistakes(v => !v)}
+            className="font-bold underline"
+          >
+            {showMistakes ? "Hide Mistake Book" : `Show Mistake Book (${mistakes.length})`}
+          </button>
+
+          {showMistakes && (
+            <div className="mt-4 space-y-4">
+              {mistakes.map((q, index) => {
+                const userAnswer = answers[q.id];
+                const userChoice =
+                  typeof userAnswer === "number"
+                    ? q.choices[userAnswer]
+                    : "No answer";
+
+                const correctChoice = q.choices[q.answerIndex];
+
+                return (
+                  <div key={q.id} className="border rounded p-4 space-y-2">
+                    <p className="font-semibold">
+                      {index + 1}. {q.question}
+                    </p>
+
+                    <p>
+                      Your answer: <span className="text-destructive">{userChoice}</span>
+                    </p>
+
+                    <p>
+                      Correct answer: <span className="font-bold">{correctChoice}</span>
+                    </p>
+
+                    {q.explanation && (
+                      <p className="text-sm text-muted-foreground">
+                        Explanation: {q.explanation}
+                      </p>
+                    )}
+
+                    <p className="text-xs text-muted-foreground">
+                      Topic: {q.topic || "Unknown"}
+                    </p>
+                  </div>
+                );
+              })}
+            </div>
+          )}
+        </div>
+
         <button
-          onClick={() => window.location.reload()}
-          className="px-6 py-3 rounded bg-black text-white"
+          onClick={retakeExam}
+          className="px-6 py-3 rounded bg-primary text-primary-foreground"
         >
           Retake Mock Exam
         </button>
@@ -108,7 +169,7 @@ export default function MockExam() {
         </div>
       </div>
 
-      <div className="border rounded p-5 space-y-4">
+      <div className="border rounded p-5 space-y-4 bg-card">
         {passage && (
           <div className="rounded bg-muted p-4 text-sm leading-relaxed">
             {passage}
@@ -156,7 +217,7 @@ export default function MockExam() {
 
           <button
             onClick={() => setSubmitted(true)}
-            className="px-5 py-2 rounded bg-black text-white"
+            className="px-5 py-2 rounded bg-primary text-primary-foreground"
           >
             Submit Exam
           </button>

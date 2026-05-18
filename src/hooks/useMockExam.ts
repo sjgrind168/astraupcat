@@ -1,13 +1,10 @@
 import { useMemo } from "react";
 import { generateMockExam } from "@/lib/mockExam";
 
-export function useMockExam(totalQuestions=60){
-
+export function useMockExam(totalQuestions = 100, seed = 0) {
   const exam = useMemo(
-    ()=>generateMockExam({
-      totalQuestions
-    }),
-    [totalQuestions]
+    () => generateMockExam({ totalQuestions }),
+    [totalQuestions, seed]
   );
 
   return exam;
