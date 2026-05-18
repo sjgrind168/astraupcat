@@ -9,7 +9,7 @@ import { englishGenerated002 as englishGeneratedPack } from "@/data/questionPack
 import { readingPack } from "@/data/questionPacks/readingPack";
 import { readingGenerated005 as readingGeneratedPack } from "@/data/questionPacks/readingGeneratedPack";
 import { filipinoPack } from "@/data/questionPacks/filipinoPack";
-import { filipinoGenerated001 as filipinoGeneratedPack } from "@/data/questionPacks/filipinoGeneratedPack";
+import { filipinoGenerated002 as filipinoGeneratedPack } from "@/data/questionPacks/filipinoGeneratedPack";
 import { logicGenerated001 as logicPack } from "@/data/questionPacks/logicPack";
 
 let cachedQuestions: Question[] | null = null;
