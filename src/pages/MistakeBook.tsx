@@ -1,58 +1,136 @@
-import { useMemo } from "react";
-import { useApp } from "@/lib/store";
-import { QUESTIONS } from "@/lib/questions";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import { useEffect, useState } from "react";
+import { getMistakeBook } from "@/lib/mistakeBook";
 
-export default function MistakeBook() {
-  const { state, setState } = useApp();
-  const wrong = useMemo(() => state.attempts.filter(a => !a.correct && !a.mastered), [state.attempts]);
-  const grouped = useMemo(() => {
-    const m: Record<string, typeof wrong> = {};
-    for (const w of wrong) (m[w.subject] ||= []).push(w);
-    return m;
-  }, [wrong]);
+export default function MistakeBook(){
 
-  const markMastered = (id: string) =>
-    setState(s => ({ ...s, attempts: s.attempts.map(a => a.id === id ? { ...a, mastered: true } : a) }));
+  const [mistakes,setMistakes]=useState<any[]>([]);
+
+  useEffect(()=>{
+
+    setMistakes(
+      getMistakeBook()
+    );
+
+  },[]);
+
+  const clearMistakes=()=>{
+
+    localStorage.removeItem(
+      "mistakeBook"
+    );
+
+    setMistakes([]);
+
+  };
 
   return (
-    <div className="space-y-6">
-      <div>
-        <h1 className="text-3xl font-bold">Mistake Book</h1>
-        <p className="text-muted-foreground text-sm">{state.profile?.name}, every wrong answer becomes fuel.</p>
+
+    <div className="p-6 max-w-5xl mx-auto space-y-6">
+
+      <div className="flex justify-between items-center">
+
+        <div>
+          <h1 className="text-2xl font-bold">
+            Mistake Book
+          </h1>
+
+          <p className="text-muted-foreground">
+            Review questions you answered incorrectly.
+          </p>
+        </div>
+
+        <button
+          onClick={clearMistakes}
+          className="px-4 py-2 border rounded"
+        >
+          Clear Book
+        </button>
+
       </div>
-      {Object.keys(grouped).length === 0 ? (
-        <Card className="bg-gradient-card"><CardContent className="py-10 text-center text-muted-foreground">No mistakes yet — keep practicing.</CardContent></Card>
-      ) : Object.entries(grouped).map(([subj, items]) => (
-        <Card key={subj} className="bg-gradient-card">
-          <CardHeader>
-            <CardTitle>{subj}</CardTitle>
-            <CardDescription>{items.length} mistake{items.length !== 1 && "s"} to review</CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-2">
-            {items.map(it => {
-              const q = QUESTIONS.find(q => q.id === it.questionId);
-              if (!q) return null;
-              return (
-                <div key={it.id} className="rounded-lg border border-border p-3 space-y-2">
-                  <div className="flex items-center gap-2 text-xs">
-                    <Badge variant="outline">{it.topic}</Badge>
-                    <Badge variant="secondary">{it.difficulty}</Badge>
-                    {it.errorType && <Badge className="bg-warning/20 text-warning border-warning/40">{it.errorType}</Badge>}
-                  </div>
-                  <p className="text-sm font-medium">{q.question}</p>
-                  <p className="text-xs"><span className="text-destructive">Your answer:</span> {q.choices[it.userAnswer] ?? "—"}</p>
-                  <p className="text-xs"><span className="text-success">Correct:</span> {q.choices[q.answerIndex]}</p>
-                  <p className="text-xs text-muted-foreground">{q.explanation}</p>
-                  <Button size="sm" variant="outline" onClick={() => markMastered(it.id)}>Mark as mastered</Button>
-                </div>
-              );
-            })}
-          </CardContent>
-        </Card>
+
+      <div className="border rounded p-4 bg-card">
+
+        <p className="font-semibold">
+          Saved mistakes:
+          {" "}
+          {mistakes.length}
+        </p>
+
+      </div>
+
+      {mistakes.length===0 && (
+
+        <div className="border rounded p-6 bg-card">
+
+          <p>
+            No saved mistakes yet.
+          </p>
+
+        </div>
+
+      )}
+
+      {mistakes.map((q,index)=>(
+
+        <div
+          key={q.id}
+          className="border rounded p-5 bg-card space-y-3"
+        >
+
+          <p className="font-semibold">
+
+            {index+1}. {q.question}
+
+          </p>
+
+          <p>
+
+            Correct Answer:
+            {" "}
+            <span className="font-bold">
+
+            {q.choices?.[q.answerIndex]}
+
+            </span>
+
+          </p>
+
+          {q.explanation && (
+
+            <p className="text-sm text-muted-foreground">
+
+              Explanation:
+              {" "}
+              {q.explanation}
+
+            </p>
+
+          )}
+
+          <p className="text-xs text-muted-foreground">
+
+            Topic:
+            {" "}
+            {q.topic || "Unknown"}
+
+          </p>
+
+        </div>
+
       ))}
+
+      {mistakes.length>0 && (
+
+        <button
+          className="px-6 py-3 rounded bg-primary text-primary-foreground"
+        >
+          Practice Mistakes
+        </button>
+
+      )}
+
     </div>
+
   );
+
 }
