@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useMockExam } from "@/hooks/useMockExam";
 import { useExamTimer } from "@/hooks/useExamTimer";
 import { analyzeResults } from "@/lib/examResults";
+import { saveMistakes } from "@/lib/mistakeBook";
 
 export default function MockExam() {
   const [examSeed, setExamSeed] = useState(0);
@@ -18,9 +19,10 @@ export default function MockExam() {
 
   useEffect(() => {
     if (timer.isFinished && !submitted) {
+      saveMistakes(questions, answers);
       setSubmitted(true);
     }
-  }, [timer.isFinished, submitted]);
+  }, [timer.isFinished, submitted, questions, answers]);
 
   const selectAnswer = (questionId: string, answerIndex: number) => {
     if (submitted) return;
@@ -216,7 +218,10 @@ export default function MockExam() {
           </button>
 
           <button
-            onClick={() => setSubmitted(true)}
+            onClick={() => {
+            saveMistakes(questions, answers);
+            setSubmitted(true);
+          }}
             className="px-5 py-2 rounded bg-primary text-primary-foreground"
           >
             Submit Exam
