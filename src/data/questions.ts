@@ -1,6 +1,7 @@
 import { Question } from "@/types/questions";
 
 import { mathPack } from "@/data/questionPacks/mathPack";
+import { mathGenerated003 as mathGeneratedPack } from "@/data/questionPacks/mathGeneratedPack";
 import { sciencePack } from "@/data/questionPacks/sciencePack";
 import { scienceGenerated002 as scienceGeneratedPack } from "@/data/questionPacks/scienceGeneratedPack";
 import { englishPack } from "@/data/questionPacks/englishPack";
@@ -20,6 +21,7 @@ export function getAllQuestions(): Question[] {
 
   cachedQuestions = [
     ...mathPack,
+    ...mathGeneratedPack,
     ...sciencePack,
     ...scienceGeneratedPack,
     ...englishPack,
