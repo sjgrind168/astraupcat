@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
 import { getMistakeBook } from "@/lib/mistakeBook";
+import { useNavigate } from "react-router-dom";
 
 export default function MistakeBook(){
 
   const [mistakes,setMistakes]=useState<any[]>([]);
+const navigate=useNavigate();
+
 
   useEffect(()=>{
 
@@ -122,6 +125,9 @@ export default function MistakeBook(){
       {mistakes.length>0 && (
 
         <button
+          onClick={()=>{
+            navigate("/practice?mode=mistakes")
+          }}
           className="px-6 py-3 rounded bg-primary text-primary-foreground"
         >
           Practice Mistakes
