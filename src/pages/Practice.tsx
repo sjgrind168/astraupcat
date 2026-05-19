@@ -149,6 +149,98 @@ export default function Practice() {
             </CardContent>
           </Card>
         )}
+        {mode === "weakness" && (
+          <Card className="bg-gradient-card border-warning/30">
+            <CardHeader>
+              <CardTitle>Weakness Analysis</CardTitle>
+              <CardDescription>
+                Areas detected from your recent attempts
+              </CardDescription>
+            </CardHeader>
+
+            <CardContent className="space-y-3">
+
+              <div>
+                <p className="font-medium">
+                  Weakest Subject:
+                </p>
+
+                <Badge>
+                  {weak || "No data yet"}
+                </Badge>
+              </div>
+
+              <div className="flex flex-wrap gap-2">
+
+                {weakTopicsList.length
+                ? weakTopicsList
+                  .slice(0,5)
+                  .map(topic=>(
+                    <Badge
+                    key={topic}
+                    variant="outline"
+                    className="border-destructive/40 text-destructive">
+                    ⚠️ {topic}
+                    </Badge>
+                  ))
+                :
+                <p className="text-sm text-muted-foreground">
+                Complete some drills first so Astra can detect weak areas.
+                </p>
+                }
+
+              </div>
+
+            </CardContent>
+          </Card>
+        )}
+
+        {mode === "weakness" && (
+          <Card className="bg-gradient-card border-warning/30">
+            <CardHeader>
+              <CardTitle>Weakness Analysis</CardTitle>
+              <CardDescription>
+                Areas detected from your recent attempts
+              </CardDescription>
+            </CardHeader>
+
+            <CardContent className="space-y-3">
+
+              <div>
+                <p className="font-medium">
+                  Weakest Subject:
+                </p>
+
+                <Badge>
+                  {weak || "No data yet"}
+                </Badge>
+              </div>
+
+              <div className="flex flex-wrap gap-2">
+
+                {weakTopicsList.length
+                ? weakTopicsList
+                  .slice(0,5)
+                  .map(topic=>(
+                    <Badge
+                    key={topic}
+                    variant="outline"
+                    className="border-destructive/40 text-destructive">
+                    ⚠️ {topic}
+                    </Badge>
+                  ))
+                :
+                <p className="text-sm text-muted-foreground">
+                Complete some drills first so Astra can detect weak areas.
+                </p>
+                }
+
+              </div>
+
+            </CardContent>
+          </Card>
+        )}
+
         {loadError && (
           <Card className="border-destructive/40 bg-destructive/10">
             <CardContent className="pt-6 text-sm text-destructive">
