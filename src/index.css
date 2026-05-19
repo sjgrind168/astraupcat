@@ -4,109 +4,131 @@
 
 @layer base {
   :root {
-    /* Astra UPCAT — University of the Philippines inspired theme
-       Maroon (primary) • Green (success only) • Gold (accent/highlight)
-       Dark, premium, academic. */
+    /* Astra Entrance Reviewer — premium calm study theme
+       Soft navy • Astra blue • Mint success
+       Designed for long study sessions without eye strain. */
 
-    /* Surfaces */
-    --background: 240 4% 5%;          /* #0B0B0C */
-    --foreground: 0 0% 96%;           /* #F5F5F5 */
+    --background: 222 47% 7%;
+    --foreground: 210 40% 96%;
 
-    --card: 240 4% 8%;                /* #121214 */
-    --card-foreground: 0 0% 96%;
+    --card: 222 40% 11%;
+    --card-foreground: 210 40% 96%;
 
-    --popover: 240 4% 7%;
-    --popover-foreground: 0 0% 96%;
+    --popover: 222 40% 10%;
+    --popover-foreground: 210 40% 96%;
 
-    /* Primary — UP Maroon #7B1113 */
-    --primary: 359 76% 27%;
-    --primary-foreground: 0 0% 98%;
-    --primary-hover: 359 76% 20%;     /* #5A0C0E */
-    --primary-glow: 359 71% 38%;      /* #A61C1E */
+    --primary: 217 91% 64%;
+    --primary-foreground: 222 47% 7%;
+    --primary-hover: 217 91% 58%;
+    --primary-glow: 199 89% 70%;
 
-    /* Secondary — neutral dark surface (NOT green; green is reserved for success) */
-    --secondary: 240 5% 12%;
-    --secondary-foreground: 0 0% 96%;
+    --secondary: 222 34% 16%;
+    --secondary-foreground: 210 40% 96%;
 
-    --muted: 240 5% 14%;
-    --muted-foreground: 240 5% 65%;   /* #A1A1AA */
+    --muted: 222 28% 18%;
+    --muted-foreground: 215 20% 68%;
 
-    /* Accent — UP Gold #C9A227 */
-    --accent: 45 68% 47%;
-    --accent-foreground: 240 4% 5%;
+    --accent: 158 64% 52%;
+    --accent-foreground: 222 47% 7%;
 
-    /* Destructive — muted red #7F1D1D */
-    --destructive: 0 63% 31%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive: 0 72% 58%;
+    --destructive-foreground: 210 40% 98%;
 
-    /* Success — UP Green #014421 / hover #0A5C2F */
-    --success: 145 97% 14%;
-    --success-foreground: 0 0% 98%;
-    --success-glow: 142 80% 20%;
+    --success: 158 64% 52%;
+    --success-foreground: 222 47% 7%;
+    --success-glow: 158 64% 42%;
 
-    /* Warning — soft gold */
-    --warning: 45 68% 47%;
-    --warning-foreground: 240 4% 5%;
+    --warning: 42 88% 62%;
+    --warning-foreground: 222 47% 7%;
 
-    /* Borders */
-    --border: 240 4% 16%;             /* #27272A */
-    --input: 240 4% 16%;
-    --ring: 359 76% 35%;
+    --border: 222 26% 22%;
+    --input: 222 26% 22%;
+    --ring: 217 91% 64%;
 
-    --radius: 0.75rem;
+    --radius: 0.85rem;
 
-    /* Gold token (kept for legacy gold-themed bits) */
-    --gold: 45 68% 47%;               /* #C9A227 */
-    --gold-glow: 43 70% 59%;          /* #E0B94F */
+    --gold: 42 88% 62%;
+    --gold-glow: 42 88% 70%;
 
-    /* Maroon gradient — used wherever the codebase says bg-gradient-gold (primary CTAs) */
-    --gradient-gold: linear-gradient(135deg, hsl(359 76% 30%) 0%, hsl(359 76% 24%) 100%);
-    /* True gold gradient — for sparing high-emphasis CTAs */
-    --gradient-cta: linear-gradient(135deg, hsl(45 68% 50%) 0%, hsl(43 70% 42%) 100%);
-    --gradient-primary: linear-gradient(135deg, hsl(359 76% 30%), hsl(359 76% 22%));
-    --gradient-hero: linear-gradient(135deg, hsl(240 4% 8%) 0%, hsl(240 4% 10%) 50%, hsl(240 4% 6%) 100%);
-    --gradient-card: linear-gradient(180deg, hsl(240 4% 9%), hsl(240 4% 7%));
+    --gradient-gold: linear-gradient(135deg, hsl(217 91% 64%) 0%, hsl(199 89% 60%) 100%);
+    --gradient-cta: linear-gradient(135deg, hsl(158 64% 52%) 0%, hsl(199 89% 60%) 100%);
+    --gradient-primary: linear-gradient(135deg, hsl(217 91% 64%), hsl(199 89% 60%));
+    --gradient-hero: radial-gradient(circle at top left, hsl(217 91% 20%) 0%, hsl(222 47% 7%) 42%, hsl(224 50% 5%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(222 40% 12%), hsl(222 40% 9%));
 
-    --shadow-elegant: 0 10px 40px -10px hsl(0 0% 0% / 0.7);
-    --shadow-gold: 0 8px 30px -8px hsl(359 76% 27% / 0.45);
-    --shadow-glow: 0 0 40px hsl(359 71% 38% / 0.25);
+    --shadow-elegant: 0 18px 45px -18px hsl(217 91% 64% / 0.35);
+    --shadow-gold: 0 12px 35px -14px hsl(199 89% 60% / 0.45);
+    --shadow-glow: 0 0 40px hsl(199 89% 60% / 0.18);
 
-    /* Sidebar */
-    --sidebar-background: 240 4% 6%;
-    --sidebar-foreground: 0 0% 90%;
-    --sidebar-primary: 359 76% 27%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4% 12%;
-    --sidebar-accent-foreground: 0 0% 96%;
-    --sidebar-border: 240 4% 14%;
-    --sidebar-ring: 359 76% 35%;
+    --sidebar-background: 222 47% 6%;
+    --sidebar-foreground: 210 40% 90%;
+    --sidebar-primary: 217 91% 64%;
+    --sidebar-primary-foreground: 222 47% 7%;
+    --sidebar-accent: 222 34% 14%;
+    --sidebar-accent-foreground: 210 40% 96%;
+    --sidebar-border: 222 26% 18%;
+    --sidebar-ring: 217 91% 64%;
   }
 
   .light {
-    --background: 0 0% 100%;
-    --foreground: 240 4% 10%;
+    --background: 210 40% 98%;
+    --foreground: 222 47% 11%;
+
     --card: 0 0% 100%;
-    --card-foreground: 240 4% 10%;
+    --card-foreground: 222 47% 11%;
+
     --popover: 0 0% 100%;
-    --popover-foreground: 240 4% 10%;
-    --primary: 359 76% 27%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 217 91% 56%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 240 5% 96%;
-    --secondary-foreground: 240 4% 10%;
-    --muted: 240 5% 96%;
-    --muted-foreground: 240 4% 40%;
-    --accent: 45 68% 47%;
-    --accent-foreground: 240 4% 10%;
-    --border: 240 6% 88%;
-    --input: 240 6% 88%;
-    --ring: 359 76% 27%;
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 4% 20%;
-    --sidebar-primary: 359 76% 27%;
+    --primary-hover: 217 91% 48%;
+    --primary-glow: 199 89% 60%;
+
+    --secondary: 214 32% 93%;
+    --secondary-foreground: 222 47% 11%;
+
+    --muted: 214 32% 94%;
+    --muted-foreground: 215 16% 44%;
+
+    --accent: 158 64% 45%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 158 64% 42%;
+    --success-foreground: 0 0% 100%;
+    --success-glow: 158 64% 52%;
+
+    --warning: 42 88% 54%;
+    --warning-foreground: 222 47% 11%;
+
+    --border: 214 32% 88%;
+    --input: 214 32% 88%;
+    --ring: 217 91% 56%;
+
+    --gold: 42 88% 54%;
+    --gold-glow: 42 88% 64%;
+
+    --gradient-gold: linear-gradient(135deg, hsl(217 91% 56%) 0%, hsl(199 89% 55%) 100%);
+    --gradient-cta: linear-gradient(135deg, hsl(158 64% 45%) 0%, hsl(199 89% 55%) 100%);
+    --gradient-primary: linear-gradient(135deg, hsl(217 91% 56%), hsl(199 89% 55%));
+    --gradient-hero: linear-gradient(135deg, hsl(210 40% 98%) 0%, hsl(214 32% 95%) 50%, hsl(199 89% 95%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%), hsl(214 32% 97%));
+
+    --shadow-elegant: 0 18px 45px -18px hsl(217 91% 56% / 0.25);
+    --shadow-gold: 0 12px 35px -14px hsl(199 89% 55% / 0.35);
+    --shadow-glow: 0 0 40px hsl(199 89% 55% / 0.16);
+
+    --sidebar-background: 210 40% 98%;
+    --sidebar-foreground: 222 47% 16%;
+    --sidebar-primary: 217 91% 56%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 5% 96%;
-    --sidebar-accent-foreground: 240 4% 10%;
-    --sidebar-border: 240 6% 88%;
+    --sidebar-accent: 214 32% 94%;
+    --sidebar-accent-foreground: 222 47% 11%;
+    --sidebar-border: 214 32% 88%;
+    --sidebar-ring: 217 91% 56%;
   }
 }
 
@@ -128,7 +150,7 @@
 
 @layer utilities {
   /* bg-gradient-gold is used throughout the codebase for primary CTAs/headers.
-     We keep the class name but route it to maroon to honor the design rules. */
+     Kept for compatibility, now routed to Astra Blue for the calmer study theme. */
   .bg-gradient-gold { background-image: var(--gradient-gold); }
   .bg-gradient-cta { background-image: var(--gradient-cta); }
   .bg-gradient-hero { background-image: var(--gradient-hero); }
@@ -146,9 +168,9 @@
   .shadow-glow { box-shadow: var(--shadow-glow); }
 
   .glass {
-    background: hsl(240 4% 8% / 0.65);
-    backdrop-filter: blur(12px);
-    border: 1px solid hsl(240 4% 18% / 0.7);
+    background: hsl(222 40% 11% / 0.72);
+    backdrop-filter: blur(14px);
+    border: 1px solid hsl(217 91% 64% / 0.18);
   }
 }
 
