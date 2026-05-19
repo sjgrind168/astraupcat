@@ -16,6 +16,10 @@ import MistakeBook from "./pages/MistakeBook";
 import QuestionBank from "./pages/QuestionBank";
 import ProgressReport from "./pages/ProgressReport";
 import Settings from "./pages/Settings";
+import About from "./pages/About";
+import Terms from "./pages/Terms";
+import Privacy from "./pages/Privacy";
+
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -39,7 +43,12 @@ const App = () => (
               <Route path="/mistakes" element={<MistakeBook />} />
               <Route path="/question-bank" element={<QuestionBank />} />
               <Route path="/progress" element={<ProgressReport />} />
-              <Route path="/settings" element={<Settings />} />
+              
+<Route path="/about" element={<About />} />
+<Route path="/terms" element={<Terms />} />
+<Route path="/privacy" element={<Privacy />} />
+
+<Route path="/settings" element={<Settings />} />
             </Route>
             <Route path="*" element={<NotFound />} />
           </Routes>

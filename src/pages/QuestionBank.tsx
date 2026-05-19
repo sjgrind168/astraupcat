@@ -279,7 +279,7 @@ export default function QuestionBank() {
         <div>
           <h1 className="text-3xl font-bold">Question Bank</h1>
           <p className="text-muted-foreground text-sm">
-            Manage custom UPCAT-style questions. Built-in seed questions remain available.
+            Manage custom entrance exam-style questions. Built-in seed questions remain available.
           </p>
         </div>
         <Button className="bg-gradient-gold text-primary-foreground" onClick={openNew}>
@@ -630,7 +630,7 @@ export default function QuestionBank() {
 
             <div className="grid gap-3 md:grid-cols-2">
               <div className="space-y-1.5">
-                <Label>UPCAT tip</Label>
+                <Label>Study tip</Label>
                 <Textarea
                   rows={2}
                   value={form.tip}

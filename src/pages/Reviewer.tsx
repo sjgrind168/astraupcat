@@ -49,7 +49,7 @@ export default function Reviewer() {
     <div className="space-y-6">
       <div>
         <h1 className="text-3xl font-bold">Reviewer Library</h1>
-        <p className="text-muted-foreground text-sm">Topic-by-topic mastery across all UPCAT subject areas.</p>
+        <p className="text-muted-foreground text-sm">Topic-by-topic mastery across entrance exam subject areas.</p>
       </div>
       <div className="grid gap-4 md:grid-cols-2">
         {SUBJECTS.map(s => {

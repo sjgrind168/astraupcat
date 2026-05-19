@@ -4,6 +4,10 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
+import { Link } from "react-router-dom";
+import { ExternalLink } from "lucide-react";
+
+
 export default function Settings() {
   const { state, setState, reset } = useApp();
   const p = state.profile!;
@@ -41,7 +45,51 @@ export default function Settings() {
           ))}
         </CardContent>
       </Card>
-      <Card className="bg-gradient-card border-destructive/40">
+      
+      <Card className="bg-gradient-card">
+        <CardHeader>
+          <CardTitle>About & Legal</CardTitle>
+          <CardDescription>
+            Learn more about Astra Reviewer and app policies.
+          </CardDescription>
+        </CardHeader>
+
+        <CardContent className="space-y-2">
+
+          <Link to="/about">
+            <Button variant="outline" className="w-full justify-between">
+              About Astra Reviewer
+              <ExternalLink className="h-4 w-4"/>
+            </Button>
+          </Link>
+
+          <Link to="/terms">
+            <Button variant="outline" className="w-full justify-between">
+              Terms & Content Notice
+              <ExternalLink className="h-4 w-4"/>
+            </Button>
+          </Link>
+
+          <Link to="/privacy">
+            <Button variant="outline" className="w-full justify-between">
+              Privacy Policy
+              <ExternalLink className="h-4 w-4"/>
+            </Button>
+          </Link>
+
+          <Button
+          variant="outline"
+          className="w-full justify-between">
+
+          Contact & Support
+          <ExternalLink className="h-4 w-4"/>
+
+          </Button>
+
+        </CardContent>
+      </Card>
+
+<Card className="bg-gradient-card border-destructive/40">
         <CardHeader><CardTitle className="text-destructive">Danger zone</CardTitle></CardHeader>
         <CardContent>
           <Button variant="destructive" onClick={() => { if (confirm("Reset all data?")) reset(); }}>Reset all data</Button>

@@ -22,7 +22,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const reset = useCallback(() => {
-    localStorage.removeItem("astra-upcat-state-v1");
+    localStorage.removeItem("astra-reviewer-state-v1");
     setStateRaw(loadState());
   }, []);
 

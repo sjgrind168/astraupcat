@@ -15,7 +15,7 @@ export default function FormulaVault() {
     <div className="space-y-6">
       <div>
         <h1 className="text-3xl font-bold">Formula Vault</h1>
-        <p className="text-muted-foreground text-sm">Every UPCAT-relevant formula with usage and example.</p>
+        <p className="text-muted-foreground text-sm">Key formulas with usage and examples for entrance exam preparation.</p>
       </div>
       <div className="flex flex-wrap gap-2">
         {CATS.map(c => (

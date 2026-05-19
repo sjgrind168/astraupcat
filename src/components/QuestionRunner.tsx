@@ -111,7 +111,7 @@ export function QuestionRunner({ question, index, total, onAnswered, onNext, hid
               </ol>
             ) : null}
             {question.tip && (
-              <p className="text-xs text-muted-foreground italic">UPCAT tip: {question.tip}</p>
+              <p className="text-xs text-muted-foreground italic">Study tip: {question.tip}</p>
             )}
           </div>
         )}

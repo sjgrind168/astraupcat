@@ -48,7 +48,7 @@ export function Onboarding() {
           <CardTitle className="text-2xl">
             <span className="text-gradient-gold">Astra Reviewer</span>
           </CardTitle>
-          <CardDescription>Personalized, high-difficulty UPCAT training. Let's set you up.</CardDescription>
+          <CardDescription>Personalized, high-difficulty entrance exam training. Let's set you up.</CardDescription>
         </CardHeader>
         <CardContent className="space-y-6">
           {step === 0 && (
@@ -68,7 +68,7 @@ export function Onboarding() {
                   <Input id="start" type="date" value={startDate} onChange={e => setStartDate(e.target.value)} />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="exam">UPCAT date</Label>
+                  <Label htmlFor="exam">Target exam date</Label>
                   <Input id="exam" type="date" value={examDate} onChange={e => setExamDate(e.target.value)} />
                 </div>
               </div>

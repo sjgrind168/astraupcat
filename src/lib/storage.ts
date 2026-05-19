@@ -1,6 +1,6 @@
 import { AppState, AttemptRecord, MockExamResult, StudyTask, UserProfile } from "./types";
 
-const KEY = "astra-upcat-state-v1";
+const KEY = "astra-reviewer-state-v1";
 
 const initial: AppState = {
   profile: null,
