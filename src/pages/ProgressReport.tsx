@@ -1,6 +1,8 @@
 import { useApp } from "@/lib/store";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 import { accuracyBySubject, weakestTopics, strongestTopics, masteryPct } from "@/lib/analytics";
 import { ResponsiveContainer, LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, BarChart, Bar } from "recharts";
 
@@ -66,10 +68,26 @@ export default function ProgressReport() {
 
       <div className="grid gap-4 md:grid-cols-2">
         <Card className="bg-gradient-card">
-          <CardHeader><CardTitle>Weakest topics</CardTitle></CardHeader>
-          <CardContent className="flex flex-wrap gap-2">
-            {weak.length === 0 ? <p className="text-sm text-muted-foreground">—</p> :
-              weak.map(t => <Badge key={t.topic} className="bg-destructive/20 text-destructive border-destructive/40">{t.topic} ({Math.round(t.acc*100)}%)</Badge>)}
+          <CardHeader>
+            <CardTitle>Weakest topics</CardTitle>
+            <CardDescription>
+              These are the areas Astra recommends reviewing first.
+            </CardDescription>
+          </CardHeader>
+
+          <CardContent className="space-y-4">
+            <div className="flex flex-wrap gap-2">
+              {weak.length === 0 ? <p className="text-sm text-muted-foreground">—</p> :
+                weak.map(t => <Badge key={t.topic} className="bg-destructive/20 text-destructive border-destructive/40">{t.topic} ({Math.round(t.acc*100)}%)</Badge>)}
+            </div>
+
+            {weak.length > 0 && (
+              <Link to="/practice?mode=weakness">
+                <Button className="w-full">
+                  Practice Weak Topics
+                </Button>
+              </Link>
+            )}
           </CardContent>
         </Card>
         <Card className="bg-gradient-card">
