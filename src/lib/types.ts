@@ -81,6 +81,11 @@ export interface AppState {
   attempts: AttemptRecord[];
   mocks: MockExamResult[];
   plan: StudyTask[];
-  streak: { current: number; lastStudyDate: string | null };
+  streak: {
+current:number;
+longest:number;
+lastStudyDate:string|null;
+activityDates:string[];
+};
   settings: { calculatorMode: "none" | "scientific" | "no-advanced" };
 }

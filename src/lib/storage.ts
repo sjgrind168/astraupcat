@@ -7,7 +7,12 @@ const initial: AppState = {
   attempts: [],
   mocks: [],
   plan: [],
-  streak: { current: 0, lastStudyDate: null },
+  streak:{
+current:0,
+longest:0,
+lastStudyDate:null,
+activityDates:[]
+},
   settings: { calculatorMode: "scientific" },
 };
 
@@ -46,10 +51,48 @@ export function setPlan(state: AppState, plan: StudyTask[]): AppState {
 }
 
 export function bumpStreak(state: AppState): AppState {
-  const today = new Date().toISOString().slice(0, 10);
-  if (state.streak.lastStudyDate === today) return state;
-  const yest = new Date(Date.now() - 86400000).toISOString().slice(0, 10);
-  const current =
-    state.streak.lastStudyDate === yest ? state.streak.current + 1 : 1;
-  return { ...state, streak: { current, lastStudyDate: today } };
+
+const today=new Date()
+.toISOString()
+.slice(0,10)
+
+if(
+state.streak.lastStudyDate===today
+)return state
+
+const yest=new Date(
+Date.now()-86400000
+).toISOString().slice(0,10)
+
+const current=
+state.streak.lastStudyDate===yest
+?state.streak.current+1
+:1
+
+const longest=Math.max(
+current,
+state.streak.longest||0
+)
+
+const activityDates=[
+...(state.streak.activityDates||[])
+.filter(
+d=>d!==today
+),
+today
+].slice(-365)
+
+return{
+
+...state,
+
+streak:{
+current,
+longest,
+lastStudyDate:today,
+activityDates
+}
+
+}
+
 }
