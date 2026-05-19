@@ -9,13 +9,14 @@ import { Badge } from "@/components/ui/badge";
 import { addAttempt, bumpStreak } from "@/lib/storage";
 import { weakestSubject, weakestTopics, strongestTopics } from "@/lib/analytics";
 
-type Mode = "topic" | "mixed" | "weakness" | "beast";
+type Mode = "topic" | "mixed" | "weakness" | "beast" | "mistakes";
 
 async function pickQuestions(
   mode: Mode,
   subject: Subject | null,
   weak: Subject | null,
-  weakTopics: string[]
+  weakTopics: string[],
+  attempts:any[]
 ): Promise<Question[]> {
   const { getAllQuestionsAsync } = await import("@/data/questions");
   let pool = await getAllQuestionsAsync();
@@ -46,7 +47,21 @@ async function pickQuestions(
     );
   }
 
-  const shuffled = [...pool].sort(() => Math.random() - 0.5);
+  
+  if (mode === "mistakes") {
+    const wrongIds=new Set(
+      attempts
+      .filter(a=>!a.correct)
+      .map(a=>a.questionId)
+    )
+
+    pool=pool.filter(
+      q=>wrongIds.has(q.id)
+    )
+  }
+
+const shuffled = [...pool].sort(() => Math.random() - 0.5);
+
 
   const PRACTICE_QUESTION_COUNT = 100;
 
@@ -75,7 +90,7 @@ export default function Practice() {
     setLoadError(null);
 
     try {
-      const qs = await pickQuestions(mode, subject, weak, weakTopicsList);
+      const qs = await pickQuestions(mode, subject, weak, weakTopicsList, state.attempts);
 
       if (!qs.length) {
         setQuestions(null);
@@ -114,6 +129,7 @@ export default function Practice() {
               { k: "mixed", t: "Mixed Practice", d: "All subjects randomized" },
               { k: "weakness", t: "Weakness Drill", d: "Targets your weakest topics" },
               { k: "beast", t: "Beast Mode", d: "Hard + Beast difficulty only" },
+{ k: "mistakes", t: "Mistake Book Drill", d: "Practice only your wrong answers" },
             ] as { k: Mode; t: string; d: string }[]).map(m => (
               <button key={m.k} onClick={() => setMode(m.k)}
                 className={`text-left rounded-lg border p-4 transition ${mode === m.k ? "border-primary bg-primary/5" : "border-border"}`}>
