@@ -722,7 +722,7 @@ id:"science-gen2-066",
 subject:"Science",
 topic:"Physics",
 difficulty:"hard",
-question:"Which force keeps planets in orbit?",
+question:"Which force keeps artificial satellites moving around Earth?",
 choices:['Mercury', 'Oxygen', 'Neutron', 'Gravity'],
 answerIndex:3,
 explanation:"Scientific fact."
