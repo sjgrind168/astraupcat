@@ -37,7 +37,7 @@ export function AppSidebar() {
           {!collapsed && (
             <div className="flex flex-col leading-tight">
               <span className="text-sm font-bold tracking-wide text-gradient-gold">ASTRA</span>
-              <span className="text-[10px] uppercase tracking-[0.18em] text-muted-foreground">UPCAT Reviewer</span>
+              <span className="text-[10px] uppercase tracking-[0.18em] text-muted-foreground">Reviewer</span>
             </div>
           )}
         </div>

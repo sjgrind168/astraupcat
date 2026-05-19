@@ -46,7 +46,7 @@ export function Onboarding() {
             <GraduationCap className="h-7 w-7 text-primary-foreground" />
           </div>
           <CardTitle className="text-2xl">
-            <span className="text-gradient-gold">Astra UPCAT Reviewer</span>
+            <span className="text-gradient-gold">Astra Reviewer</span>
           </CardTitle>
           <CardDescription>Personalized, high-difficulty UPCAT training. Let's set you up.</CardDescription>
         </CardHeader>

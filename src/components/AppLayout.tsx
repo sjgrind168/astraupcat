@@ -19,7 +19,7 @@ export default function AppLayout() {
           <header className="h-14 flex items-center gap-3 border-b border-border bg-card/50 backdrop-blur px-4 sticky top-0 z-30">
             <SidebarTrigger />
             <div className="flex flex-col">
-              <span className="text-sm font-semibold">Astra UPCAT Reviewer</span>
+              <span className="text-sm font-semibold">Astra Reviewer</span>
               <span className="text-[11px] text-muted-foreground">Welcome back, {state.profile.name}.</span>
             </div>
           </header>

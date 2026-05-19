@@ -26,7 +26,7 @@ export default function Dashboard() {
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
         <Card className="bg-gradient-card shadow-elegant">
           <CardHeader className="pb-2">
-            <CardDescription className="flex items-center gap-2"><CalendarClock className="h-4 w-4" /> UPCAT countdown</CardDescription>
+            <CardDescription className="flex items-center gap-2"><CalendarClock className="h-4 w-4" /> Exam countdown</CardDescription>
             <CardTitle className="text-3xl text-gradient-gold">{examDays} <span className="text-sm font-normal text-muted-foreground">days</span></CardTitle>
           </CardHeader>
         </Card>

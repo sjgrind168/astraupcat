@@ -1,0 +1,821 @@
+UPCAT Review: Science I (General Science and Biology)
+A. Review of General Science
+I. Universe, Astronomy and Solar System
+1. Solar System
+
+2. Kepler’s Laws of Planetary Motion
+a. The orbit of a planet is an ellipse with the Sun at one of the two foci.
+b. A line segment joining a planet and the Sun sweeps out equal areas during equal intervals of time.
+c. The square of the orbital period of a planet is proportional to the cube of the semi-major axis of its
+orbit.
+II. Geology
+1. Rocks and Minerals
+a. Classification of Rocks
+i. Igneous: forms from cooled magma or lava.
+1. Intrusive igneous rock (ex. granite) - forms in underground pockets
+2. Extrusive igneous rock (ex. obsidian) - forms above ground
+ii. Sedimentary: Erosion from water and weather carries deposits downstream which will
+form layers. As pressure accumulates over thousands of years, the lower levels are
+pressed into sedimentary rock.
+1. Clastic sedimentary rocks (ex. sandstone) - formed from inorganic debris.
+2. Organic sedimentary rocks (ex. limestone or coal) - formed from plant or animal
+remains
+3. Chemical sedimentary rock (ex. rock salt) - formed when dissolved materials
+come out of solution.
+iii. Metamorphic: Form when other types of rocks undergo extreme heat, pressure and
+chemical processes deep in Earth's crust.
+1. Foliated metamorphic rocks (ex. slate) form with visible layers or banded
+striations from pressure.
+2. Non-foliated metamorphic rocks (ex. marble ) form more irregular striations
+
+b. Rock Cycle: Each form of rock can turn into the
+other under the right circumstances, thereby
+continuing the ever-shifting rock cycle.
+i. Igneous and sedimentary rock 
+metamorphic rock: high pressure and
+heat
+ii. Sedimentary and metamorphic rock 
+igneous rock: melting back into magma
+iii. Igneous and metamorphic rock 
+sedimentary rock: erosion
+c. Elements on the Earth’s Crust
+Element name
+Symbol % weight on Earth’s crust
+Oxygen
+O
+47
+Silicon
+Si
+28
+Aluminum
+Al
+8
+Iron
+Fe
+5
+Calcium
+Ca
+3.5
+Sodium
+Na
+3
+Potassium
+K
+2.5
+Magnesium
+Mg
+2
+All other elements
+1
+
+Source:
+http://www.rsc.org/Education/Teachers/Resource
+s/jesei/minerals/students.htm
+
+d. Minerals: substances formed naturally in the Earth with definite chemical composition and
+structure. There are over 3000 minerals known. Some are rare and precious such as diamond,
+while others are more ordinary, such as quartz.
+e. Weathering: one of the destructive processes on earth (together with Erosion and Transportation);
+exposes most rocks to a different physio-chemical environment from where they formed.
+i. Mechanical weathering - which produces clasts of rock/mineral which are smaller than
+the original, and of the same general composition. There are two basic processes:
+1. Fracturing, which is like a hammer and produces angular clasts
+2. Abrasion, which works like sandpaper and rounds off the rough edges.
+ii. Chemical weathering - also produces smaller pieces, but of a different chemical
+composition - the minerals have been changed in an attempt to be more in balance with
+surface conditions. The most common product of chemical weathering is clay.
+iii. Biological weathering - really isn't a type of its own; the actions of plants (and animals)
+can and do lead to both mechanical and biological weathering.
+
+f.
+
+Layers of Soil
+
+g. Mohs’ Scale of Hardness
+
+2. Earth’s Surface (earthquakes, volcanoes, faults, ,mountains, plate tectonics)
+
+a. Layers of the Earth
+b. Crust - outermost layer of the Earth
+i. Continental crust – make up land masses, 32-70km thick
+ii. Oceanic crust – make up ocean floor, 8km thick
+
+c. Stress – change shape and volume of the crust, leading to movement
+and deformation
+i. Compression - rocks are pushed together causing inc.
+density and dec. volume
+ii. Tension – rocks are pulled apart causing dec. density and
+inc. volume
+iii. Shearing – rocks are pushed in opposite directions causes
+twisting or break apart
+d. Fault – a break or crack along which rocks move (level of
+fault plane); hanging wall (rock above fault plane) and foot
+wall (rock below fault plane)
+i. Normal fault - hanging wall goes down relative to
+foot wall (vertical)
+ii. Reverse fault – compression causes hanging wall
+to move up relative to foot wall
+iii. Thrust fault – compression causes hanging wall to
+slide over the foot wall
+iv. Lateral Strike Slip fault – one moves to left/right in
+relation to another (horizontal)
+
+e. Plate tectonics: The Earth's surface is made up of a series of large plates (like pieces of a jigsaw
+puzzle) which are in constant motion travelling at a few cms per year, spreading from the centre
+and sinking at the edges, termed as convection currents sourced from radioactive decay of Earth.
+
+i. Continental Drift – theory that continents can drift from one another
+Alfred Wegener said that “From supercontinent named Pangea continents moved, the
+leading edge of the continent would encounter resistance and thus compress and fold
+upwards forming mountains near the leading edges of the drifting continents”
+ii. Types of Plate Boundaries
+1. Transform boundaries occur where two lithospheric plates slide or grind past
+each other along transform faults; plates are neither created nor destroyed. (ex.
+The San Andreas Fault in California)
+2. Divergent boundaries occur where two plates slide apart from each other.
+(rifting)
+a. Ocean-to-ocean rifting: divergent boundaries form by seafloor
+spreading, allowing for the formation of new ocean basin. (ex. MidAtlantic Ridge, East Pacific Rise)
+
+b. Continent-to-continent rifting, divergent boundaries may cause new
+ocean basin to form as the continent spreads, the central rift collapses,
+and ocean fills the basin. (ex. Africa's East African Rift, Red Sea)
+3. Convergent boundaries occur where two plates slide toward each other to form
+either a subduction zone (one plate moving underneath the other) or a
+continental collision.
+a. Continent-to-continent subduction, the dense oceanic lithosphere
+plunges beneath the less dense continent. Earthquakes then trace the
+path of the downward-moving plate as it descends into asthenosphere,
+a trench forms, and as the subducted plate partially melts, magma rises
+to form continental volcanoes. (ex. Western South America, and
+Cascade Mountains in Western United States)
+b. Ocean-to-ocean subduction, older, cooler, denser crust slips beneath
+less dense crust. This causes earthquakes and a deep trench to form in
+an arc shape. The upper mantle of the subducted plate then heats and
+magma rises to form curving chains of volcanic islands. (ex. the Andes
+mountain range in South America, Aleutian islands, Mariana islands,
+and the Japanese island arc)
+4. Plate boundary zones occur where the effects of the interactions are unclear,
+and the boundaries, usually occurring along a broad belt, are not well defined
+and may show various types of movements in different episodes.
+3. Half-life - is the amount of time required for a quantity to fall to half its value as measured at the beginning
+of the time period. While the term "half-life" can be used to describe any quantity which follows an
+exponential decay
+4. Geological Periods
+
+III. Scientific Method and Experiments
+1. Steps of Scientific Method - process by which scientists, collectively and over time, endeavor to construct
+an accurate representation of the world.
+a. Observation and description of a phenomenon
+b. Formulation of an hypothesis to explain the phenomena
+c. Use of the hypothesis to predict the existence of other phenomena, or to predict quantitatively the
+results of new observations.
+d. Performance of experimental tests by several independent experimenters and properly designed
+experiments.
+i. Confirmation of hypothesis
+ii. Ruling out of hypothesis
+2. Sources of Experimental Error
+a. Random error - error intrinsic to instruments of measurement which has equal probability of
+producing a measurement higher or lower numerically than the "true" value.
+b. Non-random or systematic error - error due to factors which bias the result in one direction.
+***No experiment can be perfectly precise. At the same time, there are standard ways of estimating and
+reducing errors. It is important to determine the accuracy of a particular measurement and, when stating
+quantitative results, to quote the measurement error.
+3. Hypothesis, Model, Theories, Laws
+a. Hypothesis is a limited statement regarding cause and effect in specific situations; it also refers to
+our state of knowledge before experimental work has been performed and perhaps even before new
+phenomena have been predicted.
+b. Models are for situations when it is known that the hypothesis has at least limited validity. (ex. Bohr
+model)
+c. Scientific theory or law represents a hypothesis, or a group of related hypotheses, which has been
+confirmed through repeated experimental tests.
+4. Variables in an Experiment
+a. Independent variable: factor that you purposely change in an experiment.
+b. Dependent variable: factor that you are measuring in order to determine whether or not it is affected
+by a change in the independent variable.
+c. Controlled variable: factors which are controlled or held constant throughout an investigation. They
+are kept unchanging so that they won't influence the outcome of the
+experiment.
+B. Review of Biology
+I. Organic Macromolecules
+Creation of larger molecules = dehydration (removal of H2O)
+Breakdown of larger molecules = hydrolysis
+1. Proteins C, H, O, N
+Monomer: Amino Acid (20)
+α helix, β pleated sheets
+Polypeptide chains
+Broken down by proteinases
+
+Found in enzymes, blood cells, receptors and muscle tissue
+created by RNA during DNA Transcription and Translation
+Biuret Test (+) blue  violet (clustering of amide ions)
+
+
+
+
+
+
+
+The protein consists of two polypeptide chains, a long one on the left of 346 amino acids — it is
+called the heavy chain — and a short one on the right of 99 amino acids.
+The heavy chain has 5 main domains, anchored in the plasma membrane of the cell, the heavy
+chain is called an integral membrane protein.
+o three extracellular domains, designated here as N (includes the N-terminal), C1, and C2
+o transmembrane domain where the polypeptide chain passes through the plasma
+membrane of the cell
+o a cytoplasmic domain (with the C terminal) within the cytoplasm of the cell.
+To the right is the protein molecule called beta-2 microglobulin. It is not attached by noncovalent
+interactions like hydrogen bonds, and thus called peripheral membrane protein.
+The dark bars represent disulfide (S—S) bridges linking portions of each external domain (except
+the N domain).
+
+2. Carbohydrates C, H, O [1:2:1]
+Monomer: monosaccharide/simple sugar
+Benedict’s Test (+): bluebrown red
+Cu2+  Cu+ (Cu2O)
+C6H12O6 = structural isomers
+Glucose: blood sugar
+Galactose: milk sugar
+Fructose: fruit sugar
+Disaccharide (2 units)
+C12H22O11 = structural isomers
+Sucrose: common table sugar = glucose + fructose
+Lactose: major sugar in milk = glucose + galactose
+Maltose: product of starch digestion = glucose +
+glucose
+
+Oligosaccharide (3-10 units)
+Polysaccharide/complex sugar
+Starch Test (+): black-blue after addition of iodine
+
+
+Starch - insoluble in water, plant storage form.
+o Amylose: linear chains of several hundred glucose units linked by a 1-4 glycosidic bond.
+o Amylopectin: highly branched several thousand glucose units. A short side chain is linked
+to C6 (the carbon above the ring)
+o The hydrolysis of starch is done by amylases.
+
+
+
+Cellulose - single most abundant organic molecule in the biosphere, major structural material of
+plants. Difference from starch:
+o orientation of the glycosidic bonds: glucose rings arranged in a flip-flop manner  long,
+straight, rigid molecule.
+o no side chains in cellulose  lie close together
+o many -OH groups  many hydrogen bonds to form
+
+
+
+Glycogen – animal storage form.
+o Structure is similar to amylopectin, although the branches tend to be shorter and more
+frequent.
+o Stored mostly in liver and muscles
+o Glycogen is broken back down into glucose when energy is needed via glycogenolysis
+ Phosphate groups break the 1 -> 4 linkages
+ Then remove phosphate group, so that glucose can leave the cell
+
+3. Lipids C,H,O, [3:1]
+3 F.A. chains + glycerol bound by ester linkage = triglyceride
+Sudan IV Test (+) = dark red  reddish orange
+Hydrophobic
+Saturated - all single bonds; maximum possible amount of
+hydrogens, solid at room temperature
+Mono/Polyunsaturated – one/multiple double/triple bond; not
+bonded to maximum hydrogens, liquid at room temperature
+Cis – carbon chains on same side “good oils”
+Trans – carbon chains on opposite side “trans fats = bad oils”
+Lipoproteins are clusters of proteins and lipids all tangled up
+together. These act as a means of carrying lipids, including
+cholesterol, around in our blood.
+LDL or low density lipoprotein “bad guy,” associated with
+deposition of cholesterol
+HDL or high density lipoprotein “good guy,” associated with
+carrying “cholesterol” out of the blood
+
+
+
+Triglycerides
+
+
+
+Phospholipids
+o Glycerol + two fatty acids + phosphate group with some other
+molecule attached to its other end.
+o Hydrocarbon tails of the fatty acids are still hydrophobic, but
+the phosphate group end of the molecule is hydrophilic
+because of the oxygens with all of their pairs of unshared
+electrons.
+o Soluble in water and oil - “emulsifying agent”
+ Ex. lecithin (found in eggs, used to make
+mayonnaise), cell membranes
+
+
+
+Steroids
+o consist of two six-membered rings side-by-side and sharing one side in
+common, a third six-membered ring off the top corner of the right ring,
+and a five-membered ring attached to the right side of that. The central
+core of this molecule, consisting of four fused rings
+o Ex. estrogen (estradiol), progesterone, corticosteroids such as cortisol
+(cortisone), aldosterone, testosterone, and Vitamin D
+
+II. Cells, Tissues
+1. Cell components and functions
+
+2. Prokaryotic Cell
+
+
+Capsule - Found in some bacterial cells, this
+additional outer covering protects the cell when it is engulfed
+by other organisms, assists in retaining moisture, and helps the
+cell adhere to surfaces and nutrients.
+
+Cell Wall - Outer covering of most cells that protects
+the bacterial cell and gives it shape.
+
+Cytoplasm - A gel-like substance composed mainly of
+water that also contains enzymes, salts, cell components, and
+various organic molecules.
+
+
+
+
+
+
+
+
+Cell Membrane or Plasma Membrane - Surrounds the cell's cytoplasm and regulates the flow of substances
+in and out of the cell.
+Pili - Hair-like structures on the surface of the cell that attach to other bacterial cells. Shorter pili called
+fimbriae help bacteria attach to surfaces.
+Flagella - Long, whip-like protrusion that aids in cellular locomotion.
+Ribosomes - Cell structures responsible for protein production.
+Plasmids - Gene carrying, circular DNA structures that are not involved in reproduction.
+Nucleoid Region - Area of the cytoplasm that contains the single bacterial DNA molecule.
+
+3. Comparison between Eukaryotic and Prokaryotic Cells
+Eukaryotic and Prokaryotic Cell Structures
+Cell Structure
+
+Prokaryotic Cell
+
+Typical Animal Eukaryotic Cell
+
+Cell Membrane
+
+Yes
+
+Yes
+
+Cell Wall
+
+Yes
+
+No
+
+Centrioles
+
+No
+
+Yes
+
+Chromosomes
+
+One long DNA strand
+
+Many
+
+Cilia or Flagella
+
+Yes, simple
+
+Yes, complex
+
+Endoplasmic
+Reticulum
+
+No
+
+Yes (some exceptions)
+
+Golgi Complex
+
+No
+
+Yes
+
+Lysosomes
+
+No
+
+Common
+
+Mitochondria
+
+No
+
+Yes
+
+Nucleus
+
+No
+
+Yes
+
+Peroxisomes
+
+No
+
+Common
+
+Ribosomes
+
+Yes
+
+Yes
+
+4. Cell Division
+a. Mitosis – division of somatic body cells resulting to two daughter cells
+
+b. Meiosis – division of sex cells/gametes, resulting to 4 recombinant cells
+
+Comparison between Mitosis and Meiosis
+
+5. Cell and the Environment
+Tonicity – measure of the effective osmotic pressure gradient (measured by the water potential of two
+solutions) of two solutions separated by a selectively permeable membrane
+
+Osmosis - spontaneous net movement of solvent molecules through a partially permeable membrane into a
+region of higher solute concentration, in the direction that tends to equalize the solute concentrations on the
+two sides.
+
+Transport of Substances
+
+III. Organ Systems
+INTEGUMENTARY SYSTEM
+Components: skin, hair, nails, sweat glands
+Function: covers and protects body
+Specific features:
+-Protection against injury
+-Sensory receptors in skin tell about the environment (touch, pressure, heat, cold, pain)
+-Prevents drying out of cells
+-Helps maintain body temperature (capillaries and sweat glands in skin)
+-Sweat glands excrete water and some wastes
+-Skin has Vitamin D precursor, which is converted to Vitamin D by sunlight
+SKELETAL SYSTEM
+Components: bones, cartilage, ligaments
+Function: supports and protects body; muscles attached to bones; provides calcium storage; site of blood cell formation
+Specific features:
+-Supports body via bony framework
+-Protects delicate vital organs (for their weight, bones are nearly as strong as steel)
+-Bones are levers that transmit muscular forces; muscles are attached to bones by bands of connective tissue called
+tendons. When muscles contract, they pull on bones. Bones are held together at the joints by bands of connective
+tissue called ligaments.
+-Marrow inside some bones produces blood cells (specifically inside flat bones: skull, ribs and breastbone)
+-Bones serve as banks for storage and release of minerals like calcium and phosphorus
+MUSCULAR SYSTEM
+Components: skeletal muscle, cardiac muscle, smooth muscle
+Function: moves parts of the skeleton, locomotion; pumps blood; aids movement of internal materials
+Specific features:
+-Muscle cells contract and become shorter and thicker; because muscle cells are long and narrow, they are called
+fibers
+-Skeletal muscles are attached to bones; they are voluntary muscles, which make our bodies move. They are striped
+or striated in appearance.
+-Cardiac muscle is found in the walls of the heart; it contacts involuntarily and is also striated.
+-Smooth muscle is found in the walls of the digestive tract, uterus, blood vessels and other internal organs. The fibers
+are not striated and they are involuntary.
+NERVOUS SYSTEM
+Components: nerves and sense organs, brain and spinal cord
+Function: receives stimuli from external and internal environments, conducts impulses and integrates activities of other
+systems
+Specific features:
+-Two divisions of the nervous system: central and peripheral
+-Central nervous system consists of the brain and spinal cord
+-Peripheral nervous system consists of the sense organs (eyes, ears, taste buds,
+olfactory receptors, touch receptors) and the nerves which connect the spinal cord with the rest of the body. These
+nerves are classified as either afferent (transmit information from the periphery to the spinal cord) or efferent (transmit
+information from the spinal cord to the periphery).
+-Peripheral nervous system is subdivided into two divisions: somatic division (consists
+
+of receptors and nerves concerned with changes in the outside environment; the sense organs and afferent nerves)
+and the autonomic division (regulates the internal environment; primarily the sympathetic and parasympathetic systems
+of the efferent system of nerves).
+ENDOCRINE SYSTEM
+Components: pituitary gland, adrenal gland, thyroid gland, hypothalamus gland, pineal gland, kidney, pancreas,
+ovaries, testes and other ductless glands (which are defined as tissues that secrete hormones that diffuse into the
+blood vessels)
+Function: regulates body chemistry and many body functions
+Specific features:
+-These glands are regulated by feedback control: information about hormone levels or their effect is fed back to the
+gland to regulate the hormone's release
+-Endocrine activity is controlled by the hypothalamus gland (which is located in the brain). This gland links the nervous
+and endocrine systems. As a result of nervous stimuli, it secretes several releasing and inhibiting hormones that affect
+the activity of the other glands.
+CIRCULATORY SYSTEM
+Components: heart, blood vessels, blood; lymph and lymph structures
+Function: transports materials from one part of the body to another; defends body against disease
+Specific features:
+-Consists of two subsystems: the cardiovascular system (includes the heart which pumps the blood through the blood
+vessels) and the lymphatic system (which helps to preserve fluid balance and protects the body against disease)
+-Transports nutrients from the digestive system to all parts of the body
+-Transports oxygen from the lungs to all the cells of the body
+-Transports carbon dioxide and other metabolic wastes from the cells to the excretory organs
+-Transports hormones from the endocrine glands to the target tissues
+-Helps maintain normal body temperature
+-Helps maintain fluid balance
+-Protects the body against disease-causing organisms. The lymphocytes, which are a
+type of white blood cell, are formed in the lymph tissue: lymph glands, spleen, thymus, tonsils and lymphoid tissue in
+the gut. There are two types of lymphocytes: T lymphocytes (the mediators of cellular immunity; these cells destroy
+the invader) and B lymphocytes (the antibody-producing cells; humoral immunity).
+RESPIRATORY SYSTEM
+Components: lungs and air passageways
+Function: exchanges gases between the blood and the external environment
+Specific features:
+-Respiration includes breathing, gas exchange between lungs and blood, transport of gases through the body by the
+blood, gas exchange between the blood and the cells and cellular respiration (the chemical reaction pathways by which
+chemical energy is obtained from food).
+DIGESTIVE SYSTEM
+Components: mouth, esophagus, stomach, intestines, liver, pancreas
+Function: ingests and digests foods, absorbs them into the blood
+Specific features:
+-Salivary glands, liver and pancreas are not part of the digestive system but secrete digestive juices into it
+-The digestive system involves four major processes:
+1. Ingestion-taking food into the mouth, chewing and swallowing
+2. Digestion-breakdown of food into smaller pieces (catalyzed by enzymes)
+3. Absorption-transfer of digested food through the wall of the intestine and into
+the circulatory system
+
+4. Elimination-removal of undigested and unabsorbed food from the body (in feces)
+URINARY SYSTEM
+Components: kidney, bladder and associated ducts
+Function: excretes metabolic wastes; removes substances present in excess from the blood
+Specific features:
+-Urine is made by the kidneys; it's transported from the kidneys to the bladder by the ureters; the bladder stores the
+urine then the urine leaves the bladder and exits the body via the urethra.
+-95% of urine is water. Also present is urea, which is produced in the liver (urea is the excretion form of nitrogen
+waste).
+REPRODUCTIVE SYSTEM
+Components: testes, ovaries and associated structures
+Function: reproduction, which provides for continuation of the species
+
+IV. Energy
+1. Photosynthesis: Photosynthesis is the process of converting light energy to chemical energy and storing it
+in the bonds of sugar. This process occurs in plants and some algae (Kingdom Protista). Plants need only
+light energy, CO2, and H2O to make sugar. The process of photosynthesis takes place in the chloroplasts,
+specifically using chlorophyll, the green pigment involved in photosynthesis.
+1. Chloroplast: outer and inner membranes, intermembrane space, stroma, and thylakoids stacked in
+grana. The chlorophyll is built into the membranes of the thylakoids.
+2. 6CO2 + 6H2O (+ light energy) → C6H12O6 + 6O2.
+a. Light Reaction
+ happens in the thylakoid membrane, converts light energy to chemical energy.
+ chlorophyll and several other pigments such as beta-carotene are organized in
+clusters in the thylakoid membrane. Each of these differently-colored pigments
+can absorb a different color of light and pass its energy to the central chlorphyll
+molecule to do photosynthesis.
+ central part of the chemical structure of a chlorophyll molecule is a porphyrin
+ring, which consists of several fused rings of carbon and nitrogen with a
+magnesium ion in the center.
+
+b. Dark Reaction
+ the energy harvested via the light reaction is stored
+by forming ATP (adenosine triphosphate)
+ takes place in the stroma within the chloroplast,
+and converts CO2 to sugar.
+ needs the products of the light reaction (ATP and
+NADPH).
+ the first product of photosynthesis is a threecarbon compound glyceraldehyde 3-phosphate.
+Almost immediately, two of these join to form a
+glucose molecule.
+ Rubisco - Ribulose-1,5-bisphosphate
+carboxylase/oxygenase
+o atmospheric carbon dioxide is converted
+by plants to energy-rich glucose. By catalyzes the carboxylation of ribulose-1,5bisphosphate (RuBP).
+o most abundant protein on Earth
+
+2. Cell Respiration: a catabolic pathway for the production of adenosine triphosphate (ATP)
+1. Glycolysis: "splitting sugars." Glucose, a 6C sugar, is split into two molecules of a 3C sugar. In the
+process, two molecules of ATP, two molecules of pyruvic acid and two NADH are produced.
+Glycolysis can occur with or without oxygen.
+ (+) oxygen, glycolysis is the first stage of cellular respiration.
+ (-) oxygen, glycolysis allows cells to make small amounts of ATP via fermentation.
+
+2. Citric Acid Cycle: aka Krebs Cycle begins after the two molecules of 3C sugar produced in
+glycolysis are converted to acetyl CoA. Through a series of intermediate steps, several compounds
+capable of storing "high energy" electrons are produced along with two ATP molecules. These
+compounds, known as nicotinamide adenine dinucleotide (NAD) and flavin adenine dinucleotide
+(FAD), are reduced in the process. The Citric Acid Cycle occurs only when oxygen is present but it
+doesn't use oxygen directly.
+
+3. Electron Transport: requires oxygen directly. The electron transport chain is a series of electron
+carriers in the membrane of the mitochondria in eukaryotic cells. Through a series of reactions, the
+"high energy" electrons are passed to oxygen. In the process, a electric gradient is formed, and ATP
+is produced.
+
+4. Maximum ATP Yields: In summary, prokaryotic cells can yield a maximum of 38 ATP molecules
+while eukaryotic cells can yield a maximum of 36 ATP. In eukaryotic cells, the NADH molecules
+produced in glycolysis pass through the mitochondrial membrane, which needs two ATPs.
+V. Ecology and Environment\
+ENVIRONMENTAL SCIENCE
+Acid Rain - air pollution, sulfuric acid.
+
+Global Warming - greenhouse gases, greenhouse effect.
+
+Ozone Layer - CFC chlorofluorocarbons, O3, ultraviolet radiation
+
+Loss of Biodiversity - deforestation, extinction of species.
+Toxic Magnification - accumulation of toxins in higher trophic levels.
+Resource Depletion - topsoil erosion, ground water pollution and depletion, non-renewable resources, rate of
+renewable resources.
+Human Population Growth - growth rate, ecological footprint.
+POPULATION ECOLOGY
+Populations - size, density, dispersion.
+Population Growth Model - exponential growth, logistic growth, carrying capacity, density-dependent factors, densityindependent factors, r-strategists, K-strategists.
+
+Hardy-Weinberg principle - allele frequencies in populations
+
+BIOLOGICAL COMMUNITY - the different species living in a habitat.
+Ecosystem Biodiversity - biotic factors and abiotic factors
+Competition - niche, limited resources.
+Symbiosis - parasitism, mutualism, commensalism, predator and prey
+Biomes of the World (defined as contiguous areas with similar climatic conditions on the Earth, such as communities
+of plants, animals, and soil organisms, and are often referred to as ecosystems)
+
+tundra biome, desert biome, marine biome, grassland biome, taiga biome, temperate grassland biomes,
+temperate deciduous forest biome, tropical rain forest biome, savanna biome, polar ice biome.
+What is an Ecosystem - biological community and physical environmental factors.
+Forest Ecosystems - tropical rainforest ecosystems, temperate rainforest, tropical dry forests, deciduous forests,
+coniferous forests.
+
+Aquatic Ecosystems - freshwater, ocean, wetland, marine, pond
+
+Other Ecosystems - desert, tundra, grassland, soil
+Succession - pioneer species, climax community, boundaries
+
+ENERGY FLOW
+Food Chain - feed from lower trophic level.
+Trophic Levels - producers, consumers, herbivores, carnivores, omnivores, detritivores, decomposers.
+Autotrophs (producers) vs. Heterotrophs (consumers)
+Poikilotherms (ectotherms) vs. Homeotherms (endotherms)
+
+Food Web - multiple interlocking food chains.
+
+Energy Pyramid - energy transfer, energy efficiency, biomass.
+
+BIOGEOCHEMICAL CYCLES
+Water Cycle - ground water, percolation, run-off, transpiration, precipitation, evaporation, water vapor
+
+Carbon Cycle - atmospheric CO2, cellular respiration, photosynthesis, combustion, death and decomposition, fossil
+fuels, erosion from marine deposits
+
+Nitrogen Cycle - nitrogen fixation, nitrogen fixing bacteria, assimilation, ammonification, nitrification, nitrifying
+bacteria, denitrification, denitrifying bacteria, atmospheric N2, ammonia, nitrates, nitrites.
+
+Phosphorous Cycle
+
+Sulfur Cycle
+
+VI. Taxonomy – binomial nomenclature
+Kingdom, Phylum, Class, Order, Family, Genus, and Species.
+
+1. Archaebacteria
+Organisms: Methanogens, Halophiles, Thermophiles, Psychrophiles
+Cell Type: Prokaryotic
+Metabolism: Depending on species - oxygen, hydrogen, carbon dioxide, sulfur, sulfide may be needed for
+metabolism.
+Nutrition Acquisition: Depending on species - nutrition intake may by absorption, non-photosynthetic
+photophosphorylation, or chemosynthesis.
+Reproduction: Asexual reproduction by binary fission, budding, or fragmentation.
+2. Eubacteria
+Organisms: Bacteria, Cyanobacteria(blue-green algae), Actinobacteria
+Cell Type: Prokaryotic
+Metabolism: Depending on species - oxygen may be toxic, tolerated, or needed for metabolism.
+Nutrition Acquisition: Depending on species - nutrition intake may by absorption, photosynthesis, or chemosynthesis.
+Reproduction: Asexual reproduction
+3. Protista
+Organisms: Amoebae, green algae, brown algae, diatoms, euglena, slime molds
+Cell Type: Eukaryotic
+Metabolism: Oxygen is needed for metabolism.
+Nutrition Acquisition: Depending on species - nutrition intake may be by absorption, photosynthesis, or ingestion.
+Reproduction: Mostly asexual reproduction. Meiosis occurs in some species.
+4. Fungi
+Organisms: Mushrooms, yeast, molds
+Cell Type: Eukaryotic
+Metabolism: Oxygen is needed for metabolism.
+Nutrition Acquisition: Absorption
+Reproduction: Asexual or sexual reproduction occur.
+5. Plantae
+Organisms: Mosses, angiosperms (flowering plants), gymnosperms, liverworts, ferns
+Cell Type: Eukaryotic
+Metabolism: Oxygen is needed for metabolism.
+Nutrition Acquisition: Photosynthesis
+Reproduction: Some species reproduce asexually by mitosis. Other species exhibit sexual reproduction.
+
+6. Animalia
+Organisms: Mammals, amphibians, sponges, insects, worms
+Cell Type: Eukaryotic
+Metabolism: Oxygen is needed for metabolism.
+Nutrition Acquisition: Ingestion
+Reproduction: Sexual reproduction
+VII. Molecular Biology and Genetics
+1. Nucleic Acids: allow organisms to transfer genetic information from one generation to the next. Two types
+of nucleic acids:
+a. ribonucleic acid (RNA) CGAU
+b. deoxyribonucleic acid (DNA) CGAT
+Nucleic acids: monomer – nucleotides composed of
+ Nitrogenous Base – GA (purine) CTU (pyrimidine) complementary pairs
+ Five-Carbon Sugar – ribose, deoxyribose
+ Phosphate Group
+Polynucleotides: nucleotides are joined to one another by covalent bonds between
+the phosphate of one and the sugar of another, called phosphodiester linkages.
+2. Central Dogma of Molecular Biology: When a cell divides, its DNA is copied and passed from one cell
+generation to the next generation. DNA contains the "programmatic instructions" for cellular activities. When
+organisms produce offspring, these instructions, in the form of DNA, are passed down. RNA is involved in
+the synthesis of proteins. "Information" is typically passed from DNA to RNA to the resulting proteins.
+a. DNA Transcription - transcribing DNA to RNA. The RNA transcript is used to produce proteins.
+ RNA Polymerase Binds to DNA: DNA is transcribed by RNA polymerase. Specific
+nucleotide sequences tell RNA polymerase where to begin and where to end. RNA
+polymerase attaches to the DNA at the promoter region.
+ Elongation: Certain proteins called transcription factors unwind the DNA strand and
+allow RNA polymerase to transcribe only a single strand of DNA into a single stranded
+RNA polymer called messenger RNA (mRNA). The strand that serves as the template is
+called the antisense strand. The strand that is not transcribed is called the sense strand.
+ Termination: RNA polymerase moves along the DNA until it reaches a terminator
+sequence. At that point, RNA polymerase releases the mRNA polymer and detaches from
+the DNA. mRNA must cross the nuclear membrane to reach the cytoplasm.
+
+b. Translation - Once in the cytoplasm, ribosomes and another RNA molecule called transfer RNA
+work together to translate mRNA into a protein. Proteins can be manufactured in large quantities
+because a single DNA sequence can be transcribed by many RNA polymerase molecules at once.
+
+3. Mendelian Genetics
+MENDEL’S CONCLUSIONS BASED ON HIS EXPERIMENTS:
+ The hereditary determinants are of a particulate nature. These determinants are called genes.
+ Each parent has a gene pair in each cell for each trait studied. The F1 from a cross of two pure
+lines contains one allele for the dominant phenotype and one for the recessive phenotype. These
+two alleles comprise the gene pair.
+ One member of the gene pair segregates into a gamete, thus each gamete only carries one
+member of the gene pair.
+ Gametes unite at random and irrespective of the other gene pairs involved.
+DEFINITIONS
+ Allele - one alternative form of a given allelic pair; tall and dwarf are the alleles for the height of a
+pea plant; more than two alleles can exist for any specific gene, but only two of them will be found
+within any individual
+ Allelic pair - the combination of two alleles which comprise the gene pair
+ Homozygote - an individual which contains only one allele at the allelic pair; for example DD is
+homozygous dominant and dd is homozygous recessive; pure lines are homozygous for the gene
+of interest
+ Heterozygote - an individual which contains one of each member of the gene pair; for example the
+Dd heterozygote
+ Genotype - the specific allelic combination for a certain gene or set of genes
+ Dominance - the ability of one allele to express its phenotype at the expense of an alternate allele;
+the major form of interaction between alleles; generally the dominant allele will make a gene
+product that the recessive can not; therefore the dominant allele will express itself whenever it is
+present
+ Pure Line - a population that breeds true for a particular trait [this was an important innovation
+because any non-pure (segregating) generation would and did confuse the results of genetic
+experiments]
+ Phenotype - literally means "the form that is shown"; it is the outward, physical appearance of a
+particular trait
+
+
+
+
+Dominant - the allele that expresses itself at the expense of an alternate allele; the phenotype that
+is expressed in the F1 generation from the cross of two pure lines
+Recessive - an allele whose expression is suppressed in the presence of a dominant allele; the
+phenotype that disappears in the F1 generation from the cross of two pure lines and reappears in
+the F2 generation
+
+MENDELIAN LAWS:
+Mendel's First Law - the law of segregation; during gamete formation each member of the allelic
+pair separates from the other member to form the genetic constitution of the gamete.
+Mendel's Second Law - the law of independent assortment; during gamete formation the
+segregation of the alleles of one allelic pair is independent of the segregation of the alleles of
+another allelic pair.
+References:
+EARTH SCIENCE
+http://www.ehow.com/info_10002941_formation-igneous-metamorphic-sedimentary-rocks.html
+http://geology.about.com/od/minerals/f/mostcommonmin.htm
+http://jersey.uoregon.edu/~mstrick/AskGeoMan/geoQuerry59.html
+http://teacher.nsrl.rochester.edu/phy_labs/appendixe/appendixe.html
+http://www.enchantedlearning.com/subjects/dinosaurs/glossary/Period.shtml
+http://www.slideshare.net/coachmckay/movement-of-the-earths-crust
+http://www.moorlandschool.co.uk/earth/tectonic.htm
+http://space.about.com/cs/astronomy101/a/astro101a.htm
+BIOLOGY
+http://biology.unm.edu/ccouncil/Biology_124/Summaries/Cell.html
+http://biology.unm.edu/ccouncil/Biology_124/Summaries/Macromol.html
+http://users.rcn.com/jkimball.ma.ultranet/BiologyPages/C/Carbohydrates.html
+http://biology.clc.uc.edu/courses/bio104/lipids.htm
+http://users.rcn.com/jkimball.ma.ultranet/BiologyPages/P/Proteins.html
+http://www.usfca.edu/fac-staff/dever/biol4outline_DNAcarbs.pdf
+http://biology.about.com/od/cellularprocesses/a/cellrespiration.htm
+http://biology.about.com/od/cellanatomy/a/eukaryprokarycells.htm
+http://biology.clc.uc.edu/courses/bio104/photosyn.htm
+http://biology.about.com/od/evolution/a/aa092304a.htm
+http://www.ndsu.edu/pubweb/~mcclean/plsc431/mendel/mendel1.htm
+http://www.rims.edu.in/HealthCareCDACKolgksaha/Human%20Body%20Organ%20System.jpg
+http://biology.about.com/od/evolution/a/aa091004a.htm
+http://www.scienceprofonline.com/chemistry/diffusion-osmosis-tonicity-effect-osmotic-pressure-on-cells.html
+
+

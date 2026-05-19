@@ -88,11 +88,24 @@ const navigate=useNavigate();
 
           <p>
 
+            Your Answer:
+            {" "}
+            <span className="font-bold text-red-500">
+
+            {q.userAnswerText || "No answer"}
+
+            </span>
+
+          </p>
+
+          <p>
+
             Correct Answer:
             {" "}
-            <span className="font-bold">
+            <span className="font-bold text-green-500">
 
-            {q.choices?.[q.answerIndex]}
+            {q.correctAnswerText ||
+            q.choices?.[q.answerIndex]}
 
             </span>
 
