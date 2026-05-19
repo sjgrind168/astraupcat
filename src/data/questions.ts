@@ -11,6 +11,7 @@ import { readingGenerated005 as readingGeneratedPack } from "@/data/questionPack
 import { filipinoPack } from "@/data/questionPacks/filipinoPack";
 import { filipinoGenerated001 as filipinoGeneratedPack } from "@/data/questionPacks/filipinoGeneratedPack";
 import { logicGenerated001 as logicPack } from "@/data/questionPacks/logicPack";
+import { logicGenerated003 as logicGeneratedPack } from "@/data/questionPacks/logicGeneratedPack";
 
 let cachedQuestions: Question[] | null = null;
 
