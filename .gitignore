@@ -13,3 +13,5 @@ src/data/stagingQuestions/
 *.zip
 *.pdf
 *.docx
+
+.DS_Store
