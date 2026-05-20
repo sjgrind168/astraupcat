@@ -1,7 +1,7 @@
 import { Intensity, StudyTask, Subject, UserProfile } from "./types";
 
 const SUBJECTS: Subject[] = [
-  "Mathematics", "Science", "English Language", "Filipino Language", "Reading Comprehension",
+  "Mathematics", "Science", "English Language", "Filipino Language", "Reading Comprehension", "Logic",
 ];
 
 const TOPIC_BANK: Record<Subject, string[]> = {
@@ -10,6 +10,15 @@ const TOPIC_BANK: Record<Subject, string[]> = {
   "English Language": ["Subject-Verb Agreement", "Tenses", "Vocabulary", "Sentence Correction", "Pronouns"],
   "Filipino Language": ["Balarila", "Talasalitaan", "Pandiwa", "Tayutay", "Wastong Gamit"],
   "Reading Comprehension": ["Main Idea (English)", "Inference (English)", "Pangunahing Ideya (Filipino)", "Hinuha (Filipino)"],
+
+"Logic":[
+"Pattern Recognition",
+"Sequences",
+"Analogies",
+"Deductive Reasoning",
+"Spatial Logic",
+"Critical Thinking"
+],
 };
 
 function dayKey(d: Date) { return d.toISOString().slice(0, 10); }
