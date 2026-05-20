@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -109,6 +109,24 @@ export default function Onboarding() {
           >
             Create My Study Plan
           </Button>
+
+          <p className="text-xs text-center text-muted-foreground leading-relaxed">
+            By continuing, you agree to the{" "}
+            <Link
+              to="/terms"
+              className="underline"
+            >
+              Terms & Content Notice
+            </Link>
+            {" "}and{" "}
+            <Link
+              to="/privacy"
+              className="underline"
+            >
+              Privacy Policy
+            </Link>.
+            Astra Reviewer is an independent educational app for self-study and general entrance exam preparation.
+          </p>
         </CardContent>
       </Card>
     </div>
