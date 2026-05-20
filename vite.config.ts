@@ -25,4 +25,45 @@ export default defineConfig({
       "@tanstack/query-core",
     ],
   },
+
+  build:{
+    chunkSizeWarningLimit:1000,
+
+    rollupOptions:{
+      output:{
+
+        manualChunks(id){
+
+          if(id.includes("node_modules")){
+
+            if(
+            id.includes("recharts")
+            ) return "charts"
+
+            if(
+            id.includes("@radix-ui")
+            ) return "ui"
+
+            return "vendor"
+          }
+
+          if(
+          id.includes("/src/data/")
+          ){
+            return "question-bank"
+          }
+
+          if(
+          id.includes("/src/pages/")
+          ){
+            return "pages"
+          }
+
+        }
+
+      }
+    }
+
+  }
+
 });
