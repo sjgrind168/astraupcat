@@ -19,6 +19,7 @@ import Settings from "./pages/Settings";
 import About from "./pages/About";
 import Terms from "./pages/Terms";
 import Privacy from "./pages/Privacy";
+import Onboarding from "./pages/Onboarding";
 
 import NotFound from "./pages/NotFound.tsx";
 
@@ -32,6 +33,7 @@ const App = () => (
       <AppProvider>
         <BrowserRouter>
           <Routes>
+            <Route path="/onboarding" element={<Onboarding />} />
             <Route element={<AppLayout />}>
               <Route path="/" element={<Dashboard />} />
               <Route path="/plan" element={<StudyPlan />} />
