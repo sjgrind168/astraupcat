@@ -1,4 +1,4 @@
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink, useLocation, Link } from "react-router-dom";
 import {
   LayoutDashboard, CalendarDays, BookOpen, Target, Timer, FunctionSquare,
   Calculator, NotebookPen, BarChart3, Settings, GraduationCap, Database,
@@ -64,6 +64,58 @@ export function AppSidebar() {
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
+
+        <div className="mt-auto border-t border-sidebar-border p-3">
+
+          {!collapsed && (
+
+          <div className="space-y-2">
+
+            <div className="text-xs text-muted-foreground">
+              Astra Reviewer
+            </div>
+
+            <div className="text-[10px] leading-relaxed text-muted-foreground">
+              Independent educational app for self-study and general entrance exam preparation.
+            </div>
+
+            <div className="flex flex-col gap-1 pt-2 text-xs">
+
+              <Link
+                to="/about"
+                className="hover:text-primary"
+              >
+                About Astra Reviewer
+              </Link>
+
+              <Link
+                to="/terms"
+                className="hover:text-primary"
+              >
+                Terms & Content Notice
+              </Link>
+
+              <Link
+                to="/privacy"
+                className="hover:text-primary"
+              >
+                Privacy Policy
+              </Link>
+
+            </div>
+
+            <div className="pt-3 text-[10px] text-muted-foreground">
+              © 2026 AstraLabs
+              <br/>
+              All rights reserved.
+            </div>
+
+          </div>
+
+          )}
+
+        </div>
+
     </Sidebar>
   );
 }
