@@ -5,7 +5,8 @@ export type Subject =
   | "Science"
   | "English Language"
   | "Filipino Language"
-  | "Reading Comprehension";
+  | "Reading Comprehension"
+  | "Logic";
 
 export type Difficulty = "easy" | "normal" | "hard" | "beast";
 
