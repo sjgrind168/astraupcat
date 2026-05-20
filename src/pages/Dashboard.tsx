@@ -3,12 +3,17 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { CalendarClock, Flame, Target, TrendingUp, ArrowRight, BookOpen } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { weakestSubject, masteryPct } from "@/lib/analytics";
 
 export default function Dashboard() {
   const { state } = useApp();
-  const profile = state.profile!;
+
+  if (!state.profile) {
+    return <Navigate to="/onboarding" replace />;
+  }
+
+  const profile = state.profile;
   const today = new Date().toISOString().slice(0, 10);
   const todayTasks = state.plan.filter(t => t.date === today);
   const examDays = Math.max(0, Math.ceil((new Date(profile.examDate).getTime() - Date.now()) / 86400000));
