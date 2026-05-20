@@ -6,8 +6,8 @@ import { saveMistakes } from "@/lib/mistakeBook";
 
 export default function MockExam() {
   const [examSeed, setExamSeed] = useState(0);
-  const questions = useMockExam(100, examSeed);
-  const timer = useExamTimer(100);
+  const questions = useMockExam(500, examSeed);
+  const timer = useExamTimer(300);
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [answers, setAnswers] = useState<Record<string, number>>({});

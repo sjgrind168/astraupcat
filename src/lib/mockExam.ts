@@ -1,71 +1,145 @@
 import { getAllQuestions } from "@/data/questions";
 import { Question } from "@/types/questions";
 
-export interface MockExamConfig{
-  totalQuestions:number;
+export interface MockExamConfig {
+  totalQuestions: number;
 }
 
-function shuffle<T>(arr:T[]):T[]{
-  return [...arr]
-    .sort(()=>Math.random()-0.5);
+interface MockExamHistory {
+  usedQuestionIds: string[];
+  cycle: number;
 }
 
-function excludeRecent(
-questions:Question[]
-):Question[]{
+const HISTORY_KEY = "astraReviewerMockExamHistory";
 
-  const recentIds=
-    JSON.parse(
-      localStorage.getItem(
-        "recentMockQuestions"
-      ) || "[]"
+function shuffle<T>(arr: T[]): T[] {
+  return [...arr].sort(() => Math.random() - 0.5);
+}
+
+function readHistory(): MockExamHistory {
+  try {
+    return JSON.parse(
+      localStorage.getItem(HISTORY_KEY) ||
+      '{"usedQuestionIds":[],"cycle":0}'
     );
+  } catch {
+    return {
+      usedQuestionIds: [],
+      cycle: 0,
+    };
+  }
+}
 
-  return questions.filter(
-    q=>!recentIds.includes(q.id)
+function saveHistory(history: MockExamHistory) {
+  localStorage.setItem(
+    HISTORY_KEY,
+    JSON.stringify(history)
   );
 }
 
-function saveRecent(
-questions:Question[]
-){
+function subjectKey(q: Question): string {
+  const subject = q.subject || "";
 
-  const ids=questions.map(
-    q=>q.id
-  );
+  if (subject.includes("Math")) return "Math";
+  if (subject.includes("Science")) return "Science";
+  if (subject.includes("English")) return "English";
+  if (subject.includes("Filipino")) return "Filipino";
+  if (subject.includes("Reading")) return "Reading";
+  if (subject.includes("Logic")) return "Logic";
 
-  localStorage.setItem(
-    "recentMockQuestions",
-    JSON.stringify(
-      ids.slice(-300)
-    )
-  );
+  return "Other";
+}
+
+function takeBalanced(
+  available: Question[],
+  total: number
+): Question[] {
+  const groups: Record<string, Question[]> = {};
+
+  available.forEach((q) => {
+    const key = subjectKey(q);
+    groups[key] = groups[key] || [];
+    groups[key].push(q);
+  });
+
+  Object.keys(groups).forEach((key) => {
+    groups[key] = shuffle(groups[key]);
+  });
+
+  const preferred = [
+    "Math",
+    "Science",
+    "English",
+    "Reading",
+    "Filipino",
+    "Logic",
+    "Other",
+  ];
+
+  const selected: Question[] = [];
+  let index = 0;
+
+  while (selected.length < total) {
+    const key = preferred[index % preferred.length];
+    const next = groups[key]?.shift();
+
+    if (next) {
+      selected.push(next);
+    }
+
+    const remaining = Object.values(groups)
+      .reduce((sum, arr) => sum + arr.length, 0);
+
+    if (remaining === 0) break;
+
+    index++;
+  }
+
+  return shuffle(selected).slice(0, total);
 }
 
 export function generateMockExam(
-config:MockExamConfig
-):Question[]{
+  config: MockExamConfig
+): Question[] {
+  const all = getAllQuestions();
 
-  const all=getAllQuestions();
+  const target = Math.min(
+    config.totalQuestions,
+    all.length
+  );
 
-  let available=
-    excludeRecent(all);
+  let history = readHistory();
 
-  if(
-    available.length
-    < config.totalQuestions
-  ){
-    available=all;
+  let used = new Set(history.usedQuestionIds);
+
+  let available = all.filter(
+    q => !used.has(q.id)
+  );
+
+  if (available.length < target) {
+    history = {
+      usedQuestionIds: [],
+      cycle: history.cycle + 1,
+    };
+
+    used = new Set();
+    available = all;
   }
 
-  const exam=
-    shuffle(available)
-      .slice(
-        0,
-        config.totalQuestions
-      );
+  const exam = takeBalanced(
+    available,
+    target
+  );
 
-  saveRecent(exam);
+  const updatedUsed = [
+    ...history.usedQuestionIds,
+    ...exam.map(q => q.id),
+  ];
+
+  saveHistory({
+    usedQuestionIds: Array.from(new Set(updatedUsed)),
+    cycle: history.cycle,
+  });
 
   return exam;
 }
