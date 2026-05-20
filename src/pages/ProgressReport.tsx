@@ -100,6 +100,73 @@ export default function ProgressReport() {
       </div>
 
       <Card className="bg-gradient-card">
+        <CardHeader>
+          <CardTitle>Study Activity</CardTitle>
+          <CardDescription>
+            Your recent study consistency
+          </CardDescription>
+        </CardHeader>
+
+        <CardContent className="space-y-4">
+
+          <div className="flex gap-6 text-sm">
+
+            <div>
+              🔥 Current:
+              <span className="font-bold ml-1">
+              {state.streak.current}
+              </span>
+            </div>
+
+            <div>
+              🏆 Longest:
+              <span className="font-bold ml-1">
+              {state.streak.longest || state.streak.current}
+              </span>
+            </div>
+
+          </div>
+
+          <div className="grid grid-cols-10 gap-1">
+
+          {Array.from({length:30},(_,i)=>{
+
+            const d=new Date()
+            d.setDate(
+              d.getDate()-(29-i)
+            )
+
+            const key=d
+            .toISOString()
+            .slice(0,10)
+
+            const active=
+            state.streak.activityDates
+            ?.includes(key)
+
+            return(
+
+            <div
+              key={key}
+              title={key}
+              className={
+                active
+                ? "h-5 rounded bg-primary"
+                : "h-5 rounded bg-muted"
+              }
+            />
+
+            )
+
+          })}
+
+          </div>
+
+        </CardContent>
+      </Card>
+
+
+      <Card className="bg-gradient-card">
         <CardHeader><CardTitle>Mock exam history</CardTitle></CardHeader>
         <CardContent className="space-y-2">
           {state.mocks.length === 0 ? <p className="text-sm text-muted-foreground">No mock exams yet.</p> :
