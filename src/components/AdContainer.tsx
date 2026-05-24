@@ -19,6 +19,16 @@ subscription
 return null;
 }
 
+const merchLinks=[
+"https://shopee.ph/shop/80730266",
+"https://www.lazada.com.ph/shop/merchlab-online/"
+];
+
+const merchLink=
+merchLinks[
+Math.floor(Math.random()*merchLinks.length)
+];
+
 return(
 
 <div className="mt-6">
@@ -31,21 +41,34 @@ rounded-lg
 border
 border-border
 bg-card
-flex
-items-center
-justify-center
 overflow-hidden
 "
 >
 
-<div className="text-sm text-muted-foreground">
+<a
+href={merchLink}
+target="_blank"
+rel="noopener noreferrer"
+className="
+flex
+items-center
+justify-center
+p-3
+hover:opacity-90
+transition
+"
+>
 
-AdMob Banner
-<br/>
+<img
+src="/ML.png"
+alt="MerchLab"
+className="
+max-h-[70px]
+object-contain
+"
+/>
 
-Fallback: MerchLab
-
-</div>
+</a>
 
 </div>
 
