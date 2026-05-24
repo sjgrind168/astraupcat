@@ -3,6 +3,7 @@ import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { AppSidebar } from "./AppSidebar";
 import { useApp } from "@/lib/store";
 import { Onboarding } from "./Onboarding";
+import AdContainer from "./AdContainer";
 
 export default function AppLayout() {
   const { state } = useApp();
@@ -25,7 +26,10 @@ export default function AppLayout() {
           </header>
           <main className="flex-1 overflow-auto">
             <div className="container max-w-6xl py-6 md:py-8 animate-fade-in">
-              <Outlet />
+              <>
+<Outlet />
+<AdContainer />
+</>
             </div>
           </main>
         </div>
