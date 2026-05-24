@@ -1,3 +1,4 @@
+import { useEffect,useState } from "react";
 import { useLocation } from "react-router-dom";
 import { shouldShowAds } from "@/lib/adRules";
 import { useApp } from "@/lib/store";
@@ -41,29 +42,25 @@ button:"#4A2BFF"
 
 ];
 
-const ad=
-JSON.parse(
-sessionStorage.getItem("merchAd")
-||
-"null"
-)
-||
-(()=>{
-const chosen=
-ads[
-Math.floor(
-Math.random()*ads.length
-)
-];
-
-sessionStorage.setItem(
-"merchAd",
-JSON.stringify(chosen)
+const [adIndex,setAdIndex]=useState(
+Math.floor(Math.random()*ads.length)
 );
 
-return chosen;
+useEffect(()=>{
 
-})();
+const interval=setInterval(()=>{
+
+setAdIndex(
+prev=>(prev+1)%ads.length
+);
+
+},45000);
+
+return ()=>clearInterval(interval);
+
+},[]);
+
+const ad=ads[adIndex];
 
 return(
 
