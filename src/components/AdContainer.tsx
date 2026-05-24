@@ -7,7 +7,7 @@ export default function AdContainer(){
 const { pathname } = useLocation();
 const { state } = useApp();
 
-const subscription =
+const subscription=
 state.profile?.subscription || "free";
 
 if(
@@ -19,26 +19,46 @@ subscription
 return null;
 }
 
-const merchLinks=[
-"https://shopee.ph/shop/80730266",
-"https://www.lazada.com.ph/shop/merchlab-online/"
+const ads=[
+
+{
+name:"Shopee",
+link:"https://shopee.ph/shop/80730266",
+title:"MerchLab Luxury You Can Afford",
+subtitle:"Shopee Deals",
+bg:"#EE4D2D",
+button:"#ff7a59"
+},
+
+{
+name:"Lazada",
+link:"https://www.lazada.com.ph/shop/merchlab-online/",
+title:"MerchLab Luxury You Can Afford",
+subtitle:"Lazada Finds",
+bg:"#0F146D",
+button:"#4A2BFF"
+}
+
 ];
 
-const merchLink=
-sessionStorage.getItem("merchLink")
+const ad=
+JSON.parse(
+sessionStorage.getItem("merchAd")
 ||
-(() => {
-
+"null"
+)
+||
+(()=>{
 const chosen=
-merchLinks[
+ads[
 Math.floor(
-Math.random()*merchLinks.length
+Math.random()*ads.length
 )
 ];
 
 sessionStorage.setItem(
-"merchLink",
-chosen
+"merchAd",
+JSON.stringify(chosen)
 );
 
 return chosen;
@@ -49,29 +69,33 @@ return(
 
 <div className="mt-6">
 
+<a
+href={ad.link}
+target="_blank"
+rel="noopener noreferrer"
+>
+
 <div
+style={{
+background:ad.bg
+}}
 className="
-w-full
-min-h-[90px]
-rounded-lg
-border
-border-border
-bg-card
-overflow-hidden
+rounded-xl
+p-4
+flex
+items-center
+justify-between
+gap-4
+hover:opacity-95
+transition
 "
 >
 
-<a
-href={merchLink}
-target="_blank"
-rel="noopener noreferrer"
+<div
 className="
 flex
 items-center
-justify-center
-p-3
-hover:opacity-90
-transition
+gap-4
 "
 >
 
@@ -79,14 +103,56 @@ transition
 src="/ML.png"
 alt="MerchLab"
 className="
-max-h-[70px]
-object-contain
+w-14
+h-14
+rounded-md
+bg-white
+p-1
 "
 />
 
-</a>
+<div>
+
+<div
+className="
+text-white
+font-bold
+"
+>
+{ad.title}
+</div>
+
+<div
+className="
+text-white/80
+text-sm
+"
+>
+{ad.subtitle}
+</div>
 
 </div>
+
+</div>
+
+<button
+style={{
+background:ad.button
+}}
+className="
+px-4
+py-2
+rounded-lg
+text-white
+font-medium
+"
+>
+Shop Now
+</button>
+
+</div>
+
+</a>
 
 </div>
 
