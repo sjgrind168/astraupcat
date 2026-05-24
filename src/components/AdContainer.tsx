@@ -25,9 +25,25 @@ const merchLinks=[
 ];
 
 const merchLink=
+sessionStorage.getItem("merchLink")
+||
+(() => {
+
+const chosen=
 merchLinks[
-Math.floor(Math.random()*merchLinks.length)
+Math.floor(
+Math.random()*merchLinks.length
+)
 ];
+
+sessionStorage.setItem(
+"merchLink",
+chosen
+);
+
+return chosen;
+
+})();
 
 return(
 
