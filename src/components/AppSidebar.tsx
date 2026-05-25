@@ -1,4 +1,5 @@
 import { NavLink, useLocation, Link } from "react-router-dom";
+import PlanStatusBadge from "@/components/PlanStatusBadge";
 import {
   LayoutDashboard, CalendarDays, BookOpen, Target, Timer, FunctionSquare,
   Calculator, NotebookPen, BarChart3, Settings, GraduationCap, Database,
