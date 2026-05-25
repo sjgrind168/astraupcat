@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { shouldShowAds } from "@/lib/adRules";
+import { showAdMobBanner } from "@/lib/adProvider";
 import { useApp } from "@/lib/store";
 
 const ads = [
@@ -28,12 +29,15 @@ export default function AdContainer() {
   const [adIndex, setAdIndex] = useState(() =>
     Math.floor(Math.random() * ads.length)
   );
+  const [admobActive, setAdmobActive] = useState(false);
 
   const subscription = state.profile?.subscription || "free";
   const canShowAds = shouldShowAds(pathname, subscription);
 
   useEffect(() => {
     if (!canShowAds) return;
+
+    showAdMobBanner().then(setAdmobActive);
 
     const interval = setInterval(() => {
       setAdIndex((prev) => (prev + 1) % ads.length);
@@ -42,7 +46,7 @@ export default function AdContainer() {
     return () => clearInterval(interval);
   }, [canShowAds]);
 
-  if (!canShowAds) {
+  if (!canShowAds || admobActive) {
     return null;
   }
 
