@@ -1,6 +1,11 @@
 import { activateTrial } from "@/lib/subscription";
+import { ArrowLeft } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 export default function Upgrade(){
+
+const navigate=useNavigate();
+
 
 function handleTrial(){
 
@@ -26,15 +31,35 @@ alert(
 
 return(
 
-<div className="space-y-6">
+<div className="space-y-6 px-6 md:px-10 pt-4">
 
-<div>
+<button
+onClick={()=>navigate(-1)}
+className="
+flex
+items-center
+gap-2
+rounded-lg
+bg-card
+border
+px-4
+py-2
+hover:bg-accent
+transition
+w-fit
+"
+>
+<ArrowLeft size={18}/>
+Back
+</button>
 
-<h1 className="text-3xl font-bold">
+<div className="mt-4">
+
+<h1 className="text-4xl font-bold">
 Astra Premium
 </h1>
 
-<p className="text-muted-foreground">
+<p className="text-muted-foreground mt-2">
 Unlock the full reviewer experience.
 </p>
 
