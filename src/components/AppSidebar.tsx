@@ -19,7 +19,6 @@ const items = [
   { title: "Question Bank", url: "/question-bank", icon: Database },
   { title: "Mistake Book", url: "/mistakes", icon: NotebookPen },
   { title: "Progress Report", url: "/progress", icon: BarChart3 },
-  { title: "Upgrade", url: "/upgrade", icon: Settings },
   { title: "Settings", url: "/settings", icon: Settings },
 ];
 
