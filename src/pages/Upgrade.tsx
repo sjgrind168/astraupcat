@@ -1,4 +1,4 @@
-import { activateTrial } from "@/lib/subscription";
+import { activateTrial, getSubscription, getTrialDaysRemaining } from "@/lib/subscription";
 import { ArrowLeft } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
@@ -98,6 +98,7 @@ FREE
 
 <button
 onClick={handleTrial}
+disabled={isTrial || isPremium || isTrialUsed}
 className="
 mt-4
 w-full
