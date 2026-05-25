@@ -5,10 +5,13 @@ import { Button } from "@/components/ui/button";
 import { SUBJECTS } from "@/lib/questions";
 import { Question } from "@/types/questions";
 import { BookOpen } from "lucide-react";
+import { getReviewerLimit } from "@/lib/featureAccess";
 
 export default function Reviewer() {
   const [questions, setQuestions] = useState<Question[]>([]);
   const [isLoadingQuestions, setIsLoadingQuestions] = useState(true);
+  const reviewerLimit = getReviewerLimit();
+  const isLimited = Number.isFinite(reviewerLimit);
 
   useEffect(() => {
     let isMounted = true;
@@ -54,12 +57,19 @@ export default function Reviewer() {
       <div className="grid gap-4 md:grid-cols-2">
         {SUBJECTS.map(s => {
           const subjectData = questionsBySubject[s] ?? { questions: [], topics: [] };
-          const topics = subjectData.topics;
+          const visibleQuestions = isLimited
+            ? subjectData.questions.slice(0, reviewerLimit)
+            : subjectData.questions;
+          const topics = Array.from(new Set(visibleQuestions.map(q => q.topic)));
           return (
             <Card key={s} className="bg-gradient-card shadow-elegant">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2"><BookOpen className="h-4 w-4 text-primary" /> {s}</CardTitle>
-                <CardDescription>{isLoadingQuestions ? "Loading questions..." : `${topics.length} topics • ${subjectData.questions.length} questions`}</CardDescription>
+                <CardDescription>
+                  {isLoadingQuestions
+                    ? "Loading questions..."
+                    : `${topics.length} topics • ${visibleQuestions.length} questions${isLimited ? " available on Free" : ""}`}
+                </CardDescription>
               </CardHeader>
               <CardContent className="space-y-2">
                 <div className="flex flex-wrap gap-1.5">
