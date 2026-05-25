@@ -4,15 +4,9 @@ import { AppSidebar } from "./AppSidebar";
 import { useApp } from "@/lib/store";
 import { Onboarding } from "./Onboarding";
 import AdContainer from "./AdContainer";
-import { getSubscription, getTrialDaysRemaining } from "@/lib/subscription";
 
 export default function AppLayout() {
   const { state } = useApp();
-
-  
-
-const subscription = getSubscription();
-const trialDaysLeft = getTrialDaysRemaining();
 if (!state.profile) {
     return <Onboarding />;
   }
