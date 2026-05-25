@@ -3,6 +3,7 @@ import { useMockExam } from "@/hooks/useMockExam";
 import { useExamTimer } from "@/hooks/useExamTimer";
 import { analyzeResults } from "@/lib/examResults";
 import { saveMistakes } from "@/lib/mistakeBook";
+import FeatureGate from "@/components/FeatureGate";
 
 export default function MockExam() {
   const [examSeed, setExamSeed] = useState(0);
@@ -47,16 +48,19 @@ export default function MockExam() {
 
   if (!questions.length || !currentQuestion) {
     return (
-      <div className="p-6 max-w-4xl mx-auto">
-        <h1 className="text-2xl font-bold">Mock Entrance Exam</h1>
-        <p className="mt-4">Loading exam questions...</p>
-      </div>
+      <FeatureGate feature="mockExam">
+        <div className="p-6 max-w-4xl mx-auto">
+          <h1 className="text-2xl font-bold">Mock Entrance Exam</h1>
+          <p className="mt-4">Loading exam questions...</p>
+        </div>
+      </FeatureGate>
     );
   }
 
   if (submitted && result) {
     return (
-      <div className="p-6 max-w-4xl mx-auto space-y-6">
+      <FeatureGate feature="mockExam">
+        <div className="p-6 max-w-4xl mx-auto space-y-6">
         <div>
           <h1 className="text-2xl font-bold">Mock Exam Results</h1>
           <p className="text-muted-foreground">
@@ -147,14 +151,16 @@ export default function MockExam() {
         >
           Retake Mock Exam
         </button>
-      </div>
+        </div>
+      </FeatureGate>
     );
   }
 
   const passage = (currentQuestion as { passage?: string }).passage;
 
   return (
-    <div className="p-6 max-w-4xl mx-auto space-y-6">
+    <FeatureGate feature="mockExam">
+      <div className="p-6 max-w-4xl mx-auto space-y-6">
       <div className="flex items-center justify-between gap-4">
         <div>
           <h1 className="text-2xl font-bold">Mock Entrance Exam</h1>
@@ -228,6 +234,7 @@ export default function MockExam() {
           </button>
         </div>
       </div>
-    </div>
+      </div>
+    </FeatureGate>
   );
 }
