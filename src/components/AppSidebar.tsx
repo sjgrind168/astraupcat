@@ -30,7 +30,8 @@ export function AppSidebar() {
   return (
     <Sidebar collapsible="icon" className="border-r border-sidebar-border">
       <SidebarHeader className="border-b border-sidebar-border">
-        <div className="flex items-center gap-2 px-2 py-3">
+        <div className="flex flex-col gap-4 px-2 py-5">
+          <div className="flex items-center gap-2">
           <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-gold shadow-gold">
             <GraduationCap className="h-5 w-5 text-primary-foreground" />
           </div>
@@ -40,6 +41,9 @@ export function AppSidebar() {
               <span className="text-[10px] uppercase tracking-[0.18em] text-muted-foreground">Reviewer</span>
             </div>
           )}
+          </div>
+
+          {!collapsed && <PlanStatusBadge />}
         </div>
       </SidebarHeader>
       <SidebarContent>

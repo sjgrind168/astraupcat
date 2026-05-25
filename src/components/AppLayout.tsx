@@ -13,7 +13,6 @@ export default function AppLayout() {
 
 const subscription = getSubscription();
 const trialDaysLeft = getTrialDaysRemaining();
-const planLabel = subscription === "premium" ? "Premium" : subscription === "trial" ? "Trial" : "Free Plan";
 if (!state.profile) {
     return <Onboarding />;
   }
@@ -38,18 +37,6 @@ Astra Reviewer
 <span className="text-[11px] text-muted-foreground">
 Welcome back, {state.profile?.name || "student"}.
 </span>
-
-<div className="mt-1 inline-flex w-fit flex-col rounded-full border border-border bg-secondary/40 px-3 py-1 shadow-sm">
-  <span className="text-[11px] font-semibold leading-none text-foreground">
-    {planLabel}
-  </span>
-  {subscription === "trial" && (
-    <span className="mt-1 text-[10px] leading-none text-muted-foreground">
-      {trialDaysLeft} day{trialDaysLeft === 1 ? "" : "s"} left
-    </span>
-  )}
-</div>
-
 </div>
 
 </div>
