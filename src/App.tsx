@@ -22,6 +22,7 @@ import Privacy from "./pages/Privacy";
 import Onboarding from "./pages/Onboarding";
 
 import NotFound from "./pages/NotFound.tsx";
+import Upgrade from "./pages/Upgrade";
 
 const queryClient = new QueryClient();
 
@@ -53,7 +54,14 @@ const App = () => (
 <Route path="/settings" element={<Settings />} />
             </Route>
             <Route path="*" element={<NotFound />} />
-          </Routes>
+          
+<Route
+path="/upgrade"
+element={<Upgrade />}
+/>
+
+</Routes>
+
         </BrowserRouter>
       </AppProvider>
     </TooltipProvider>
