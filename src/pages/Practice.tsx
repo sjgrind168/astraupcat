@@ -6,6 +6,7 @@ import { QuestionRunner } from "@/components/QuestionRunner";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { getQuestionLimit } from "@/lib/featureAccess";
 import { addAttempt, bumpStreak } from "@/lib/storage";
 import { weakestSubject, weakestTopics, strongestTopics } from "@/lib/analytics";
 
@@ -63,9 +64,12 @@ async function pickQuestions(
 const shuffled = [...pool].sort(() => Math.random() - 0.5);
 
 
-  const PRACTICE_QUESTION_COUNT = 100;
+  const practiceLimit = getQuestionLimit();
+  const practiceCount = Number.isFinite(practiceLimit)
+    ? practiceLimit
+    : 100;
 
-  return shuffled.slice(0, Math.min(PRACTICE_QUESTION_COUNT, shuffled.length));
+  return shuffled.slice(0, Math.min(practiceCount, shuffled.length));
 }
 
 export default function Practice() {
