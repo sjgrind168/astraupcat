@@ -4,6 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Link } from "react-router-dom";
+import FeatureGate from "@/components/FeatureGate";
 
 const CATS = ["Algebra", "Geometry", "Trigonometry", "Statistics", "Physics", "Chemistry"] as const;
 
@@ -12,7 +13,8 @@ export default function FormulaVault() {
   const items = FORMULAS.filter(f => f.category === cat);
 
   return (
-    <div className="space-y-6">
+    <FeatureGate feature="formulaVault">
+      <div className="space-y-6">
       <div>
         <h1 className="text-3xl font-bold">Formula Vault</h1>
         <p className="text-muted-foreground text-sm">Key formulas with usage and examples for entrance exam preparation.</p>
@@ -45,6 +47,7 @@ export default function FormulaVault() {
           </Card>
         ))}
       </div>
-    </div>
+      </div>
+    </FeatureGate>
   );
 }
