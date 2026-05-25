@@ -67,3 +67,25 @@ start:Date.now()
 return true;
 
 }
+
+
+export function getTrialDaysRemaining(){
+
+const trial =
+JSON.parse(
+localStorage.getItem(TRIAL_KEY) || "{}"
+);
+
+if(!trial.used || !trial.start){
+return 0;
+}
+
+const elapsed =
+(Date.now()-trial.start)/(1000*60*60*24);
+
+return Math.max(
+0,
+Math.ceil(TRIAL_DAYS-elapsed)
+);
+
+}

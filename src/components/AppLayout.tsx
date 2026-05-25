@@ -4,11 +4,16 @@ import { AppSidebar } from "./AppSidebar";
 import { useApp } from "@/lib/store";
 import { Onboarding } from "./Onboarding";
 import AdContainer from "./AdContainer";
+import { getSubscription, getTrialDaysRemaining } from "@/lib/subscription";
 
 export default function AppLayout() {
   const { state } = useApp();
 
-  if (!state.profile) {
+  
+
+const subscription = getSubscription();
+const trialDaysLeft = getTrialDaysRemaining();
+if (!state.profile) {
     return <Onboarding />;
   }
 
@@ -17,13 +22,50 @@ export default function AppLayout() {
       <div className="min-h-screen flex w-full bg-background">
         <AppSidebar />
         <div className="flex-1 flex flex-col min-w-0">
-          <header className="h-14 flex items-center gap-3 border-b border-border bg-card/50 backdrop-blur px-4 sticky top-0 z-30">
-            <SidebarTrigger />
-            <div className="flex flex-col">
-              <span className="text-sm font-semibold">Astra Reviewer</span>
-              <span className="text-[11px] text-muted-foreground">Welcome back, {state.profile.name}.</span>
-            </div>
-          </header>
+          <header className="h-14 flex items-center justify-between border-b border-border bg-card/50 backdrop-blur px-4 sticky top-0 z-30">
+
+<div className="flex items-center gap-3">
+
+<SidebarTrigger />
+
+<div className="flex flex-col">
+
+<span className="text-sm font-semibold">
+Astra Reviewer
+</span>
+
+<span className="text-[11px] text-muted-foreground">
+Welcome back, {state.profile?.name || "student"}.
+</span>
+
+</div>
+
+</div>
+
+<div className="flex items-center gap-3">
+
+{subscription === "trial" && (
+<span className="rounded-full border border-primary/40 px-3 py-1 text-xs text-primary">
+Trial: {trialDaysLeft} day{trialDaysLeft === 1 ? "" : "s"} left
+</span>
+)}
+
+{subscription === "premium" ? (
+<span className="rounded-full bg-primary/15 px-3 py-1 text-xs font-semibold text-primary">
+Premium
+</span>
+) : (
+<Link
+to="/upgrade"
+className="rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground hover:opacity-90 transition"
+>
+Upgrade
+</Link>
+)}
+
+</div>
+
+</header>
           <main className="flex-1 overflow-auto">
             <div className="container max-w-6xl py-6 md:py-8 animate-fade-in">
               <>
