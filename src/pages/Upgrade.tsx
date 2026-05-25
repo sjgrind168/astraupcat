@@ -6,6 +6,12 @@ export default function Upgrade(){
 
 const navigate=useNavigate();
 
+const subscription = getSubscription();
+const daysRemaining = getTrialDaysRemaining();
+const isTrial = subscription === "trial";
+const isPremium = subscription === "premium";
+const isTrialUsed = daysRemaining === 0 && localStorage.getItem("astra_trial") !== null;
+
 
 function handleTrial(){
 
