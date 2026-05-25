@@ -26,11 +26,15 @@ export function AppSidebar() {
   const { state } = useSidebar();
   const collapsed = state === "collapsed";
   const { pathname } = useLocation();
+  const subscription = getSubscription();
+  const trialDaysLeft = getTrialDaysRemaining();
+  const planLabel = subscription === "premium" ? "Premium" : subscription === "trial" ? "Trial" : "Free Plan";
 
   return (
     <Sidebar collapsible="icon" className="border-r border-sidebar-border">
       <SidebarHeader className="border-b border-sidebar-border">
-        <div className="flex items-center gap-2 px-2 py-3">
+        <div className="flex flex-col gap-3 px-2 py-5">
+          <div className="flex items-center gap-2">
           <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-gold shadow-gold">
             <GraduationCap className="h-5 w-5 text-primary-foreground" />
           </div>
@@ -38,6 +42,20 @@ export function AppSidebar() {
             <div className="flex flex-col leading-tight">
               <span className="text-sm font-bold tracking-wide text-gradient-gold">ASTRA</span>
               <span className="text-[10px] uppercase tracking-[0.18em] text-muted-foreground">Reviewer</span>
+            </div>
+          )}
+          </div>
+
+          {!collapsed && (
+            <div className="w-fit rounded-full border border-sidebar-border bg-sidebar-accent/40 px-3 py-1.5 shadow-sm">
+              <div className="text-[11px] font-semibold leading-none text-sidebar-foreground">
+                {planLabel}
+              </div>
+              {subscription === "trial" && (
+                <div className="mt-1 text-[10px] leading-none text-muted-foreground">
+                  {trialDaysLeft} day{trialDaysLeft === 1 ? "" : "s"} left
+                </div>
+              )}
             </div>
           )}
         </div>
