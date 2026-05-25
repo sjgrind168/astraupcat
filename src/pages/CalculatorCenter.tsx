@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
+import FeatureGate from "@/components/FeatureGate";
 
 // ---------- Scientific calculator ----------
 function ScientificCalc() {
@@ -292,19 +293,21 @@ function AdvancedSolvers() {
 
 export default function CalculatorCenter() {
   return (
-    <div className="space-y-6">
-      <div>
-        <h1 className="text-3xl font-bold">Calculator Center</h1>
-        <p className="text-muted-foreground text-sm">Scientific calculator + Astra advanced solver.</p>
+    <FeatureGate feature="calculatorCenter">
+      <div className="space-y-6">
+        <div>
+          <h1 className="text-3xl font-bold">Calculator Center</h1>
+          <p className="text-muted-foreground text-sm">Scientific calculator + Astra advanced solver.</p>
+        </div>
+        <Tabs defaultValue="sci">
+          <TabsList>
+            <TabsTrigger value="sci">Scientific Calculator</TabsTrigger>
+            <TabsTrigger value="adv">Astra Advanced Solver</TabsTrigger>
+          </TabsList>
+          <TabsContent value="sci" className="mt-4"><ScientificCalc /></TabsContent>
+          <TabsContent value="adv" className="mt-4"><AdvancedSolvers /></TabsContent>
+        </Tabs>
       </div>
-      <Tabs defaultValue="sci">
-        <TabsList>
-          <TabsTrigger value="sci">Scientific Calculator</TabsTrigger>
-          <TabsTrigger value="adv">Astra Advanced Solver</TabsTrigger>
-        </TabsList>
-        <TabsContent value="sci" className="mt-4"><ScientificCalc /></TabsContent>
-        <TabsContent value="adv" className="mt-4"><AdvancedSolvers /></TabsContent>
-      </Tabs>
-    </div>
+    </FeatureGate>
   );
 }
