@@ -43,7 +43,7 @@ export function AppSidebar() {
           )}
           </div>
 
-          {!collapsed && <PlanStatusBadge />}
+          
         </div>
       </SidebarHeader>
       <SidebarContent>
