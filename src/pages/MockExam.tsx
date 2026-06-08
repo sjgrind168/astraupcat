@@ -3,6 +3,7 @@ import { useMockExam } from "@/hooks/useMockExam";
 import { useExamTimer } from "@/hooks/useExamTimer";
 import { analyzeResults } from "@/lib/examResults";
 import { saveMistakes } from "@/lib/mistakeBook";
+import { saveTelemetry, getTelemetryStats, clearTelemetry } from "@/lib/mockTelemetry";
 import FeatureGate from "@/components/FeatureGate";
 
 export default function MockExam() {
@@ -14,6 +15,7 @@ export default function MockExam() {
   const [answers, setAnswers] = useState<Record<string, number>>({});
   const [submitted, setSubmitted] = useState(false);
   const [showMistakes, setShowMistakes] = useState(false);
+  const [questionStartTimes, setQuestionStartTimes] = useState<Record<string, number>>({});
 
   const currentQuestion = questions[currentIndex];
   const result = submitted ? analyzeResults(questions, answers) : null;
@@ -28,10 +30,35 @@ export default function MockExam() {
   const selectAnswer = (questionId: string, answerIndex: number) => {
     if (submitted) return;
 
+    const question = questions.find(q => q.id === questionId);
+    const startedAt = questionStartTimes[questionId] || Date.now();
+
+    if (question) {
+      saveTelemetry({
+        questionId: question.id,
+        subject: question.subject,
+        topic: question.topic || "General",
+        difficulty: question.difficulty || "normal",
+        selectedIndex: answerIndex,
+        correctIndex: question.answerIndex,
+        correct: answerIndex === question.answerIndex,
+        timeSpentMs: Date.now() - startedAt,
+        timestamp: Date.now(),
+      });
+    }
+
     setAnswers(prev => ({
       ...prev,
       [questionId]: answerIndex,
     }));
+
+    if (currentIndex < questions.length - 1) {
+      setTimeout(() => {
+        setCurrentIndex(i =>
+          Math.min(questions.length - 1, i + 1)
+        );
+      }, 400);
+    }
   };
 
   const retakeExam = () => {
@@ -43,6 +70,16 @@ export default function MockExam() {
   };
 
   const answeredCount = Object.keys(answers).length;
+
+  useEffect(() => {
+    if (!currentQuestion || questionStartTimes[currentQuestion.id]) return;
+
+    setQuestionStartTimes(prev => ({
+      ...prev,
+      [currentQuestion.id]: Date.now(),
+    }));
+  }, [currentQuestion?.id, questionStartTimes]);
+
 
   const mistakes = questions.filter(q => answers[q.id] !== q.answerIndex);
 
@@ -81,6 +118,32 @@ export default function MockExam() {
             Answered: {answeredCount}/{questions.length}
           </p>
         </div>
+
+        {(() => {
+          const telemetry = getTelemetryStats();
+
+          return (
+            <div className="border rounded p-6 bg-cyan-500/10 border-cyan-500/30 space-y-2">
+              <h2 className="text-lg font-bold text-cyan-300">
+                QA Telemetry
+              </h2>
+
+              <p>Total Answered: {telemetry.total}</p>
+              <p>Accuracy: {telemetry.accuracy}%</p>
+              <p>Average Time/Question: {telemetry.avgTimeSeconds}s</p>
+
+              <button
+                onClick={() => {
+                  clearTelemetry();
+                  window.location.reload();
+                }}
+                className="px-3 py-2 rounded border border-cyan-400 text-cyan-200 text-sm"
+              >
+                Clear QA Telemetry
+              </button>
+            </div>
+          );
+        })()}
 
         <div className="border rounded p-6 bg-card">
           <h2 className="text-lg font-bold mb-3">Weak Topics</h2>
@@ -184,6 +247,14 @@ export default function MockExam() {
           </div>
         )}
 
+        <div className="text-xs font-mono text-cyan-400/90">
+          ID: {currentQuestion.id}
+          {" • "}
+          Topic: {(currentQuestion as { topic?: string }).topic || "General"}
+          {" • "}
+          Difficulty: {(currentQuestion as { difficulty?: string }).difficulty || "normal"}
+        </div>
+
         <p className="font-semibold">
           {currentIndex + 1}. {currentQuestion.question}
         </p>
@@ -215,23 +286,24 @@ export default function MockExam() {
         </button>
 
         <div className="flex gap-2">
-          <button
-            onClick={() => setCurrentIndex(i => Math.min(questions.length - 1, i + 1))}
-            disabled={currentIndex === questions.length - 1}
-            className="px-4 py-2 border rounded disabled:opacity-50"
-          >
-            Next
-          </button>
-
-          <button
-            onClick={() => {
-            saveMistakes(questions, answers);
-            setSubmitted(true);
-          }}
-            className="px-5 py-2 rounded bg-primary text-primary-foreground"
-          >
-            Submit Exam
-          </button>
+          {currentIndex < questions.length - 1 ? (
+            <button
+              onClick={() => setCurrentIndex(i => Math.min(questions.length - 1, i + 1))}
+              className="px-4 py-2 border rounded"
+            >
+              Next
+            </button>
+          ) : (
+            <button
+              onClick={() => {
+                saveMistakes(questions, answers);
+                setSubmitted(true);
+              }}
+              className="px-5 py-2 rounded bg-primary text-primary-foreground"
+            >
+              Submit Exam
+            </button>
+          )}
         </div>
       </div>
       </div>

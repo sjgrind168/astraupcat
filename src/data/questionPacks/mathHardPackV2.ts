@@ -1,0 +1,173 @@
+import { Question } from "@/types/questions";
+
+export const mathHardPackV2: Question[] = [
+  {
+    id: "math-hard-v2-001",
+    subject: "Mathematics",
+    topic: "Percentages",
+    difficulty: "hard",
+    question: "A laptop worth ₱40,000 was discounted by 15% and then taxed by 12% based on the discounted price. What is the final price?",
+    choices: ["₱38,080", "₱39,200", "₱40,320", "₱41,000"],
+    answerIndex: 0,
+    explanation: "15% of ₱40,000 is ₱6,000, so discounted price is ₱34,000. Then add 12% tax: ₱34,000 × 1.12 = ₱38,080.",
+    steps: [
+      "40,000 × 0.15 = 6,000",
+      "40,000 − 6,000 = 34,000",
+      "34,000 × 1.12 = 38,080"
+    ],
+    tip: "Apply discount first before tax.",
+  },
+
+  {
+    id: "math-hard-v2-002",
+    subject: "Mathematics",
+    topic: "Algebra",
+    difficulty: "hard",
+    question: "If 3x − 7 = 2x + 11, what is the value of x?",
+    choices: [16, 17, 18, 19],
+    answerIndex: 2,
+    explanation: "Subtract 2x from both sides: x − 7 = 11. Add 7 to both sides: x = 18.",
+    steps: [
+      "3x − 7 = 2x + 11",
+      "x − 7 = 11",
+      "x = 18"
+    ],
+    tip: "Move variables to one side first.",
+  },
+
+  {
+    id: "math-hard-v2-003",
+    subject: "Mathematics",
+    topic: "Geometry",
+    difficulty: "hard",
+    question: "A rectangle has length 15 cm and width 8 cm. What is its diagonal length?",
+    choices: ["15 cm", "16 cm", "17 cm", "18 cm"],
+    answerIndex: 2,
+    explanation: "Use the Pythagorean theorem: √(15² + 8²) = √289 = 17.",
+    steps: [
+      "15² = 225",
+      "8² = 64",
+      "225 + 64 = 289",
+      "√289 = 17"
+    ],
+    tip: "Use the Pythagorean theorem for diagonals.",
+  },
+
+  {
+    id: "math-hard-v2-004",
+    subject: "Mathematics",
+    topic: "Fractions",
+    difficulty: "hard",
+    question: "What is 3/4 ÷ 1/2?",
+    choices: ["1/2", "1", "3/2", "2"],
+    answerIndex: 2,
+    explanation: "Divide by multiplying by the reciprocal: 3/4 × 2/1 = 6/4 = 3/2.",
+    steps: [
+      "Flip 1/2 into 2/1",
+      "3/4 × 2/1 = 6/4",
+      "6/4 = 3/2"
+    ],
+    tip: "Division of fractions uses reciprocals.",
+  },
+
+  {
+    id: "math-hard-v2-005",
+    subject: "Mathematics",
+    topic: "Word Problems",
+    difficulty: "hard",
+    question: "Two workers can finish a job in 6 days working together. One worker alone can finish it in 10 days. How many days can the second worker finish the job alone?",
+    choices: [12, 15, 18, 20],
+    answerIndex: 1,
+    explanation: "Together rate = 1/6. First worker = 1/10. Second worker = 1/6 − 1/10 = 2/30 = 1/15.",
+    steps: [
+      "1/6 − 1/10",
+      "5/30 − 3/30 = 2/30",
+      "2/30 = 1/15"
+    ],
+    tip: "Convert work problems into rates.",
+  },
+  {
+    id: "math-hard-v2-006",
+    subject: "Mathematics",
+    topic: "Ratios",
+    difficulty: "hard",
+    question: "The ratio of boys to girls in a class is 3:5. If there are 40 students in total, how many are boys?",
+    choices: [12, 15, 18, 20],
+    answerIndex: 1,
+    explanation: "Total ratio parts = 3 + 5 = 8. Each part is 40 ÷ 8 = 5. Boys = 3 × 5 = 15.",
+    steps: [
+      "3 + 5 = 8 total parts",
+      "40 ÷ 8 = 5 per part",
+      "3 × 5 = 15 boys"
+    ],
+    tip: "Find the value of one ratio part first.",
+  },
+
+  {
+    id: "math-hard-v2-007",
+    subject: "Mathematics",
+    topic: "Averages",
+    difficulty: "hard",
+    question: "The average of five numbers is 18. If four of the numbers are 12, 15, 20, and 23, what is the fifth number?",
+    choices: [18, 20, 22, 24],
+    answerIndex: 1,
+    explanation: "Total sum needed is 5 × 18 = 90. Sum of known numbers is 12 + 15 + 20 + 23 = 70. Fifth number = 90 − 70 = 20.",
+    steps: [
+      "5 × 18 = 90",
+      "12 + 15 + 20 + 23 = 70",
+      "90 − 70 = 20"
+    ],
+    tip: "Average × number of items gives total sum.",
+  },
+
+  {
+    id: "math-hard-v2-008",
+    subject: "Mathematics",
+    topic: "Algebra",
+    difficulty: "hard",
+    question: "If 2x + y = 11 and x = 4, what is the value of y?",
+    choices: [1, 2, 3, 4],
+    answerIndex: 2,
+    explanation: "Substitute x = 4 into the equation: 2(4) + y = 11. So 8 + y = 11, therefore y = 3.",
+    steps: [
+      "2(4) + y = 11",
+      "8 + y = 11",
+      "y = 3"
+    ],
+    tip: "Substitute known values first.",
+  },
+
+  {
+    id: "math-hard-v2-009",
+    subject: "Mathematics",
+    topic: "Probability",
+    difficulty: "hard",
+    question: "A bag contains 5 red balls and 3 blue balls. What is the probability of drawing a blue ball?",
+    choices: ["1/8", "3/8", "5/8", "3/5"],
+    answerIndex: 1,
+    explanation: "There are 8 balls total and 3 are blue, so probability = 3/8.",
+    steps: [
+      "5 + 3 = 8 total balls",
+      "3 blue balls",
+      "Probability = 3/8"
+    ],
+    tip: "Probability = favorable outcomes ÷ total outcomes.",
+  },
+
+  {
+    id: "math-hard-v2-010",
+    subject: "Mathematics",
+    topic: "Word Problems",
+    difficulty: "hard",
+    question: "A train travels at 80 km/h for 3 hours and then at 60 km/h for 2 hours. What total distance did it travel?",
+    choices: ["300 km", "320 km", "340 km", "360 km"],
+    answerIndex: 3,
+    explanation: "First part: 80 × 3 = 240 km. Second part: 60 × 2 = 120 km. Total = 240 + 120 = 360 km.",
+    steps: [
+      "80 × 3 = 240",
+      "60 × 2 = 120",
+      "240 + 120 = 360"
+    ],
+    tip: "Distance = speed × time.",
+  },
+];

@@ -223,6 +223,29 @@ export default function Practice() {
           <CardDescription>Score: {results.correct}/{results.total} ({pct}%)</CardDescription>
         </CardHeader>
         <CardContent className="space-y-3">
+          {(() => {
+            const telemetry = getTelemetryStats();
+
+            return (
+              <div className="rounded-lg border border-cyan-500/30 bg-cyan-500/10 p-3 text-xs text-cyan-100 space-y-2">
+                <div className="font-semibold text-cyan-300">QA Telemetry</div>
+                <div>Total answered: {telemetry.total}</div>
+                <div>Accuracy: {telemetry.accuracy}%</div>
+                <div>Avg time/question: {telemetry.avgTimeSeconds}s</div>
+                <Button
+                  size="sm"
+                  variant="outline"
+                  onClick={() => {
+                    clearTelemetry();
+                    window.location.reload();
+                  }}
+                >
+                  Clear QA Telemetry
+                </Button>
+              </div>
+            );
+          })()}
+
           <div className="flex flex-wrap gap-2">
             {strongestTopics(state.attempts, 2).map(t => (
               <Badge key={t.topic} className="bg-success/20 text-success border-success/40">Strong: {t.topic}</Badge>

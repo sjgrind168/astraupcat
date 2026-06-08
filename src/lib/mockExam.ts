@@ -37,6 +37,29 @@ function saveHistory(history: MockExamHistory) {
   );
 }
 
+
+function normalizeQuestionText(text: string): string {
+  return text
+    .toLowerCase()
+    .replace(/\s+/g, " ")
+    .replace(/[“”"'`.,!?;:()\$begin:math:display$\$end:math:display${}]/g, "")
+    .trim();
+}
+
+function uniqueByQuestionText(questions: Question[]): Question[] {
+  const seen = new Set<string>();
+
+  return questions.filter((q) => {
+    const key = normalizeQuestionText(q.question || "");
+
+    if (!key) return false;
+    if (seen.has(key)) return false;
+
+    seen.add(key);
+    return true;
+  });
+}
+
 function subjectKey(q: Question): string {
   const subject = q.subject || "";
 
@@ -101,7 +124,7 @@ function takeBalanced(
 export function generateMockExam(
   config: MockExamConfig
 ): Question[] {
-  const all = getAllQuestions();
+  const all = uniqueByQuestionText(getAllQuestions());
 
   const target = Math.min(
     config.totalQuestions,

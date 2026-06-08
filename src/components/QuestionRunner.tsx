@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { CheckCircle2, XCircle, Lightbulb, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { saveTelemetry } from "@/lib/mockTelemetry";
 
 interface Props {
   question: Question;
@@ -32,6 +33,20 @@ export function QuestionRunner({ question, index, total, onAnswered, onNext, hid
     const correct = selected === question.answerIndex;
     const errorType: ErrorType | undefined = correct ? undefined :
       (Date.now() - start < 8000 ? "careless" : "concept");
+    const timeSpentMs = Date.now() - start;
+
+    saveTelemetry({
+      questionId: question.id,
+      subject: question.subject,
+      topic: question.topic || "General",
+      difficulty: question.difficulty || "normal",
+      selectedIndex: selected,
+      correctIndex: question.answerIndex,
+      correct,
+      timeSpentMs,
+      timestamp: Date.now(),
+    });
+
     onAnswered({
       id: crypto.randomUUID(),
       questionId: question.id,
@@ -40,7 +55,7 @@ export function QuestionRunner({ question, index, total, onAnswered, onNext, hid
       difficulty: question.difficulty,
       correct,
       userAnswer: selected,
-      timeMs: Date.now() - start,
+      timeMs: timeSpentMs,
       errorType,
       at: new Date().toISOString(),
     });
@@ -71,6 +86,14 @@ export function QuestionRunner({ question, index, total, onAnswered, onNext, hid
             {question.passage}
           </div>
         )}
+        <div className="text-xs font-mono text-cyan-400/90">
+          ID: {question.id}
+          {" • "}
+          Topic: {question.topic || "General"}
+          {" • "}
+          Difficulty: {question.difficulty || "normal"}
+        </div>
+
         <p className="text-base md:text-lg font-medium leading-relaxed">{question.question}</p>
         <div className="grid gap-2">
           {question.choices.map((c, i) => {
