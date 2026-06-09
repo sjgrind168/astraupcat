@@ -1454,4 +1454,818 @@ export const sciencePackV2: Question[] = [
     explanation: "A conclusion explains what the results mean and whether they support the hypothesis.",
     tip: "A conclusion connects evidence back to the question being tested.",
   },
+  {
+    id: "science-v2-101",
+    subject: "Science",
+    topic: "Biology",
+    difficulty: "normal",
+    question: "Which organ system is primarily responsible for transporting oxygen throughout the body?",
+    choices: [
+      "Digestive system",
+      "Respiratory system",
+      "Circulatory system",
+      "Nervous system"
+    ],
+    answerIndex: 2,
+    explanation: "The circulatory system transports oxygen through the blood.",
+    tip: "Blood carries oxygen to body tissues.",
+  },
+
+  {
+    id: "science-v2-102",
+    subject: "Science",
+    topic: "Chemistry",
+    difficulty: "normal",
+    question: "What happens to water when it reaches its boiling point?",
+    choices: [
+      "It freezes immediately.",
+      "It changes into gas.",
+      "It becomes solid.",
+      "Its mass disappears."
+    ],
+    answerIndex: 1,
+    explanation: "Boiling changes liquid water into water vapor.",
+    tip: "Boiling is a liquid-to-gas phase change.",
+  },
+
+  {
+    id: "science-v2-103",
+    subject: "Science",
+    topic: "Physics",
+    difficulty: "normal",
+    question: "Which force pulls objects toward Earth?",
+    choices: [
+      "Magnetism",
+      "Friction",
+      "Gravity",
+      "Electricity"
+    ],
+    answerIndex: 2,
+    explanation: "Gravity attracts objects toward Earth.",
+    tip: "Gravity acts on all objects with mass.",
+  },
+
+  {
+    id: "science-v2-104",
+    subject: "Science",
+    topic: "Earth Science",
+    difficulty: "normal",
+    question: "What is the main cause of tides in Earth's oceans?",
+    choices: [
+      "Volcanic eruptions",
+      "The Moon's gravitational pull",
+      "Ocean temperature",
+      "Earthquakes"
+    ],
+    answerIndex: 1,
+    explanation: "The Moon's gravity primarily causes tides.",
+    tip: "The Moon strongly affects ocean movement.",
+  },
+
+  {
+    id: "science-v2-105",
+    subject: "Science",
+    topic: "Scientific Method",
+    difficulty: "hard",
+    question: "Why is it important to repeat scientific experiments?",
+    choices: [
+      "To avoid recording data",
+      "To confirm results are reliable",
+      "To make experiments longer",
+      "To increase laboratory costs"
+    ],
+    answerIndex: 1,
+    explanation: "Repeated experiments help verify reliability and consistency.",
+    tip: "Reliable results can be reproduced.",
+  },
+
+  {
+    id: "science-v2-106",
+    subject: "Science",
+    topic: "Biology",
+    difficulty: "normal",
+    question: "Which part of the plant absorbs water and minerals from the soil?",
+    choices: [
+      "Leaves",
+      "Flowers",
+      "Roots",
+      "Stem"
+    ],
+    answerIndex: 2,
+    explanation: "Roots absorb water and nutrients from the soil.",
+    tip: "Roots anchor and nourish plants.",
+  },
+
+  {
+    id: "science-v2-107",
+    subject: "Science",
+    topic: "Chemistry",
+    difficulty: "hard",
+    question: "What is the chemical symbol for sodium?",
+    choices: [
+      "So",
+      "Sd",
+      "Na",
+      "Sn"
+    ],
+    answerIndex: 2,
+    explanation: "Na is the chemical symbol for sodium.",
+    tip: "Many chemical symbols come from Latin names.",
+  },
+
+  {
+    id: "science-v2-108",
+    subject: "Science",
+    topic: "Physics",
+    difficulty: "normal",
+    question: "What happens to an object when no forces act upon it?",
+    choices: [
+      "It instantly disappears.",
+      "It changes color.",
+      "It remains at rest or keeps moving steadily.",
+      "It loses all mass."
+    ],
+    answerIndex: 2,
+    explanation: "Newton's First Law states objects maintain motion unless acted on by force.",
+    tip: "Motion stays constant without external force.",
+  },
+
+  {
+    id: "science-v2-109",
+    subject: "Science",
+    topic: "Earth Science",
+    difficulty: "hard",
+    question: "Which layer of Earth is made mostly of molten rock?",
+    choices: [
+      "Inner core",
+      "Crust",
+      "Mantle",
+      "Atmosphere"
+    ],
+    answerIndex: 2,
+    explanation: "The mantle contains semi-molten rock beneath Earth's crust.",
+    tip: "The mantle lies between the crust and core.",
+  },
+
+  {
+    id: "science-v2-110",
+    subject: "Science",
+    topic: "Scientific Method",
+    difficulty: "hard",
+    question: "In an experiment, what is the variable being tested called?",
+    choices: [
+      "Dependent variable",
+      "Controlled variable",
+      "Independent variable",
+      "Constant"
+    ],
+    answerIndex: 2,
+    explanation: "The independent variable is intentionally changed during an experiment.",
+    tip: "Scientists manipulate the independent variable.",
+  },
+
+  {
+    id: "science-v2-111",
+    subject: "Science",
+    topic: "Biology",
+    difficulty: "normal",
+    question: "Which blood vessels carry blood away from the heart?",
+    choices: [
+      "Veins",
+      "Capillaries",
+      "Arteries",
+      "Nerves"
+    ],
+    answerIndex: 2,
+    explanation: "Arteries transport blood away from the heart.",
+    tip: "Arteries move blood outward.",
+  },
+
+  {
+    id: "science-v2-112",
+    subject: "Science",
+    topic: "Chemistry",
+    difficulty: "normal",
+    question: "Which state of matter has a definite volume but no definite shape?",
+    choices: [
+      "Solid",
+      "Gas",
+      "Liquid",
+      "Plasma"
+    ],
+    answerIndex: 2,
+    explanation: "Liquids keep volume but take the shape of containers.",
+    tip: "Liquids flow while maintaining volume.",
+  },
+
+  {
+    id: "science-v2-113",
+    subject: "Science",
+    topic: "Physics",
+    difficulty: "hard",
+    question: "What unit is commonly used to measure electric current?",
+    choices: [
+      "Volt",
+      "Ampere",
+      "Watt",
+      "Newton"
+    ],
+    answerIndex: 1,
+    explanation: "Electric current is measured in amperes or amps.",
+    tip: "Ampere measures the flow of electric charge.",
+  },
+
+  {
+    id: "science-v2-114",
+    subject: "Science",
+    topic: "Earth Science",
+    difficulty: "normal",
+    question: "Which planet is known as the Red Planet?",
+    choices: [
+      "Venus",
+      "Mars",
+      "Mercury",
+      "Jupiter"
+    ],
+    answerIndex: 1,
+    explanation: "Mars appears reddish because of iron oxide on its surface.",
+    tip: "Mars is famous for its reddish appearance.",
+  },
+
+  {
+    id: "science-v2-115",
+    subject: "Science",
+    topic: "Scientific Method",
+    difficulty: "hard",
+    question: "Why do scientists use control groups in experiments?",
+    choices: [
+      "To compare results fairly",
+      "To avoid collecting data",
+      "To increase confusion",
+      "To eliminate observations"
+    ],
+    answerIndex: 0,
+    explanation: "Control groups help scientists compare experimental effects.",
+    tip: "Control groups provide a baseline.",
+  },
+
+  {
+    id: "science-v2-116",
+    subject: "Science",
+    topic: "Biology",
+    difficulty: "normal",
+    question: "What process allows plants to produce food using sunlight?",
+    choices: [
+      "Respiration",
+      "Photosynthesis",
+      "Digestion",
+      "Fermentation"
+    ],
+    answerIndex: 1,
+    explanation: "Photosynthesis uses sunlight to create food in plants.",
+    tip: "Plants convert light energy into chemical energy.",
+  },
+
+  {
+    id: "science-v2-117",
+    subject: "Science",
+    topic: "Chemistry",
+    difficulty: "hard",
+    question: "Which particle has a negative electrical charge?",
+    choices: [
+      "Proton",
+      "Neutron",
+      "Electron",
+      "Nucleus"
+    ],
+    answerIndex: 2,
+    explanation: "Electrons carry negative electrical charge.",
+    tip: "Electrons move around the nucleus.",
+  },
+
+  {
+    id: "science-v2-118",
+    subject: "Science",
+    topic: "Physics",
+    difficulty: "normal",
+    question: "What type of energy is stored in a stretched rubber band?",
+    choices: [
+      "Thermal energy",
+      "Kinetic energy",
+      "Potential energy",
+      "Chemical energy"
+    ],
+    answerIndex: 2,
+    explanation: "A stretched rubber band stores elastic potential energy.",
+    tip: "Stored energy is potential energy.",
+  },
+
+  {
+    id: "science-v2-119",
+    subject: "Science",
+    topic: "Earth Science",
+    difficulty: "hard",
+    question: "What instrument is commonly used to measure earthquakes?",
+    choices: [
+      "Thermometer",
+      "Barometer",
+      "Seismograph",
+      "Telescope"
+    ],
+    answerIndex: 2,
+    explanation: "Seismographs detect and record earthquake vibrations.",
+    tip: "Seismic activity is recorded using seismographs.",
+  },
+
+  {
+    id: "science-v2-120",
+    subject: "Science",
+    topic: "Scientific Method",
+    difficulty: "normal",
+    question: "What is a hypothesis?",
+    choices: [
+      "A proven scientific law",
+      "An experimental mistake",
+      "A testable explanation or prediction",
+      "A random observation"
+    ],
+    answerIndex: 2,
+    explanation: "A hypothesis is a testable proposed explanation.",
+    tip: "Hypotheses can be tested through experiments.",
+  },
+  {
+    id: "science-v2-121",
+    subject: "Science",
+    topic: "Biology",
+    difficulty: "hard",
+    question: "Which organ is primarily responsible for filtering waste from the blood?",
+    choices: [
+      "Heart",
+      "Lungs",
+      "Liver",
+      "Kidneys"
+    ],
+    answerIndex: 3,
+    explanation: "Kidneys filter waste products and excess substances from the blood.",
+    tip: "The urinary system removes metabolic waste.",
+  },
+  {
+    id: "science-v2-122",
+    subject: "Science",
+    topic: "Chemistry",
+    difficulty: "normal",
+    question: "What is the pH value of a neutral substance?",
+    choices: [0, 5, 7, 14],
+    answerIndex: 2,
+    explanation: "A neutral substance has a pH of 7.",
+    tip: "Values below 7 are acidic; above 7 are basic.",
+  },
+  {
+    id: "science-v2-123",
+    subject: "Science",
+    topic: "Physics",
+    difficulty: "hard",
+    question: "Which property measures how difficult it is to change an object's motion?",
+    choices: [
+      "Velocity",
+      "Inertia",
+      "Acceleration",
+      "Pressure"
+    ],
+    answerIndex: 1,
+    explanation: "Inertia is the tendency of objects to resist changes in motion.",
+    tip: "Mass is closely related to inertia.",
+  },
+  {
+    id: "science-v2-124",
+    subject: "Science",
+    topic: "Earth Science",
+    difficulty: "normal",
+    question: "Which layer of Earth's atmosphere contains the ozone layer?",
+    choices: [
+      "Troposphere",
+      "Mesosphere",
+      "Thermosphere",
+      "Stratosphere"
+    ],
+    answerIndex: 3,
+    explanation: "The ozone layer is mainly located in the stratosphere.",
+    tip: "The ozone layer absorbs harmful ultraviolet radiation.",
+  },
+  {
+    id: "science-v2-125",
+    subject: "Science",
+    topic: "Scientific Method",
+    difficulty: "hard",
+    question: "What is the purpose of analyzing data after an experiment?",
+    choices: [
+      "To avoid forming conclusions",
+      "To organize observations meaningfully",
+      "To increase the number of variables",
+      "To eliminate hypotheses automatically"
+    ],
+    answerIndex: 1,
+    explanation: "Data analysis helps scientists interpret observations and identify patterns.",
+    tip: "Scientific conclusions rely on evidence.",
+  },
+  {
+    id: "science-v2-126",
+    subject: "Science",
+    topic: "Biology",
+    difficulty: "normal",
+    question: "Which molecule carries genetic information in living organisms?",
+    choices: [
+      "Protein",
+      "Glucose",
+      "DNA",
+      "Calcium"
+    ],
+    answerIndex: 2,
+    explanation: "DNA stores hereditary genetic information.",
+    tip: "DNA contains instructions for cell activities.",
+  },
+  {
+    id: "science-v2-127",
+    subject: "Science",
+    topic: "Chemistry",
+    difficulty: "hard",
+    question: "Which gas is most abundant in Earth's atmosphere?",
+    choices: [
+      "Oxygen",
+      "Carbon dioxide",
+      "Hydrogen",
+      "Nitrogen"
+    ],
+    answerIndex: 3,
+    explanation: "Nitrogen makes up most of Earth's atmosphere.",
+    tip: "Atmospheric nitrogen is about 78%.",
+  },
+  {
+    id: "science-v2-128",
+    subject: "Science",
+    topic: "Physics",
+    difficulty: "normal",
+    question: "What type of energy is associated with motion?",
+    choices: [
+      "Potential energy",
+      "Kinetic energy",
+      "Chemical energy",
+      "Thermal energy"
+    ],
+    answerIndex: 1,
+    explanation: "Kinetic energy is the energy of motion.",
+    tip: "Moving objects possess kinetic energy.",
+  },
+  {
+    id: "science-v2-129",
+    subject: "Science",
+    topic: "Earth Science",
+    difficulty: "hard",
+    question: "Which process describes water vapor cooling and forming clouds?",
+    choices: [
+      "Evaporation",
+      "Condensation",
+      "Sublimation",
+      "Melting"
+    ],
+    answerIndex: 1,
+    explanation: "Condensation changes water vapor into liquid droplets.",
+    tip: "Clouds form through condensation.",
+  },
+  {
+    id: "science-v2-130",
+    subject: "Science",
+    topic: "Scientific Method",
+    difficulty: "normal",
+    question: "What should scientists do if experimental results do not support the hypothesis?",
+    choices: [
+      "Ignore the data",
+      "Repeat the experiment or revise the hypothesis",
+      "Change the conclusion without evidence",
+      "Stop collecting observations permanently"
+    ],
+    answerIndex: 1,
+    explanation: "Unexpected results may require revising hypotheses or repeating experiments.",
+    tip: "Science changes based on evidence.",
+  },
+  {
+    id: "science-v2-131",
+    subject: "Science",
+    topic: "Biology",
+    difficulty: "hard",
+    question: "Which blood component helps fight infections?",
+    choices: [
+      "Red blood cells",
+      "Platelets",
+      "White blood cells",
+      "Plasma"
+    ],
+    answerIndex: 2,
+    explanation: "White blood cells defend the body against infection.",
+    tip: "The immune system relies heavily on white blood cells.",
+  },
+  {
+    id: "science-v2-132",
+    subject: "Science",
+    topic: "Chemistry",
+    difficulty: "normal",
+    question: "What happens to molecules when temperature increases?",
+    choices: [
+      "They stop moving.",
+      "They move faster.",
+      "They lose all energy.",
+      "They disappear."
+    ],
+    answerIndex: 1,
+    explanation: "Higher temperature increases molecular motion.",
+    tip: "Heat increases kinetic energy.",
+  },
+  {
+    id: "science-v2-133",
+    subject: "Science",
+    topic: "Physics",
+    difficulty: "hard",
+    question: "What unit is commonly used to measure force?",
+    choices: [
+      "Joule",
+      "Pascal",
+      "Newton",
+      "Volt"
+    ],
+    answerIndex: 2,
+    explanation: "Force is measured in newtons.",
+    tip: "Newton's laws describe force and motion.",
+  },
+  {
+    id: "science-v2-134",
+    subject: "Science",
+    topic: "Earth Science",
+    difficulty: "hard",
+    question: "Which type of rock forms from cooled magma or lava?",
+    choices: [
+      "Sedimentary rock",
+      "Metamorphic rock",
+      "Mineral rock",
+      "Igneous rock"
+    ],
+    answerIndex: 3,
+    explanation: "Igneous rocks form through cooling and solidification.",
+    tip: "Volcanic activity forms igneous rocks.",
+  },
+  {
+    id: "science-v2-135",
+    subject: "Science",
+    topic: "Scientific Method",
+    difficulty: "normal",
+    question: "Why is peer review important in science?",
+    choices: [
+      "It prevents experiments entirely.",
+      "It allows other experts to evaluate research quality.",
+      "It guarantees all conclusions are correct forever.",
+      "It removes the need for evidence."
+    ],
+    answerIndex: 1,
+    explanation: "Peer review helps verify scientific quality and accuracy.",
+    tip: "Scientific claims are evaluated by experts.",
+  },
+  {
+    id: "science-v2-136",
+    subject: "Science",
+    topic: "Biology",
+    difficulty: "hard",
+    question: "Which process produces energy for cells using oxygen?",
+    choices: [
+      "Photosynthesis",
+      "Cellular respiration",
+      "Digestion",
+      "Diffusion"
+    ],
+    answerIndex: 1,
+    explanation: "Cellular respiration releases energy from food using oxygen.",
+    tip: "Cells require energy for activities.",
+  },
+  {
+    id: "science-v2-137",
+    subject: "Science",
+    topic: "Chemistry",
+    difficulty: "hard",
+    question: "Which subatomic particle has no electrical charge?",
+    choices: [
+      "Electron",
+      "Proton",
+      "Neutron",
+      "Ion"
+    ],
+    answerIndex: 2,
+    explanation: "Neutrons are electrically neutral particles.",
+    tip: "Protons are positive; electrons are negative.",
+  },
+  {
+    id: "science-v2-138",
+    subject: "Science",
+    topic: "Physics",
+    difficulty: "normal",
+    question: "What happens to the speed of light when traveling through a vacuum?",
+    choices: [
+      "It stops completely.",
+      "It remains constant.",
+      "It becomes zero.",
+      "It changes randomly."
+    ],
+    answerIndex: 1,
+    explanation: "Light travels at a constant speed in a vacuum.",
+    tip: "The speed of light in vacuum is a universal constant.",
+  },
+  {
+    id: "science-v2-139",
+    subject: "Science",
+    topic: "Earth Science",
+    difficulty: "hard",
+    question: "Which natural event is directly caused by movement of tectonic plates?",
+    choices: [
+      "Hurricanes",
+      "Earthquakes",
+      "Rainbows",
+      "Floods"
+    ],
+    answerIndex: 1,
+    explanation: "Earthquakes commonly occur from tectonic plate movement.",
+    tip: "Plate boundaries are active earthquake zones.",
+  },
+  {
+    id: "science-v2-140",
+    subject: "Science",
+    topic: "Scientific Method",
+    difficulty: "hard",
+    question: "Which statement best describes a scientific theory?",
+    choices: [
+      "A random guess without evidence",
+      "An observation with no explanation",
+      "A scientific law that cannot change",
+      "A well-supported explanation based on evidence"
+    ],
+    answerIndex: 3,
+    explanation: "Scientific theories are supported by extensive evidence and testing.",
+    tip: "Theories explain observed phenomena scientifically.",
+  },
+  {
+    id: "science-v2-141",
+    subject: "Science",
+    topic: "Biology",
+    difficulty: "hard",
+    question: "Which organelle is known as the powerhouse of the cell?",
+    choices: [
+      "Mitochondrion",
+      "Nucleus",
+      "Ribosome",
+      "Chloroplast"
+    ],
+    answerIndex: 0,
+    explanation: "Mitochondria produce most cellular energy through respiration.",
+    tip: "Cells need ATP for energy.",
+  },
+  {
+    id: "science-v2-142",
+    subject: "Science",
+    topic: "Chemistry",
+    difficulty: "normal",
+    question: "What happens to ice when heat is added?",
+    choices: [
+      "It condenses.",
+      "It melts.",
+      "It evaporates instantly.",
+      "It becomes plasma."
+    ],
+    answerIndex: 1,
+    explanation: "Added heat changes ice from solid to liquid.",
+    tip: "Melting is a solid-to-liquid change.",
+  },
+  {
+    id: "science-v2-143",
+    subject: "Science",
+    topic: "Physics",
+    difficulty: "hard",
+    question: "Which quantity measures the amount of matter in an object?",
+    choices: [
+      "Force",
+      "Mass",
+      "Velocity",
+      "Pressure"
+    ],
+    answerIndex: 1,
+    explanation: "Mass measures the amount of matter in an object.",
+    tip: "Mass differs from weight.",
+  },
+  {
+    id: "science-v2-144",
+    subject: "Science",
+    topic: "Earth Science",
+    difficulty: "normal",
+    question: "Which planet is largest in the solar system?",
+    choices: [
+      "Saturn",
+      "Earth",
+      "Mars",
+      "Jupiter"
+    ],
+    answerIndex: 3,
+    explanation: "Jupiter is the largest planet in the solar system.",
+    tip: "Jupiter is a gas giant.",
+  },
+  {
+    id: "science-v2-145",
+    subject: "Science",
+    topic: "Scientific Method",
+    difficulty: "hard",
+    question: "Why must scientific conclusions be based on evidence?",
+    choices: [
+      "To support reliable explanations",
+      "To avoid observations",
+      "To replace experimentation",
+      "To guarantee permanent certainty"
+    ],
+    answerIndex: 0,
+    explanation: "Scientific conclusions require evidence for reliability.",
+    tip: "Evidence supports scientific reasoning.",
+  },
+  {
+    id: "science-v2-146",
+    subject: "Science",
+    topic: "Biology",
+    difficulty: "normal",
+    question: "Which system controls and coordinates body activities?",
+    choices: [
+      "Digestive system",
+      "Circulatory system",
+      "Nervous system",
+      "Respiratory system"
+    ],
+    answerIndex: 2,
+    explanation: "The nervous system coordinates body functions.",
+    tip: "The brain and nerves form this system.",
+  },
+  {
+    id: "science-v2-147",
+    subject: "Science",
+    topic: "Chemistry",
+    difficulty: "hard",
+    question: "What is the smallest unit of an element that retains its properties?",
+    choices: [
+      "Molecule",
+      "Atom",
+      "Cell",
+      "Compound"
+    ],
+    answerIndex: 1,
+    explanation: "Atoms are the smallest units of elements.",
+    tip: "Elements are composed of atoms.",
+  },
+  {
+    id: "science-v2-148",
+    subject: "Science",
+    topic: "Physics",
+    difficulty: "normal",
+    question: "What happens to an object's speed when acceleration is positive?",
+    choices: [
+      "It may increase.",
+      "It always becomes zero.",
+      "It instantly reverses direction.",
+      "It disappears."
+    ],
+    answerIndex: 0,
+    explanation: "Positive acceleration can increase speed.",
+    tip: "Acceleration changes velocity.",
+  },
+  {
+    id: "science-v2-149",
+    subject: "Science",
+    topic: "Earth Science",
+    difficulty: "hard",
+    question: "Which process breaks rocks into smaller pieces at Earth's surface?",
+    choices: [
+      "Condensation",
+      "Weathering",
+      "Evaporation",
+      "Fusion"
+    ],
+    answerIndex: 1,
+    explanation: "Weathering breaks rocks into smaller fragments.",
+    tip: "Weathering occurs at Earth's surface.",
+  },
+  {
+    id: "science-v2-150",
+    subject: "Science",
+    topic: "Scientific Method",
+    difficulty: "hard",
+    question: "What is the primary purpose of forming a hypothesis before experimentation?",
+    choices: [
+      "To eliminate observations",
+      "To create a testable prediction",
+      "To avoid collecting evidence",
+      "To guarantee correct results"
+    ],
+    answerIndex: 1,
+    explanation: "Hypotheses provide testable predictions for experiments.",
+    tip: "Good hypotheses can be tested scientifically.",
+  },
 ];

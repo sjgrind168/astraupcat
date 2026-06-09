@@ -10,6 +10,7 @@ const files = [
   "src/data/questionPacks/englishHardPackV2.ts",
   "src/data/questionPacks/filipinoPackV2.ts",
   "src/data/questionPacks/balancePackV2.ts",
+  "src/data/questionPacks/readingPackV2.ts",
 ];
 
 const stats = {

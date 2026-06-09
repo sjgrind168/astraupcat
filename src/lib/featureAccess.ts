@@ -1,58 +1,117 @@
 import { getSubscription } from "./subscription";
 
-export function canAccess(feature:string){
+// TEMP DEV MODE:
+// premium access forced ON during content/QA phase
+// restore real entitlement checks before production launch
 
-const subscription =
-getSubscription();
-
-if(
-subscription==="trial" ||
-subscription==="premium"
-){
-return true;
+export function hasPremiumAccess() {
+  return true;
 }
 
-const freeAllowed=[
-
-"reviewer",
-"practice"
-
-];
-
-return freeAllowed.includes(
-feature
-);
-
+export function hasReviewerAccess() {
+  return true;
 }
 
-export function getQuestionLimit(){
-
-const subscription=
-getSubscription();
-
-if(
-subscription==="trial" ||
-subscription==="premium"
-){
-return Infinity;
+export function hasMockExamAccess() {
+  return true;
 }
 
-return 10;
-
+export function hasAnalyticsAccess() {
+  return true;
 }
 
-export function getReviewerLimit(){
-
-const subscription=
-getSubscription();
-
-if(
-subscription==="trial" ||
-subscription==="premium"
-){
-return Infinity;
+export function hasCalculatorAccess() {
+  return true;
 }
 
-return 15;
+export function hasUnlimitedAccess() {
+  return true;
+}
 
+export function getReviewerLimit() {
+  return 999999;
+}
+
+export function getQuestionLimit() {
+  return 999999;
+}
+
+export function getMockExamLimit() {
+  return 999999;
+}
+
+export function getDailyQuestionLimit() {
+  return 999999;
+}
+
+export function isLockedFeature() {
+  return false;
+}
+
+export function shouldShowUpgrade() {
+  return false;
+}
+
+export function canAccessPremiumContent() {
+  return true;
+}
+
+export function canUseTrial() {
+  return true;
+}
+
+export function getCurrentSubscription() {
+  return getSubscription();
+}
+
+export function canAccessFeature() {
+  return true;
+}
+
+export function canAccessSubject() {
+  return true;
+}
+
+export function canAccessMockExam() {
+  return true;
+}
+
+export function canAccessAnalytics() {
+  return true;
+}
+
+export function canAccessReviewer() {
+  return true;
+}
+
+export function canAccessCalculator() {
+  return true;
+}
+
+export function canAccess() {
+  return true;
+}
+
+export function canAccessFeatureGate() {
+  return true;
+}
+
+export function canAccessPage() {
+  return true;
+}
+
+export function canAccessPremium() {
+  return true;
+}
+
+export function canAccessPractice() {
+  return true;
+}
+
+export function canAccessMock() {
+  return true;
+}
+
+export function canAccessEverything() {
+  return true;
 }

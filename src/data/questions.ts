@@ -19,8 +19,11 @@ import { sciencePackV2 } from "@/data/questionPacks/sciencePackV2";
 // import { englishGenerated001 as englishGeneratedPack } from "@/data/questionPacks/englishGeneratedPack";
 import { englishPackV2 } from "@/data/questionPacks/englishPackV2";
 import { englishHardPackV2 } from "@/data/questionPacks/englishHardPackV2";
-import { readingPack } from "@/data/questionPacks/readingPack";
-import { readingGenerated005 as readingGeneratedPack } from "@/data/questionPacks/readingGeneratedPack";
+// TEMP DISABLED: reading pack pending V2 rebuild
+// import { readingPack } from "@/data/questionPacks/readingPack";
+// TEMP DISABLED: corrupted reading generated pack pending V2 rebuild
+// import { readingGenerated005 as readingGeneratedPack } from "@/data/questionPacks/readingGeneratedPack";
+import { readingPackV2 } from "@/data/questionPacks/readingPackV2";
 // TEMP DISABLED: repetitive filipino pack pending rebuild
 // import { filipinoPack } from "@/data/questionPacks/filipinoPack";
 // TEMP DISABLED: repetitive filipino generated pack pending rebuild
@@ -52,8 +55,9 @@ export function getAllQuestions(): Question[] {
     // ...englishGeneratedPack,
     ...englishPackV2,
     ...englishHardPackV2,
-    ...readingPack,
-    ...readingGeneratedPack,
+    // ...readingPack,
+    // ...readingGeneratedPack,
+    ...readingPackV2,
     // ...filipinoPack,
     // ...filipinoGeneratedPack,
     ...filipinoPackV2,
