@@ -23,6 +23,13 @@ import Onboarding from "./pages/Onboarding";
 
 import NotFound from "./pages/NotFound.tsx";
 import Upgrade from "./pages/Upgrade";
+import PrivatePdfBrowser from "./pages/private/PrivatePdfBrowser";
+import PrivateCollegio from "./pages/private/PrivateCollegio";
+import ScienceReviewMode from "./pages/private/ScienceReviewMode";
+import ConstructedReviewerLibrary from "./pages/private/ConstructedReviewerLibrary";
+import SciencePracticeMode from "./pages/private/SciencePracticeMode";
+import SciencePracticeExact from "./pages/private/SciencePracticeExact";
+import CollegioPracticeMode from "./pages/private/CollegioPracticeMode";
 
 const queryClient = new QueryClient();
 
@@ -38,8 +45,10 @@ const App = () => (
             <Route element={<AppLayout />}>
               <Route path="/" element={<Dashboard />} />
               <Route path="/plan" element={<StudyPlan />} />
-              <Route path="/reviewer" element={<Reviewer />} />
-              <Route path="/practice" element={<Practice />} />
+              <Route path="/reviewer" element={<ConstructedReviewerLibrary />} />
+<Route path="/science-practice" element={<SciencePracticeMode />} />
+<Route path="/science-practice-exact" element={<SciencePracticeExact />} />
+              <Route path="/practice" element={<CollegioPracticeMode />} />
               <Route path="/mock" element={<MockExam />} />
               <Route path="/formulas" element={<FormulaVault />} />
               <Route path="/calculator" element={<CalculatorCenter />} />
@@ -50,6 +59,9 @@ const App = () => (
 <Route path="/about" element={<About />} />
 <Route path="/terms" element={<Terms />} />
 <Route path="/privacy" element={<Privacy />} />
+<Route path="/private-pdf" element={<PrivatePdfBrowser />} />
+<Route path="/private-collegio" element={<PrivateCollegio />} />
+<Route path="/science-review" element={<ScienceReviewMode />} />
 
 <Route path="/settings" element={<Settings />} />
             </Route>
