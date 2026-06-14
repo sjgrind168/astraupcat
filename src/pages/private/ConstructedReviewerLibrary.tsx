@@ -99,7 +99,11 @@ export default function ConstructedReviewerLibrary() {
           </div>
 
           <div className="rounded-2xl border bg-card p-4 space-y-6">
-            {Array.from({ length: 286 }, (_, i) => i + 1).map((page) => (
+            {Array.from({ length: 286 }, (_, i) => i + 1)
+              .filter((page) => ![
+                74, 77, 143, 241, 254, 281, 285
+              ].includes(page))
+              .map((page) => (
               <div key={page} className="rounded-xl border bg-background p-3">
                 <div className="mb-2 text-xs font-mono text-muted-foreground">
                   Page {page}
