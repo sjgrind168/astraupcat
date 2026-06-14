@@ -30,6 +30,7 @@ import ConstructedReviewerLibrary from "./pages/private/ConstructedReviewerLibra
 import SciencePracticeMode from "./pages/private/SciencePracticeMode";
 import SciencePracticeExact from "./pages/private/SciencePracticeExact";
 import CollegioPracticeMode from "./pages/private/CollegioPracticeMode";
+import DeviceLockGate from "@/components/DeviceLockGate";
 
 const queryClient = new QueryClient();
 
