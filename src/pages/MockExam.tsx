@@ -197,7 +197,7 @@ export default function MockExam() {
                 {q.subject} • {q.topic} • Page {q.sourcePage}
               </div>
 
-              {isPackage && q.image && (
+              {q.subject === "Abstract Reasoning" && q.image && (
                 <img
                   src={q.image}
                   alt={q.question}
