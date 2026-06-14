@@ -1,3 +1,7 @@
+export function canAccess() {
+  return true;
+}
+
 export function isPremiumUser() {
   return true;
 }
