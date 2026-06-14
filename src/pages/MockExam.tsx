@@ -60,7 +60,9 @@ function buildMockBlocks() {
       id: `package-${subject}`,
       type: "package",
       title: subject,
-      pages: items.filter(isReadingPage),
+      pages: items
+        .filter(isReadingPage)
+        .filter((q) => ![74, 77, 143, 241, 254, 281, 285].includes(Number(q.sourcePage))),
       questions: items.filter(isRealQuestion),
     });
   }
@@ -194,6 +196,15 @@ export default function MockExam() {
               <div className="text-xs font-mono text-primary">
                 {q.subject} • {q.topic} • Page {q.sourcePage}
               </div>
+
+              {isPackage && q.image && (
+                <img
+                  src={q.image}
+                  alt={q.question}
+                  className="w-full rounded-lg border"
+                  loading="lazy"
+                />
+              )}
 
               {q.passage && (
                 <div className="rounded-lg border bg-card p-3 text-sm leading-7 whitespace-pre-line text-muted-foreground">
