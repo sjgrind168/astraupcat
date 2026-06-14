@@ -2,7 +2,6 @@ import { activateTrial, getSubscription, getTrialDaysRemaining } from "@/lib/sub
 import { ArrowLeft } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
-export default function Upgrade(){
 
 const navigate=useNavigate();
 
@@ -149,7 +148,6 @@ p-3
 "
 >
 
-Upgrade Now
 
 </button>
 

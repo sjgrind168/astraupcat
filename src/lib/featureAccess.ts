@@ -48,7 +48,6 @@ export function isLockedFeature() {
   return false;
 }
 
-export function shouldShowUpgrade() {
   return false;
 }
 

@@ -75,7 +75,6 @@ font-medium
 "
 >
 
-Upgrade
 
 </Link>
 

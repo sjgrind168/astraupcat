@@ -22,7 +22,6 @@ import Privacy from "./pages/Privacy";
 import Onboarding from "./pages/Onboarding";
 
 import NotFound from "./pages/NotFound.tsx";
-import Upgrade from "./pages/Upgrade";
 import PrivatePdfBrowser from "./pages/private/PrivatePdfBrowser";
 import PrivateCollegio from "./pages/private/PrivateCollegio";
 import ScienceReviewMode from "./pages/private/ScienceReviewMode";
@@ -69,7 +68,6 @@ const App = () => (
           
 <Route
 path="/upgrade"
-element={<Upgrade />}
 />
 
 </Routes>

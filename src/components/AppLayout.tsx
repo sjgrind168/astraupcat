@@ -41,7 +41,6 @@ Welcome back, {state.profile?.name || "student"}.
 to="/upgrade"
 className="rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground hover:opacity-90 transition"
 >
-Upgrade
 </Link>
 
 </div>
