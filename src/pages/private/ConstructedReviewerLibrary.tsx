@@ -98,12 +98,20 @@ export default function ConstructedReviewerLibrary() {
             </p>
           </div>
 
-          <div className="rounded-2xl border bg-card overflow-hidden">
-            <iframe
-              src="/private-reviewer/collegio/pdf/collegio-reviewer.pdf"
-              title="Collegio PDF Reviewer"
-              className="w-full h-[80vh]"
-            />
+          <div className="rounded-2xl border bg-card p-4 space-y-6">
+            {Array.from({ length: 286 }, (_, i) => i + 1).map((page) => (
+              <div key={page} className="rounded-xl border bg-background p-3">
+                <div className="mb-2 text-xs font-mono text-muted-foreground">
+                  Page {page}
+                </div>
+                <img
+                  src={`/private-reviewer/collegio/pages/page-${String(page).padStart(3, "0")}.jpg`}
+                  alt={`Collegio PDF page ${page}`}
+                  className="w-full rounded-lg"
+                  loading="lazy"
+                />
+              </div>
+            ))}
           </div>
         </div>
       ) : (
