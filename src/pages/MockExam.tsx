@@ -195,15 +195,6 @@ export default function MockExam() {
                 {q.subject} • {q.topic} • Page {q.sourcePage}
               </div>
 
-              {q.image && (
-                <img
-                  src={q.image}
-                  alt={q.question}
-                  className="w-full rounded-lg border"
-                  loading="lazy"
-                />
-              )}
-
               {q.passage && (
                 <div className="rounded-lg border bg-card p-3 text-sm leading-7 whitespace-pre-line text-muted-foreground">
                   {q.passage}
