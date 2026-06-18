@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react";
 import { collegioPracticeQuestions } from "@/data/private/collegio/practice/collegioPractice";
+import { recordMockAttempt } from "@/lib/reviewerProgress";
 
 type PracticeQuestion = any;
 
@@ -260,7 +261,7 @@ export default function MockExam() {
 
         {blockIndex === blocks.length - 1 ? (
           <button
-            onClick={() => setSubmitted(true)}
+            onClick={() => { recordMockAttempt(allQuestions, answers); setSubmitted(true); }}
             className="px-4 py-3 rounded-xl border bg-primary text-primary-foreground"
           >
             Submit Exam

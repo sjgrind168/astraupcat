@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react";
 import { collegioPracticeQuestions } from "@/data/private/collegio/practice/collegioPractice";
+import { recordPracticeAnswer } from "@/lib/reviewerProgress";
 
 const SUBJECTS = [
   "Science",
@@ -207,6 +208,7 @@ export default function CollegioPracticeMode() {
           <button
             disabled={!selected}
             onClick={() => {
+              recordPracticeAnswer(current, selected);
               setChecked((prev) => ({
                 ...prev,
                 [current.id]: true,
