@@ -38,6 +38,80 @@ export default function CollegioPracticeMode() {
   const selected = answers[current.id];
   const isChecked = checked[current.id];
 
+  if (completed) {
+    const answered = questions.filter((q) => answers[q.id]);
+    const correct = answered.filter((q) => {
+      const selectedLetter = answers[q.id];
+      const selectedText = q.choices?.[selectedLetter.charCodeAt(0) - 65]?.trim().toLowerCase();
+      const correctText = q.correctLetter
+        ? q.choices?.[q.correctLetter.charCodeAt(0) - 65]?.trim().toLowerCase()
+        : q.answer?.trim().toLowerCase();
+
+      return selectedLetter === q.correctLetter || selectedText === correctText;
+    }).length;
+
+    const totalAnswered = answered.length;
+    const wrong = totalAnswered - correct;
+    const accuracy = totalAnswered ? Math.round((correct / totalAnswered) * 100) : 0;
+
+    return (
+      <div className="max-w-5xl mx-auto p-4 space-y-6">
+        <div>
+          <p className="text-xs uppercase tracking-[0.3em] text-primary">
+            Practice Complete
+          </p>
+          <h1 className="text-3xl font-bold">{subject} Results</h1>
+        </div>
+
+        <div className="rounded-2xl border bg-card p-6 grid gap-4 md:grid-cols-4">
+          <div>
+            <div className="text-sm text-muted-foreground">Score</div>
+            <div className="text-3xl font-bold">{correct}/{totalAnswered}</div>
+          </div>
+
+          <div>
+            <div className="text-sm text-muted-foreground">Accuracy</div>
+            <div className="text-3xl font-bold">{accuracy}%</div>
+          </div>
+
+          <div>
+            <div className="text-sm text-muted-foreground">Wrong</div>
+            <div className="text-3xl font-bold">{wrong}</div>
+          </div>
+
+          <div>
+            <div className="text-sm text-muted-foreground">Total Items</div>
+            <div className="text-3xl font-bold">{questions.length}</div>
+          </div>
+        </div>
+
+        <div className="flex flex-wrap gap-3">
+          <button
+            onClick={() => {
+              setCompleted(false);
+              setIndex(0);
+            }}
+            className="px-4 py-3 rounded-xl border bg-primary text-primary-foreground"
+          >
+            Review Again
+          </button>
+
+          <button
+            onClick={() => {
+              setCompleted(false);
+              setIndex(0);
+              setAnswers({});
+              setChecked({});
+            }}
+            className="px-4 py-3 rounded-xl border"
+          >
+            Retry Fresh
+          </button>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="max-w-5xl mx-auto p-4 space-y-4">
       <div>
