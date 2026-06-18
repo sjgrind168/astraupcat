@@ -15,6 +15,7 @@ const SUBJECTS = [
 export default function CollegioPracticeMode() {
   const [subject, setSubject] = useState("Science");
   const [index, setIndex] = useState(0);
+  const [completed, setCompleted] = useState(false);
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const [checked, setChecked] = useState<Record<string, boolean>>({});
 
@@ -61,6 +62,7 @@ export default function CollegioPracticeMode() {
               onClick={() => {
                 setSubject(s);
                 setIndex(0);
+                setCompleted(false);
               }}
               className={`px-4 py-2 rounded-xl border ${
                 subject === s
@@ -206,8 +208,9 @@ export default function CollegioPracticeMode() {
           </button>
 
           <button
-            disabled={!selected}
+            disabled={!selected || isChecked}
             onClick={() => {
+              if (!selected || isChecked) return;
               recordPracticeAnswer(current, selected);
               setChecked((prev) => ({
                 ...prev,
@@ -220,8 +223,13 @@ export default function CollegioPracticeMode() {
           </button>
 
           <button
-            disabled={index === questions.length - 1}
+            disabled={!isChecked}
             onClick={() => {
+              if (index === questions.length - 1) {
+                setCompleted(true);
+                return;
+              }
+
               setIndex((v) =>
                 Math.min(
                   questions.length - 1,
@@ -231,7 +239,7 @@ export default function CollegioPracticeMode() {
             }}
             className="px-4 py-3 rounded-xl border disabled:opacity-40"
           >
-            Next
+            {index === questions.length - 1 ? "Finish" : "Next"}
           </button>
         </div>
       </div>
