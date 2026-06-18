@@ -34,6 +34,8 @@ type ProgressStore = {
   }>;
 };
 
+import { saveMistakes } from "@/lib/mistakeBook";
+
 const KEY = "astra_reviewer_progress_v1";
 
 function emptyStore(): ProgressStore {
@@ -119,6 +121,24 @@ export function recordPracticeAnswer(q: QuestionLike, selectedLetter?: string) {
   }
 
   writeStore(store);
+
+  try {
+    if (!isCorrect) {
+      const answerIndex = selectedLetter.charCodeAt(0) - 65;
+
+      saveMistakes(
+        [{
+          ...q,
+          answerIndex: correctLetter.charCodeAt(0) - 65
+        }],
+        {
+          [q.id]: answerIndex
+        }
+      );
+    }
+  } catch (e) {
+    console.error("MistakeBook sync failed", e);
+  }
 }
 
 export function recordMockAttempt(questions: QuestionLike[], answers: Record<string, string>) {
